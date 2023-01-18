@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230a14ed250f1294ca9a9f674c6ef676, type: 3}
+  m_Name: Database
+  m_EditorClassIdentifier: 
+  exitQuotes:
+  - Heroes, press 'N,' wimps press 'Y'
+  - Chickening out...<br>already?
+  - Press N for more carnage.<br>Press Y to be a weenie.
+  - So, you think you can<br>quit this easily, huh?
+  - Press N to save the world.<br>Press Y to abandon it in<br>its hour of need.
+  - Press N if you are brave.<br>Press Y to cover in shame.
+  - You are at an intersection.<br>A sign says, 'Press Y to quit.'<br>
+  - For guns and glory, press N.<br>For work and worry, press Y.
+  episodes:
+  - {fileID: 11400000, guid: 4c889360ae840a94b92ef56b01a7a6c6, type: 2}
+  - {fileID: 11400000, guid: 024c9ffe62ea6024c8c9de2f2ed25315, type: 2}
+  - {fileID: 11400000, guid: 9fc764847c8c6e84fb2787de50786e31, type: 2}
+  - {fileID: 11400000, guid: 73dadec8cf7d73e4fb63aaa7c012568b, type: 2}
+  - {fileID: 11400000, guid: 5fa792b6e9848324083c53490591de98, type: 2}
+  - {fileID: 11400000, guid: 8b677a862d7194c4893cf3d8fa279b09, type: 2}
+  menuTabs:
+  - {fileID: 11400000, guid: 7af2f20d9defd2b4b8c79ca68b206ac0, type: 2}
+  - {fileID: 11400000, guid: 5d54c855f2e78e745a0c97198a7cc2b9, type: 2}
+  - {fileID: 11400000, guid: 32d1a92b07a69234ca13ef4e0c72015f, type: 2}
+  - {fileID: 11400000, guid: 1ed93e3c1cdc2774f94bd921efea29fe, type: 2}
+  - {fileID: 11400000, guid: b342a792b3601f34b93dda2603688255, type: 2}
+  - {fileID: 11400000, guid: fb6c98a715a1c294d9554dd4eee0312f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: b7b36851e4624ad479f21789a5223f70, type: 2}
+  - {fileID: 11400000, guid: 59267c05b547cdd47b991e4ff8c6db6b, type: 2}
+  _currentMenuPage: 9

@@ -1,0 +1,1548 @@
+fileFormatVersion: 2
+guid: f9a93a1a0b73d8b43a93b2904cf237a4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 288
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e03abfd6dbd2c47974cdb219c2dfca
+      internalID: 1966134415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 288
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739be17d2572c314bbbc4109c9d06938
+      internalID: -1998484742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 288
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8414561be880a34aaf6d3726d76f1e6
+      internalID: -585948948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0eba56db10b304db1993c811aeac1a
+      internalID: 828108930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_4
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 288
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677cee70f2ee70e4aaac9aeec0ad0589
+      internalID: -1548554553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_5
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 288
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa885f9c5a797d40aebcf2d5dabc4e9
+      internalID: 1587847854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_6
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 288
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf018194838e36947bf92cb40159c48f
+      internalID: -769069273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_7
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2efec0a0af9d2c9479ac92ac31746266
+      internalID: 476201144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_10
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 248
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c331e903a7b6f54a8f1dfc599962c01
+      internalID: 819108095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 248
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 652d2fa27c4be2a40919cff66dc8d9cd
+      internalID: 1138397063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_12
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 248
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d11a09d256a61fb4ca1b61690487869d
+      internalID: -1457999872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 248
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb5eb7657daa51d49a86e5546f7c949c
+      internalID: 1350867311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_14
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 248
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7caf43b1e753c143b38e3ff6477f116
+      internalID: -1640936137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_15
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 248
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a18dc1a52e783bd42afe348088e91617
+      internalID: 925142434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_16
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 248
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc57aac8cb7e7e4092c9db03fb44857
+      internalID: 1937019699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_17
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 248
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d93120591ba034a98076c29cd37f45
+      internalID: 1294772597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_20
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 208
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e210e05a19862244a2d103e65330565
+      internalID: 51194933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_21
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 208
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f40e2c2347991e4f9e57013fcdf6f4c
+      internalID: 181831018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_22
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 208
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e77d215ba6b2f49bb33d457b641d68
+      internalID: 573987955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 208
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58639e441595434ba9f3b31c15e8fb6
+      internalID: -447322138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_24
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 208
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df9b2b0fad4cba14d87cde3e0d28686c
+      internalID: -693829518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_25
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 208
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf6b711a327ab2842b2925a57ac08711
+      internalID: 1249095137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_26
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 208
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90fe2e18b42bfa459fefa5864623f67
+      internalID: 1622465873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 208
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4d45baa5df1d324f8ef6e613c6834d4
+      internalID: 1811625707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_28
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 168
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799b72611802c5d42a47185883005949
+      internalID: -120764872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_29
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 168
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c7f965c56df324eaad28f9e9dbfa47
+      internalID: 1908295455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_30
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 168
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ed34f127a767247a7c30e64f2fac1e
+      internalID: 206521113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 168
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801340eea0e9bf147823ebb41fd62258
+      internalID: 960338984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_32
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 168
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 567fdeaa2de1c0345bbf953920366fcf
+      internalID: 953989496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_33
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 168
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f32e9628556a5946aa3899e89685d5e
+      internalID: -2033184710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_34
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 168
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e83f263a4c0cb6f4c88f229c4d473960
+      internalID: -2087025190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_35
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 168
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb44337ef0562184789a490fac0eadeb
+      internalID: -1116232703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_36
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6faa9e06b89102e4295bc50294e5e46e
+      internalID: 1236450254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_37
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a944e6c2d9f8d34fbceeba42b6ccf2b
+      internalID: -1638107290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_38
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e6838b3e4143244af8e3ffd3a230eb
+      internalID: -1112558802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_39
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5caa131f9e70374b99b0a2b646ea4df
+      internalID: 389896089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_40
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b8a5ceef83edb44829d65541769ab9
+      internalID: 1290642748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_41
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b54533b81a09848b02666678e1d3db
+      internalID: -418322388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_42
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a96e0ea133c85143b6f1ae77a21785b
+      internalID: 151852999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_43
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f6a75add2263545b1f2d4a87a2c5e5
+      internalID: -906363945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_44
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 88
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f9dc88098ccbd4b8a33927245ae676
+      internalID: -1785527055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_45
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 88
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e27c4154f4b9d7b4191698cbe68419b9
+      internalID: 195587114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_46
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 88
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a08bcee47a3d704c9691cb0d439fae9
+      internalID: 1305574749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_47
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 88
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a46cc811117e22f40b7dbcdb394ff919
+      internalID: 1915213512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_48
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 88
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e6dd7ba60d95e448b85ced71cfdba4
+      internalID: 1221068880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_49
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 88
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef91fc8fd8e5bd4419d286df85d636d6
+      internalID: 1859475006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_50
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 88
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076adcc0ef1c92342a0c8f38b71b7ad8
+      internalID: -191826625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_51
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 88
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cfe04e21a7763343b371e91e4b641c7
+      internalID: -107699113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_52
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 48
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac8c407d2bfaef4097a3d99b515fee7
+      internalID: -2058545491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_53
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6757e21f79e7ac3468985f1dcb7a05fc
+      internalID: -1241485045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_54
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 48
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75eba4d074435ed44b164b7cf741e9de
+      internalID: -1834334441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_55
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378075669a5389347bf5461010b1c0ee
+      internalID: -934703204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_56
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 48
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3480947c4135f094c9e557157877f534
+      internalID: -501673528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_57
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 48
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73573a1bae255294f93d8264c0c96e1a
+      internalID: -879509626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_58
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 48
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc42633339ec694983c0b8493968e44
+      internalID: 235628010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_59
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 48
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 196df2f5511776443bcd58fb002049e5
+      internalID: 823333727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_60
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c55d21d9d555e94cbb6710a2017db65
+      internalID: 530268890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_61
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 8
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97adbadd24fa34c40bcec8a2887709cb
+      internalID: 584877063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_62
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 8
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd91a21b409aa54d894a64d9d97efe4
+      internalID: 1325094671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_63
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 8
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356fd2651ccdbf647a43e1944ee07908
+      internalID: -1645285151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_64
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 8
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d948fb7f14b02004ead3b12a4714c4d3
+      internalID: 522442890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_65
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 8
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 725c1542d36584c4590990e5260d9be8
+      internalID: -902649667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_66
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 8
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 798c3b86a271bfe4fbd2767c4063b612
+      internalID: -1800485234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Wolfenstein 3D - Wall Textures-transparent_67
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 8
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b31fcfafcafe374f9c31166be1981d3
+      internalID: -672513030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 49847fc106f8df9469f561a759d421b2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      SNES - Wolfenstein 3D - Wall Textures-transparent_50: -191826625
+      SNES - Wolfenstein 3D - Wall Textures-transparent_20: 51194933
+      SNES - Wolfenstein 3D - Wall Textures-transparent_30: 206521113
+      SNES - Wolfenstein 3D - Wall Textures-transparent_23: -447322138
+      SNES - Wolfenstein 3D - Wall Textures-transparent_28: -120764872
+      SNES - Wolfenstein 3D - Wall Textures-transparent_38: -1112558802
+      SNES - Wolfenstein 3D - Wall Textures-transparent_66: -1800485234
+      SNES - Wolfenstein 3D - Wall Textures-transparent_13: 1350867311
+      SNES - Wolfenstein 3D - Wall Textures-transparent_47: 1915213512
+      SNES - Wolfenstein 3D - Wall Textures-transparent_37: -1638107290
+      SNES - Wolfenstein 3D - Wall Textures-transparent_59: 823333727
+      SNES - Wolfenstein 3D - Wall Textures-transparent_65: -902649667
+      SNES - Wolfenstein 3D - Wall Textures-transparent_0: 1966134415
+      SNES - Wolfenstein 3D - Wall Textures-transparent_64: 522442890
+      SNES - Wolfenstein 3D - Wall Textures-transparent_26: 1622465873
+      SNES - Wolfenstein 3D - Wall Textures-transparent_39: 389896089
+      SNES - Wolfenstein 3D - Wall Textures-transparent_5: 1587847854
+      SNES - Wolfenstein 3D - Wall Textures-transparent_42: 151852999
+      SNES - Wolfenstein 3D - Wall Textures-transparent_52: -2058545491
+      SNES - Wolfenstein 3D - Wall Textures-transparent_49: 1859475006
+      SNES - Wolfenstein 3D - Wall Textures-transparent_63: -1645285151
+      SNES - Wolfenstein 3D - Wall Textures-transparent_2: -585948948
+      SNES - Wolfenstein 3D - Wall Textures-transparent_34: -2087025190
+      SNES - Wolfenstein 3D - Wall Textures-transparent_48: 1221068880
+      SNES - Wolfenstein 3D - Wall Textures-transparent_16: 1937019699
+      SNES - Wolfenstein 3D - Wall Textures-transparent_36: 1236450254
+      SNES - Wolfenstein 3D - Wall Textures-transparent_7: 476201144
+      SNES - Wolfenstein 3D - Wall Textures-transparent_10: 819108095
+      SNES - Wolfenstein 3D - Wall Textures-transparent_57: -879509626
+      SNES - Wolfenstein 3D - Wall Textures-transparent_67: -672513030
+      SNES - Wolfenstein 3D - Wall Textures-transparent_51: -107699113
+      SNES - Wolfenstein 3D - Wall Textures-transparent_27: 1811625707
+      SNES - Wolfenstein 3D - Wall Textures-transparent_1: -1998484742
+      SNES - Wolfenstein 3D - Wall Textures-transparent_55: -934703204
+      SNES - Wolfenstein 3D - Wall Textures-transparent_68: 1332188769
+      SNES - Wolfenstein 3D - Wall Textures-transparent_17: 1294772597
+      SNES - Wolfenstein 3D - Wall Textures-transparent_18: 803089997
+      SNES - Wolfenstein 3D - Wall Textures-transparent_29: 1908295455
+      SNES - Wolfenstein 3D - Wall Textures-transparent_41: -418322388
+      SNES - Wolfenstein 3D - Wall Textures-transparent_8: -1634587067
+      SNES - Wolfenstein 3D - Wall Textures-transparent_60: 530268890
+      SNES - Wolfenstein 3D - Wall Textures-transparent_11: 1138397063
+      SNES - Wolfenstein 3D - Wall Textures-transparent_19: 259361864
+      SNES - Wolfenstein 3D - Wall Textures-transparent_9: -659205535
+      SNES - Wolfenstein 3D - Wall Textures-transparent_46: 1305574749
+      SNES - Wolfenstein 3D - Wall Textures-transparent_56: -501673528
+      SNES - Wolfenstein 3D - Wall Textures-transparent_62: 1325094671
+      SNES - Wolfenstein 3D - Wall Textures-transparent_40: 1290642748
+      SNES - Wolfenstein 3D - Wall Textures-transparent_45: 195587114
+      SNES - Wolfenstein 3D - Wall Textures-transparent_14: -1640936137
+      SNES - Wolfenstein 3D - Wall Textures-transparent_3: 828108930
+      SNES - Wolfenstein 3D - Wall Textures-transparent_15: 925142434
+      SNES - Wolfenstein 3D - Wall Textures-transparent_53: -1241485045
+      SNES - Wolfenstein 3D - Wall Textures-transparent_24: -693829518
+      SNES - Wolfenstein 3D - Wall Textures-transparent_22: 573987955
+      SNES - Wolfenstein 3D - Wall Textures-transparent_35: -1116232703
+      SNES - Wolfenstein 3D - Wall Textures-transparent_4: -1548554553
+      SNES - Wolfenstein 3D - Wall Textures-transparent_54: -1834334441
+      SNES - Wolfenstein 3D - Wall Textures-transparent_25: 1249095137
+      SNES - Wolfenstein 3D - Wall Textures-transparent_32: 953989496
+      SNES - Wolfenstein 3D - Wall Textures-transparent_12: -1457999872
+      SNES - Wolfenstein 3D - Wall Textures-transparent_6: -769069273
+      SNES - Wolfenstein 3D - Wall Textures-transparent_21: 181831018
+      SNES - Wolfenstein 3D - Wall Textures-transparent_33: -2033184710
+      SNES - Wolfenstein 3D - Wall Textures-transparent_61: 584877063
+      SNES - Wolfenstein 3D - Wall Textures-transparent_44: -1785527055
+      SNES - Wolfenstein 3D - Wall Textures-transparent_31: 960338984
+      SNES - Wolfenstein 3D - Wall Textures-transparent_43: -906363945
+      SNES - Wolfenstein 3D - Wall Textures-transparent_58: 235628010
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
