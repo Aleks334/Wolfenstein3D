@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class GameManager : MonoBehaviour
 {
@@ -96,7 +97,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Current Health: " + playerData.playerHealth.CurrentHealth);
         // playerObj.GetComponent<PlayerStats>().HealPlayer(playerData.playerHealth.MaxHealth);
        // ScenesManager.LoadUIAsync(); //Create SO for methods of this type
-
         //Summary
         Debug.Log
         (
