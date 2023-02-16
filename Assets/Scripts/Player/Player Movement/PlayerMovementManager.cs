@@ -12,20 +12,12 @@ public class PlayerMovementManager : MonoBehaviour
     #endregion
     public StateMachine PlayerMovementFSM { get; private set; }
 
-
-    public CharacterController _characterController;
-
-    //Movement variables
-    public float mvmtSpeed = 12f;
-    public float runningRate = 1.7f;
+    public CharacterController CharacterController { get; private set; }
 
     public Vector3 inputVector;
     public Vector3 movementVector;
-    public bool IsRunning { get; set; }
-    public bool IsStrafing { get; set; }
-
-    public float inputRotation;
-    public float sensitivity = 110f;
+    public bool isRunning;
+    public bool isStrafing;
 
     void Awake()
     {
@@ -36,9 +28,9 @@ public class PlayerMovementManager : MonoBehaviour
 
         #region  Instances of player states
 
-        Standing = new StandingState(this);
-        Strafing = new StrafingState(this);
-        Running = new RunningState(this);
+        Standing = new StandingState(this, PlayerMovementFSM);
+        Strafing = new StrafingState(this, PlayerMovementFSM);
+        Running = new RunningState(this, PlayerMovementFSM);
 
         #endregion
 
@@ -49,7 +41,7 @@ public class PlayerMovementManager : MonoBehaviour
 
     void Start()
     {
-        _characterController = GetComponent<CharacterController>();
+        CharacterController = GetComponent<CharacterController>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

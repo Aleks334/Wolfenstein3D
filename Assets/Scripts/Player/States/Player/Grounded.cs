@@ -2,50 +2,69 @@ using UnityEngine;
 
 public class Grounded : State
 {
-    public Grounded(PlayerMovementManager playerMovementManager) : base(playerMovementManager) { }
+    public Grounded(PlayerMovementManager playerMovementManager, StateMachine FSM) : base(playerMovementManager, FSM) { }
+
+    protected float mvmtSpeed = 12f;
+    protected float runningRate = 1.8f;
+    protected float strafingRate = 1.4f;
+
+    protected Vector3 inputVector;
+    protected Vector3 movementVector;
+    protected bool isRunning;
+    protected bool isStrafing;
+
+    protected float inputRotation;
+    protected float sensitivity = 110f;
 
     public override void EnterState()
     {
-      //  horizontalInput = verticalInput = 0.0f;
+        base.EnterState();
     }
 
     public override void ExitState()
     {
-      //  _controller.ResetMoveParams();
+        base.ExitState();
     }
 
     public override void HandleInput()
     {
-       // verticalInput = Input.GetAxis("Vertical");
-       // horizontalInput = Input.GetAxis("Horizontal");
+        base.HandleInput();
+        RotatePlayer();
+
+        MovePlayerVertical();
+
+        isRunning = Input.GetKey(KeyCode.LeftShift);
+        isStrafing = Input.GetKey(KeyCode.LeftAlt);
+
+        //for viewing values in game
+        _movementManager.inputVector = inputVector;
+        _movementManager.movementVector = movementVector;
+        _movementManager.isRunning = isRunning;
+        _movementManager.isStrafing = isStrafing;
     }
 
     public override void LogicUpdate()
     {
-        RotatePlayer();
-        MovePlayerVertical();
-
-        _movementManager._characterController.Move(_movementManager.movementVector * Time.deltaTime);
+        base.LogicUpdate();
+        _movementManager.CharacterController.Move(movementVector * Time.deltaTime);
     }
 
-    public override void PhysicsUpdate()
-    {
-      //  base.PhysicsUpdate();
-       // character.Move(verticalInput * speed, horizontalInput * rotationSpeed);
-    }
+
+
+
 
     void MovePlayerVertical()
     {
-        _movementManager.inputVector = new Vector3(0f, 0f, Input.GetAxisRaw("Vertical"));
-        _movementManager.inputVector.Normalize();
-        _movementManager.inputVector = _movementManager.gameObject.transform.TransformDirection(_movementManager.inputVector);
-        _movementManager.movementVector = (_movementManager.inputVector * _movementManager.mvmtSpeed);
+        inputVector = new Vector3(0f, 0f, Input.GetAxisRaw("Vertical"));
+        inputVector.Normalize();
+        inputVector = _movementManager.gameObject.transform.TransformDirection(inputVector);
+        movementVector = (inputVector * mvmtSpeed);
     }
 
     void RotatePlayer()
     {
-        _movementManager.inputRotation = Input.GetAxisRaw("Horizontal");
-        _movementManager.inputRotation *= _movementManager.sensitivity;
-        _movementManager.gameObject.transform.Rotate(0f, _movementManager.inputRotation * Time.deltaTime, 0f);
+        inputRotation = Input.GetAxisRaw("Horizontal");
+        inputRotation *= sensitivity;
+        _movementManager.gameObject.transform.Rotate(0f, inputRotation * Time.deltaTime, 0f);
     }
 }

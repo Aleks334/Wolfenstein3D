@@ -72,7 +72,6 @@ public class PickUpItem : MonoBehaviour
                 case PickUpItemType.machine_gun:
                     if (!weaponManager.HaveThatWeapon(WeaponType.machine_gun))
                     {
-                        Debug.Log("test");
                         weaponManager.GiveWeapon(WeaponType.machine_gun);
                         weaponManager.ChangeWeapon(WeaponType.machine_gun);
                         Destroy(gameObject);

@@ -1,37 +1,36 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class StandingState : Grounded
 {
-    public StandingState(PlayerMovementManager playerMovementManager) : base(playerMovementManager) { }
+    public StandingState(PlayerMovementManager playerMovementManager, StateMachine FSM) : base(playerMovementManager, FSM) { }
 
     public override void EnterState()
     {
-       // base.EnterState();
-   //     speed = character.MovementSpeed;
-   //    rotationSpeed = character.RotationSpeed;
-   //     crouch = false;
-   //     jump = false;
+        base.EnterState();
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
     }
 
     public override void HandleInput()
     {
         base.HandleInput();
-        _movementManager.IsRunning = Input.GetKey(KeyCode.LeftShift);
-        _movementManager.IsStrafing = Input.GetKeyDown(KeyCode.LeftAlt);
     }
+    
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (_movementManager.IsRunning)
+        
+        if (isRunning)
         {
-            Debug.Log("!!!!!");
-            _movementManager.PlayerMovementFSM.ChangeState(_movementManager.Running);
+            _fsm.ChangeState(_movementManager.Running);
         }
-        else if (_movementManager.IsStrafing)
+        else if (isStrafing)
         {
-            _movementManager.PlayerMovementFSM.ChangeState(_movementManager.Strafing);
+            _fsm.ChangeState(_movementManager.Strafing);
         }
     }
 }
