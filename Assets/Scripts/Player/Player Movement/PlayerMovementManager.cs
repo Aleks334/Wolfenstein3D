@@ -5,30 +5,30 @@ public class PlayerMovementManager : MonoBehaviour
 {
     #region Player movement states definitions
 
-    public PlayerMvmtInitState PlayerMvmtInitState;
-    public WaitForInputState WaitForInputState;
+    public StandingState Standing { get; private set; }
+    public StrafingState Strafing { get; private set; }
 
     #endregion
 
     public CharacterController _characterController;
 
-    public StateMachine PlayerStateMachine { get; private set; }
+    public StateMachine PlayerMovementFSM { get; private set; }
 
     void Awake()
     {
         #region Game Manager FSM initialization
 
         //instance of state machine class
-        PlayerStateMachine = new StateMachine();
+        PlayerMovementFSM = new StateMachine();
 
         #region  Instances of player states
 
-        PlayerMvmtInitState = new PlayerMvmtInitState(this);
-        WaitForInputState = new WaitForInputState(this);
+        Standing = new StandingState(this);
+        Strafing = new StrafingState(this);
 
         #endregion
 
-        PlayerStateMachine.Initialize(PlayerMvmtInitState);
+        PlayerMovementFSM.Initialize(Standing);
 
         #endregion 
     }
@@ -41,6 +41,8 @@ public class PlayerMovementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerStateMachine.CurrentState.UpdateState();
+        PlayerMovementFSM.CurrentState.HandleInput();
+
+        PlayerMovementFSM.CurrentState.LogicUpdate();
     }
 }

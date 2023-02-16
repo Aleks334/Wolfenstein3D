@@ -3,18 +3,16 @@ using UnityEngine;
 public abstract class State
 {
     protected readonly GameManager _gameManager;
-    protected readonly PlayerMovementManager _playerMovementManager;
+    protected readonly object _controller;
 
-    public State(GameManager gameManager)
+    public State(object controller)
     {
-        _gameManager = gameManager;
-    }
-    public State(PlayerMovementManager playerMovementManager)
-    {
-        _playerMovementManager = playerMovementManager;
+        _controller = controller;
     }
 
     public abstract void EnterState();
-    public virtual void UpdateState() { }
+    public virtual void HandleInput() { }
+    public virtual void LogicUpdate() { }
+    public virtual void PhysicsUpdate() { }
     public virtual void ExitState() { }
 }

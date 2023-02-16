@@ -9,7 +9,7 @@ public class WaitForInputState : State
         Debug.Log("Entered into WaitForInputState");
     }
 
-    public override void UpdateState()
+    public override void LogicUpdate()
     {
         Debug.Log("Executing WaitForInputState every frame");
     }
