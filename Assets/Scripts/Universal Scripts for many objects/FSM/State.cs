@@ -2,12 +2,11 @@ using UnityEngine;
 
 public abstract class State
 {
-    protected readonly GameManager _gameManager;
-    protected readonly object _controller;
+    protected readonly PlayerMovementManager _movementManager;
 
-    public State(object controller)
+    public State(PlayerMovementManager controller)
     {
-        _controller = controller;
+        _movementManager = controller;
     }
 
     public abstract void EnterState();

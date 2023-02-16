@@ -6,30 +6,29 @@ public class StrafingState : Grounded
 
     public override void EnterState()
     {
-        base.EnterState();
-        //     speed = character.MovementSpeed;
-        //    rotationSpeed = character.RotationSpeed;
-        //     crouch = false;
-        //     jump = false;
+ 
     }
 
     public override void HandleInput()
     {
-        base.HandleInput();
-        //   crouch = Input.GetButtonDown("Fire3");
-        //    jump = Input.GetButtonDown("Jump");
+        _movementManager.IsStrafing = Input.GetKeyDown(KeyCode.LeftAlt);
     }
 
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
-        /*   if (crouch)
-           {
-               stateMachine.ChangeState(character.ducking);
-           }
-           else if (jump)
-           {
-               stateMachine.ChangeState(character.jumping);
-           }*/
+        MovePlayerHorizontal();
+
+        if(!_movementManager.IsStrafing)
+        {
+            _movementManager.PlayerMovementFSM.ChangeState(_movementManager.Standing);
+        }
+    }
+
+    void MovePlayerHorizontal()
+    {
+        _movementManager.inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+        _movementManager.inputVector.Normalize();
+        _movementManager.inputVector = _movementManager.gameObject.transform.TransformDirection(_movementManager.inputVector);
+        _movementManager.movementVector = (_movementManager.inputVector * _movementManager.mvmtSpeed);
     }
 }

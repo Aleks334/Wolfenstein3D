@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StandingState : Grounded
@@ -6,7 +7,7 @@ public class StandingState : Grounded
 
     public override void EnterState()
     {
-        base.EnterState();
+       // base.EnterState();
    //     speed = character.MovementSpeed;
    //    rotationSpeed = character.RotationSpeed;
    //     crouch = false;
@@ -16,20 +17,21 @@ public class StandingState : Grounded
     public override void HandleInput()
     {
         base.HandleInput();
-     //   crouch = Input.GetButtonDown("Fire3");
-    //    jump = Input.GetButtonDown("Jump");
+        _movementManager.IsRunning = Input.GetKey(KeyCode.LeftShift);
+        _movementManager.IsStrafing = Input.GetKeyDown(KeyCode.LeftAlt);
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-     /*   if (crouch)
+        if (_movementManager.IsRunning)
         {
-            stateMachine.ChangeState(character.ducking);
+            Debug.Log("!!!!!");
+            _movementManager.PlayerMovementFSM.ChangeState(_movementManager.Running);
         }
-        else if (jump)
+        else if (_movementManager.IsStrafing)
         {
-            stateMachine.ChangeState(character.jumping);
-        }*/
+            _movementManager.PlayerMovementFSM.ChangeState(_movementManager.Strafing);
+        }
     }
 }
