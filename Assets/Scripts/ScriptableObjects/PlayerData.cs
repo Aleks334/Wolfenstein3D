@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Player_Data")]
+[CreateAssetMenu(menuName = "Player/Player_Data")]
 public class PlayerData : ScriptableObject
 {
     public WeaponType[] _weaponsInInventory = new WeaponType[4];

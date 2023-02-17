@@ -4,43 +4,33 @@ public class Grounded : State
 {
     public Grounded(PlayerMovementManager playerMovementManager, StateMachine FSM) : base(playerMovementManager, FSM) { }
 
-    protected float mvmtSpeed = 12f;
-    protected float runningRate = 1.8f;
-    protected float strafingRate = 1.4f;
+    #region Fields and Properties
 
-    protected Vector3 inputVector;
-    protected Vector3 movementVector;
-    protected bool isRunning;
-    protected bool isStrafing;
+    public float mvmtSpeed;
 
-    protected float inputRotation;
-    protected float sensitivity = 110f;
+    public float runningRate;
+    public float strafingRate;
 
-    public override void EnterState()
-    {
-        base.EnterState();
-    }
+    public Vector3 inputVector;
+    public Vector3 movementVector;
+    public bool isRunning;
+    public bool isStrafing;
 
-    public override void ExitState()
-    {
-        base.ExitState();
-    }
+    public float inputRotation;
+    public float sensitivity;
 
+    #endregion
+
+    #region Methods for FSM Update loop
     public override void HandleInput()
     {
         base.HandleInput();
-        RotatePlayer();
 
-        MovePlayerVertical();
+        HandleInputRotation();
+        HandleInputVertical();
 
         isRunning = Input.GetKey(KeyCode.LeftShift);
         isStrafing = Input.GetKey(KeyCode.LeftAlt);
-
-        //for viewing values in game
-        _movementManager.inputVector = inputVector;
-        _movementManager.movementVector = movementVector;
-        _movementManager.isRunning = isRunning;
-        _movementManager.isStrafing = isStrafing;
     }
 
     public override void LogicUpdate()
@@ -49,11 +39,11 @@ public class Grounded : State
         _movementManager.CharacterController.Move(movementVector * Time.deltaTime);
     }
 
+    #endregion
 
+    #region Methods for logic
 
-
-
-    void MovePlayerVertical()
+    void HandleInputVertical()
     {
         inputVector = new Vector3(0f, 0f, Input.GetAxisRaw("Vertical"));
         inputVector.Normalize();
@@ -61,10 +51,12 @@ public class Grounded : State
         movementVector = (inputVector * mvmtSpeed);
     }
 
-    void RotatePlayer()
+    void HandleInputRotation()
     {
         inputRotation = Input.GetAxisRaw("Horizontal");
         inputRotation *= sensitivity;
         _movementManager.gameObject.transform.Rotate(0f, inputRotation * Time.deltaTime, 0f);
     }
+
+    #endregion
 }

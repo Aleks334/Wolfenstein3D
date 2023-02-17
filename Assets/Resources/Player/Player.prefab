@@ -241,13 +241,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f41c3b44782a241a3b92d35b6ab2cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 0}
-  mvmtSpeed: 12
-  runningRate: 1.7
   inputVector: {x: 0, y: 0, z: 0}
   movementVector: {x: 0, y: 0, z: 0}
-  inputRotation: 0
-  sensitivity: 110
+  isRunning: 0
+  isStrafing: 0
+  MvmtSettings: {fileID: 11400000, guid: b689ca0225d7b194f8e8e69733b33172, type: 2}
 --- !u!1 &6887898478164598351
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovementManager : MonoBehaviour
 {
+    #region Fields and Properties
+
     #region Player movement states definitions
 
     public StandingState Standing { get; private set; }
@@ -10,14 +12,13 @@ public class PlayerMovementManager : MonoBehaviour
     public StrafingState Strafing { get; private set; }
 
     #endregion
-    public StateMachine PlayerMovementFSM { get; private set; }
 
+    public StateMachine PlayerMovementFSM { get; private set; }
     public CharacterController CharacterController { get; private set; }
 
-    public Vector3 inputVector;
-    public Vector3 movementVector;
-    public bool isRunning;
-    public bool isStrafing;
+    public PlayerMovementSettings MvmtSettings;
+
+    #endregion
 
     void Awake()
     {
@@ -35,8 +36,7 @@ public class PlayerMovementManager : MonoBehaviour
         #endregion
 
         PlayerMovementFSM.Initialize(Standing);
-
-        #endregion 
+        #endregion
     }
 
     void Start()
@@ -47,11 +47,9 @@ public class PlayerMovementManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         PlayerMovementFSM.CurrentState.HandleInput();
-
         PlayerMovementFSM.CurrentState.LogicUpdate();
     }
 }
