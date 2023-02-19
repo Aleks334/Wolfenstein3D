@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4416290303530032943}
   - component: {fileID: 2704233238143276107}
   - component: {fileID: 2191719853563521245}
-  - component: {fileID: 3000931170156497996}
+  - component: {fileID: 7044623667949586933}
   m_Layer: 0
   m_Name: Machine_Gun
   m_TagString: Untagged
@@ -144,7 +144,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.46
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3000931170156497996
+--- !u!114 &7044623667949586933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3133409145850519393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a78f9f5ca8410468fce08014a69ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cabd4ab425ca4e4a937b700a1c33a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpItemType: 98
+  _itemData: {fileID: 11400000, guid: 7ad69a57c803ebf49831a3cb50d14132, type: 2}

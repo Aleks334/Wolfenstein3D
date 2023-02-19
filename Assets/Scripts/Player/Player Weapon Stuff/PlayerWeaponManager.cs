@@ -157,6 +157,8 @@ public class PlayerWeaponManager : MonoBehaviour
     {
         Debug.Log("playerData._weaponsInInventory[" + (int)newWeapon + "] = " + newWeapon);
         playerData._weaponsInInventory[(int)newWeapon] = newWeapon;
+
+        ChangeWeapon(newWeapon);
     }
 
     public bool HaveThatWeapon(WeaponType weaponType)

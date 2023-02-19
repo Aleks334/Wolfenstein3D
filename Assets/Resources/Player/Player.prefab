@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 6887898477794353334}
   - component: {fileID: 6542508665361830857}
   - component: {fileID: -4967750986739009825}
+  - component: {fileID: 1035578404502811336}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -241,11 +242,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f41c3b44782a241a3b92d35b6ab2cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputVector: {x: 0, y: 0, z: 0}
-  movementVector: {x: 0, y: 0, z: 0}
-  isRunning: 0
-  isStrafing: 0
   MvmtSettings: {fileID: 11400000, guid: b689ca0225d7b194f8e8e69733b33172, type: 2}
+--- !u!114 &1035578404502811336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6887898477794353338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4a733f5dcb2804195a892c13043107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6887898478164598351
 GameObject:
   m_ObjectHideFlags: 0
