@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class PlayerAmmo
 {
-
-    //Fields
     private int _currentAmmo;
     private int _maxAmmo;
     public const int StartAmmo = 8;
 
-    //Properties
     public int CurrentAmmo
     {
         get { return _currentAmmo; }
@@ -25,14 +22,12 @@ public class PlayerAmmo
         set { _maxAmmo = value; }
     }
 
-    //Constructor
-    public PlayerAmmo(int currentAmmo = StartAmmo, int maxAmmo = 99) // these values are used in original game
+    public PlayerAmmo(int currentAmmo = StartAmmo, int maxAmmo = 99) // these values were used in original game
     {
         CurrentAmmo = currentAmmo;
         MaxAmmo = maxAmmo;
     }
 
-    //Methods
     public void AddAmmo(int ammoToAdd)
     {
         if (CurrentAmmo < MaxAmmo)

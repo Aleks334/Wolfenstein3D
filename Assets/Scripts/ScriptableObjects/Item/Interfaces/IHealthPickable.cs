@@ -1,6 +1,6 @@
 public interface IHealthPickable
 {
-    protected int HealthAmount { get; set; }
+    public int HealthAmount { get; set; }
 
-    protected void PickUpHealth(PlayerStats playerStats);
+    public void PickUpHealth();
 }

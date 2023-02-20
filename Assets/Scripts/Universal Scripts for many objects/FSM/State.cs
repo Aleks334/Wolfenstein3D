@@ -13,20 +13,20 @@ public abstract class State
 
     public virtual void EnterState()
     {
-        Debug.Log("Entered into " + this);
+       // Debug.Log("Entered into " + this);
     }
     public virtual void HandleInput()
     {
-        Debug.Log("HandleInput in " + this);
+       // Debug.Log("HandleInput in " + this);
     }
     public virtual void LogicUpdate()
     {
-        Debug.Log("Updating Logic in " + this);
+       // Debug.Log("Updating Logic in " + this);
     }
     public virtual void PhysicsUpdate() { }
     public virtual void ExitState()
     {
-        Debug.Log("Exited from " + this);
+      //  Debug.Log("Exited from " + this);
     }
 }
 

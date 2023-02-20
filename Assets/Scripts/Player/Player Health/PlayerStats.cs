@@ -20,12 +20,12 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         // TESTS OF HEALTH SYSTEM
-        /*if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             DamagePlayer(12);
-            GameObject e;
-            e = GameObject.FindGameObjectWithTag("Enemy");
-            e.GetComponent<EnemyManager>().dmgenemy(30);
+           // GameObject e;
+           // e = GameObject.FindGameObjectWithTag("Enemy");
+           // e.GetComponent<EnemyManager>().dmgenemy(30);
         }
         else if (Input.GetKeyDown(KeyCode.H))
             HealPlayer(13);
@@ -38,7 +38,7 @@ public class PlayerStats : MonoBehaviour
 
         // TESTS OF ADDING AMMO
        if (Input.GetKeyDown(KeyCode.P))
-            AddAmmo(2);  */
+            AddAmmo(2);  
     }
 
     // -------------  Public methods for damaging/healing player by other objects --------------
@@ -54,12 +54,12 @@ public class PlayerStats : MonoBehaviour
         //Check if player has 0 health and at least one live
         if(playerData.playerHealth.CurrentHealth == 0 && playerData.playerLives.CurrentLives > 0)
         {
-            GameManager.instance.UpdateGameState(GameState.LiveLose);
+            GameManager.Instance.UpdateGameState(GameState.LiveLose);
             Debug.Log("UpdateGameState(GameState.LiveLose)");
 
         } else if(playerData.playerHealth.CurrentHealth == 0 && playerData.playerLives.CurrentLives == 0)
         {
-            GameManager.instance.UpdateGameState(GameState.GameOver);
+            GameManager.Instance.UpdateGameState(GameState.GameOver);
             Debug.Log("UpdateGameState(GameState.GameOver)");
         }
     }

@@ -1,6 +1,6 @@
 public interface IAmmoPickable
 {
-    protected int AmmoAmount { get; set; }
+    public int AmmoAmount { get; set; }
 
-    protected void PickUpAmmo(PlayerStats playerStats);
+    public void PickUpAmmo();
 }

@@ -29,7 +29,7 @@ public class DoorsController : MonoBehaviour
                 hit.transform.gameObject.GetComponent<DoorTrigger>().OnInteract();
             } else if (hit.transform.CompareTag("ElevatorLever"))
             {
-                GameManager.instance.UpdateGameState(GameState.Victory);
+                GameManager.Instance.UpdateGameState(GameState.Victory);
             }
         }
     }

@@ -1,19 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance { get; private set; }
+    public static GameManager Instance { get; private set; }
 
     //Player
     Transform PlayerSpawnPoint;
     GameObject playerAsset;
 
-    GameObject playerObj;
+    public GameObject PlayerObj { get; private set; }
     public PlayerStats playerStats;
     [SerializeField] PlayerData playerData;
     SphereCollider triggerNoise;
@@ -34,11 +32,11 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         
-        if(instance == null)
+        if(Instance == null)
         {
-            instance = this;
+            Instance = this;
             //DontDestroyOnLoad(gameObject);
-        } else if (instance != null && instance != this)
+        } else if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
@@ -88,9 +86,9 @@ public class GameManager : MonoBehaviour
         elevatorLeverEnabledMat = Resources.Load("Materials/ElevatorLeverMat") as Material;
 
         PlayerSpawnPoint = GameObject.Find("PlayerSpawnPoint").transform;
-        playerObj = Instantiate(playerAsset, PlayerSpawnPoint.position, Quaternion.Euler(0f, -90f, 0f));
+        PlayerObj = Instantiate(playerAsset, PlayerSpawnPoint.position, Quaternion.Euler(0f, -90f, 0f));
         // = GameObject.FindGameObjectWithTag("Player");
-        playerStats = playerObj.GetComponent<PlayerStats>();
+        playerStats = PlayerObj.GetComponent<PlayerStats>();
         //triggerNoise = playerObj.GetComponent<SphereCollider>();
       //  triggerNoise.isTrigger = true;
         ElevatorLever = GameObject.FindGameObjectWithTag("ElevatorLever").GetComponent<Renderer>();
@@ -113,7 +111,7 @@ public class GameManager : MonoBehaviour
 
     void RestoreDefaultPlayerSettings()
     {
-        playerObj.GetComponent<PlayerWeaponManager>().DefaultWeapons(true);
+        PlayerObj.GetComponent<PlayerWeaponManager>().DefaultWeapons(true);
         playerData.ResetAmmo();
         playerData.TakeLife();
         playerData.GiveMaxHealth();   
@@ -126,11 +124,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator HandlePlayerGameOver()
     {
-        playerObj.GetComponent<PlayerStats>().enabled = false;
-        playerObj.GetComponent<SimplePlayerMovement>().enabled = false;
-        playerObj.GetComponent<PlayerShooting>().enabled = false;
-        playerObj.GetComponent<PlayerWeaponManager>().enabled = false;
-        playerObj.GetComponent<DoorsController>().enabled = false;
+        PlayerObj.GetComponent<PlayerStats>().enabled = false;
+        PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
+        PlayerObj.GetComponent<PlayerShooting>().enabled = false;
+        PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
+        PlayerObj.GetComponent<DoorsController>().enabled = false;
 
         yield return new WaitForSeconds(2f);
         //After death anim with game over text
@@ -144,11 +142,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator HandlePlayerLiveLose()
     {
-        playerObj.GetComponent<PlayerStats>().enabled = false;
-        playerObj.GetComponent<SimplePlayerMovement>().enabled = false;
-        playerObj.GetComponent<PlayerShooting>().enabled = false;
-        playerObj.GetComponent<PlayerWeaponManager>().enabled = false;
-        playerObj.GetComponent<DoorsController>().enabled = false;
+        PlayerObj.GetComponent<PlayerStats>().enabled = false;
+        PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
+        PlayerObj.GetComponent<PlayerShooting>().enabled = false;
+        PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
+        PlayerObj.GetComponent<DoorsController>().enabled = false;
 
         yield return new WaitForSeconds(2f);
         //After death anim
@@ -161,11 +159,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator HandlePlayerVictory()
     {
-        playerObj.GetComponent<PlayerStats>().enabled = false;
-        playerObj.GetComponent<SimplePlayerMovement>().enabled = false;
-        playerObj.GetComponent<PlayerShooting>().enabled = false;
-        playerObj.GetComponent<PlayerWeaponManager>().enabled = false;
-        playerObj.GetComponent<DoorsController>().enabled = false;
+        PlayerObj.GetComponent<PlayerStats>().enabled = false;
+        PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
+        PlayerObj.GetComponent<PlayerShooting>().enabled = false;
+        PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
+        PlayerObj.GetComponent<DoorsController>().enabled = false;
 
         ElevatorLever.material = elevatorLeverEnabledMat;
 

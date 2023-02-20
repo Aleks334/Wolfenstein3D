@@ -1,6 +1,6 @@
 public interface IExtraLifesPickable
 {
-    protected int ExtraLifesAmount { get; set; }
+    public int ExtraLifesAmount { get; set; }
 
-    protected void PickUpExtraLifes(PlayerStats playerStats);
+    public void PickUpExtraLifes();
 }

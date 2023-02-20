@@ -49,7 +49,7 @@ public class SimplePlayerMovement : MonoBehaviour
         if (isRunning)
         {
             movementVector *= runningRate;
-            GameManager.instance.playerNoiseLevel = PlayerNoiseLevel.running;
+            GameManager.Instance.playerNoiseLevel = PlayerNoiseLevel.running;
         }
 
         if(isStrafing)
@@ -62,9 +62,9 @@ public class SimplePlayerMovement : MonoBehaviour
         }
 
         if ((characterController.velocity.x != 0 || characterController.velocity.y != 0) && !isRunning)
-            GameManager.instance.playerNoiseLevel = PlayerNoiseLevel.walking;
+            GameManager.Instance.playerNoiseLevel = PlayerNoiseLevel.walking;
         else if (characterController.velocity.x == 0 && characterController.velocity.y == 0)
-            GameManager.instance.playerNoiseLevel = PlayerNoiseLevel.standing;
+            GameManager.Instance.playerNoiseLevel = PlayerNoiseLevel.standing;
 
         //temporarily
         if (transform.position.y > 1.1f)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 469811724452051892}
   - component: {fileID: 469811724452051893}
   - component: {fileID: 469811724452051891}
-  - component: {fileID: 469811724452051890}
+  - component: {fileID: 3820815946896520478}
   m_Layer: 0
   m_Name: Health_Pack
   m_TagString: Untagged
@@ -60,7 +60,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &469811724452051890
+--- !u!114 &3820815946896520478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,10 +69,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 469811724452051894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a78f9f5ca8410468fce08014a69ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cabd4ab425ca4e4a937b700a1c33a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpItemType: 25
+  _itemData: {fileID: 11400000, guid: c5a7f3f2f60ae534d962975f123e6e18, type: 2}
 --- !u!1 &469811725722186588
 GameObject:
   m_ObjectHideFlags: 0

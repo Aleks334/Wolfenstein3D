@@ -4,11 +4,11 @@ public class Item : MonoBehaviour, IInteractable
 {
     [SerializeField] private ItemDataSO _itemData;
 
-    public void Interact(GameObject player)
+    public void Interact()
     {
-        if(_itemData.CanBePickedUp(player))
+        if (_itemData.CanBePickedUp())
         {
-            _itemData.PickupItem(player);
+            _itemData.PickupItem();
             UI.healtincreaseeffect();
             Destroy(this.gameObject);
         }

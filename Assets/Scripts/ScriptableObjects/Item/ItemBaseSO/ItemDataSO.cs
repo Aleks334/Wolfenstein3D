@@ -2,7 +2,9 @@ using UnityEngine;
 
 public abstract class ItemDataSO : ScriptableObject
 {
-    public abstract void PickupItem(GameObject player);
+    public abstract void PickupItem();
 
-    public abstract bool CanBePickedUp(GameObject player);
+    public abstract bool CanBePickedUp();
+
+    protected abstract void FindNeededManager();
 }

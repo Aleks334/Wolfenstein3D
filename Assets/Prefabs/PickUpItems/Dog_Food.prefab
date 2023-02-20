@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1045658909996933732}
   - component: {fileID: 1045658909996933723}
   - component: {fileID: 1045658909996933722}
-  - component: {fileID: 1045658909996933721}
+  - component: {fileID: 7488482645168839547}
   m_Layer: 0
   m_Name: Dog_Food
   m_TagString: Untagged
@@ -144,7 +144,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1045658909996933721
+--- !u!114 &7488482645168839547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1045658909996933720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a78f9f5ca8410468fce08014a69ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cabd4ab425ca4e4a937b700a1c33a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpItemType: 5
+  _itemData: {fileID: 11400000, guid: 7b00313071320ab47a186550e8babca4, type: 2}

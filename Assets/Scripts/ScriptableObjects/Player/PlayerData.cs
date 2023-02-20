@@ -31,6 +31,4 @@ public class PlayerData : ScriptableObject
     {
         playerLives.CurrentLives = DEFAULT_LIFES_NUM;
     }
-
-   
 }

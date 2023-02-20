@@ -1,36 +1,51 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item/Item Data")]
+[CreateAssetMenu(menuName = "Item/Weapon_Data")]
 public class WeaponItemSO : ItemDataSO, IWeaponPickable
 {
-    [Tooltip("Select desired weapon type for item.")]
+    #region Fields and Properties
 
+    [Tooltip("Select desired weapon type for item.")]
     [SerializeField] private WeaponType _weaponType;
 
+    private PlayerWeaponManager _weaponManager;
 
-    public override void PickupItem(GameObject player)
+    #endregion
+
+    #region ItemDataSO methods implementation
+
+    public override void PickupItem()
     {
-        PlayerWeaponManager weaponManager = player.GetComponent<PlayerWeaponManager>();
-
-        PickUpWeapon(weaponManager);  
+        PickUpWeapon();  
     }
 
-    public override bool CanBePickedUp(GameObject player)
+    protected override void FindNeededManager()
     {
-        if (!player.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
+        if (GameManager.Instance.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
+        {
+            _weaponManager = weaponManager;
+           // Debug.LogWarning("Znaleziono PlayerWeaponManager!");
+        }
+        else
         {
             Debug.LogError("Gracz nie ma dodanej klasy PlayerWeaponManager!");
-            return false;
         }
+    }
 
-        if (!weaponManager.HaveThatWeapon(_weaponType))
+    public override bool CanBePickedUp()
+    {
+        if (_weaponManager == null)
+            FindNeededManager();
+
+        if (!_weaponManager.HaveThatWeapon(_weaponType))
             return true;
         else
             return false;
     }
+    #endregion
 
-    public void PickUpWeapon(PlayerWeaponManager weaponManager)
+    public void PickUpWeapon()
     {
-        weaponManager.GiveWeapon(_weaponType);
+        _weaponManager.GiveWeapon(_weaponType);
     }
 }
