@@ -34,10 +34,11 @@ public class WeaponItemSO : ItemDataSO, IWeaponPickable
 
     public override bool CanBePickedUp()
     {
+
         if (_weaponManager == null)
             FindNeededManager();
 
-        if (!_weaponManager.HaveThatWeapon(_weaponType))
+        if (!_weaponManager._HaveThatWeapon(_weaponManager.ExistingWeaponsData.ReturnWeaponClass(_weaponType))) //Make _weaponItem able to store weapon type chosen in so.
             return true;
         else
             return false;
@@ -46,6 +47,6 @@ public class WeaponItemSO : ItemDataSO, IWeaponPickable
 
     public void PickUpWeapon()
     {
-        _weaponManager.GiveWeapon(_weaponType);
+        _weaponManager._GiveWeapon(_weaponManager.ExistingWeaponsData.ReturnWeaponClass(_weaponType)); // like upper
     }
 }

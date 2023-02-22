@@ -21,7 +21,7 @@ public class WaeponScript : MonoBehaviour
         PlayerWeaponManager weaponmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponManager>();
         for (int i = 0; i < 4; i++)
         {
-            if (weaponmanager._currentWeapon == playerData._weaponsInInventory[i])
+            if (weaponmanager.CurrentWeapon == playerData.WeaponsInInventory[i])
             {
 
                 weaponimg.sprite = weaponspritesarray[i];
@@ -55,7 +55,7 @@ public class WaeponScript : MonoBehaviour
         PlayerWeaponManager weaponmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponManager>();
         for(int i=0;i<4;i++)
         {
-            if(weaponmanager._currentWeapon == playerData._weaponsInInventory[i])
+            if(weaponmanager.CurrentWeapon == playerData.WeaponsInInventory[i])
             {
                 
                weaponimg.sprite = weaponspritesarray[i];

@@ -104,14 +104,15 @@ public class PlayerStats : MonoBehaviour
     public void RemoveAmmo()
     {
         playerData.playerAmmo.RemoveAmmo();
-            Debug.Log("Obecny stan amunicji: " + playerData.playerAmmo.CurrentAmmo);
-            UI.ReloadUI(playerData.playerAmmo.CurrentAmmo);
+        Debug.Log("Obecny stan amunicji: " + playerData.playerAmmo.CurrentAmmo);
+        UI.ReloadUI(playerData.playerAmmo.CurrentAmmo);
     }
     /*
     public int GetCurrentAmmo()
     {
         return playerAmmo.CurrentAmmo;
     }*/
+  
     public bool CanPickUpItem(bool checkAmmo, bool checkHealth, bool checkForPowerUp = false)
     {
         if (checkAmmo)

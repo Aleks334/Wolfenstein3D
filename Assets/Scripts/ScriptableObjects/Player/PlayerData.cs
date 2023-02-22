@@ -7,6 +7,9 @@ public class PlayerData : ScriptableObject
 {
     public WeaponType[] _weaponsInInventory = new WeaponType[4];
 
+    //NEW
+    public PlayerWeapon[] WeaponsInInventory = new PlayerWeapon[4];
+
     public PlayerAmmo playerAmmo = new PlayerAmmo();
     public ObjectHealth playerHealth = new ObjectHealth(100, 100);
     public PlayerLives playerLives = new PlayerLives(3);

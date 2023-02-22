@@ -7,7 +7,7 @@ public class PickUpItem : MonoBehaviour
     [SerializeField] PickUpItemType pickUpItemType;
 
     void OnTriggerEnter(Collider other)
-    {
+    {/*
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerStats stats = other.GetComponent<PlayerStats>();
@@ -93,6 +93,7 @@ public class PickUpItem : MonoBehaviour
                     break;
             }
         }
+        */
     }
 
     enum PickUpItemType

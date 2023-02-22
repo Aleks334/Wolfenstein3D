@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7cb6e476eb6d5409cb483d34531c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 72dda0c7639a20b4b91e7343e8ea6206, type: 2}
+  PlayerData: {fileID: 11400000, guid: 72dda0c7639a20b4b91e7343e8ea6206, type: 2}
   currentAnim: 
   _currentWeapon: 0
   weaponObjects:
@@ -178,7 +178,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  currentWeaponAnimator: {fileID: 0}
+  _timeToNextShot: 0
 --- !u!114 &6887898477794353329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6887898477794353338}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ab189410155445428b0aea333089101, type: 3}
   m_Name: 

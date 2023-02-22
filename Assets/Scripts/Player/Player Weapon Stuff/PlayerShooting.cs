@@ -26,12 +26,12 @@ public class PlayerShooting : MonoBehaviour
         playerCam = Camera.main;
         ignoreDoorMask = ~ignoreDoorMask; //invert bitmask
     }
-
+    /*
     // Update is called once per frame
     void Update()
     {
         timeToNextShot -= Time.deltaTime;
-
+        
         if (Input.GetKeyDown(KeyCode.LeftControl) && PlayerWeapon.playerWeapons[weaponManager._currentWeapon]._shootingMode != ShootingMode.full_auto)
         {
             // Debug.Log("cooldown: " + timeToNextShot);
@@ -55,7 +55,7 @@ public class PlayerShooting : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftControl) && PlayerWeapon.playerWeapons[weaponManager._currentWeapon]._shootingMode == ShootingMode.full_auto)
             weaponManager.PlayAfterFullAutoShootAnim();
     }
-
+    
     //SHOOTING Method
     void TryShoot(WeaponType weaponInUse)
     {
@@ -109,7 +109,8 @@ public class PlayerShooting : MonoBehaviour
               isShooting = false;
           }*/
         // weaponManager.SetBoolWeaponAnim(isShooting);
-    }
+   // }
+/*
 
     void ShootNoise(float noiseRange)
     {
@@ -153,5 +154,5 @@ public class PlayerShooting : MonoBehaviour
         CreateRay(PlayerWeapon.playerWeapons[weaponInUse]._range);
         ShootNoise(PlayerWeapon.playerWeapons[weaponInUse]._range);
         //isShooting = false;
-    }  
+    } */
 }

@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
 
     void RestoreDefaultPlayerSettings()
     {
-        PlayerObj.GetComponent<PlayerWeaponManager>().DefaultWeapons(true);
+        PlayerObj.GetComponent<PlayerWeaponManager>()._DefaultWeapons();
         playerData.ResetAmmo();
         playerData.TakeLife();
         playerData.GiveMaxHealth();   
