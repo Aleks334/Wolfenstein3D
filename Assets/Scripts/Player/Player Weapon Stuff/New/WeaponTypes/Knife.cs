@@ -18,6 +18,14 @@ public class Knife : PlayerWeapon
         }
     }
 
+    public override void HandleChangeWeaponInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !IsWeaponAnimPlaying())
+        {
+            GetPlayerWeaponManager()._ChangeWeapon(GetPlayerWeaponManager().ExistingWeaponsData.KnifeWeapon);
+        }
+    }
+
     public override void PerformAttack()
     {
         PlayAttackAnim();

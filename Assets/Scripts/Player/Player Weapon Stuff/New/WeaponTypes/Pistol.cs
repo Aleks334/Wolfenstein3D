@@ -18,6 +18,14 @@ public class Pistol : PlayerWeapon
         }
     }
 
+    public override void HandleChangeWeaponInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !IsWeaponAnimPlaying())
+        {
+            GetPlayerWeaponManager()._ChangeWeapon(GetPlayerWeaponManager().ExistingWeaponsData.PistolWeapon);
+        }
+    }
+
     public override void PerformAttack()
     {
         if (GetPlayerWeaponManager().PlayerData.playerAmmo.CurrentAmmo == 0)

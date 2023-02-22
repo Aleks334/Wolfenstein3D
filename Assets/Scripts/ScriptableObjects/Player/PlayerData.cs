@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/Player_Data")]
 public class PlayerData : ScriptableObject
 {
-    public WeaponType[] _weaponsInInventory = new WeaponType[4];
+ //   public WeaponType[] _weaponsInInventory = new WeaponType[4];
 
     //NEW
     public PlayerWeapon[] WeaponsInInventory = new PlayerWeapon[4];

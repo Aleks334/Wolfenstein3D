@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//OLD CLASS - DELETE IT
 public class PlayerShooting : MonoBehaviour
 {
     PlayerWeaponManager weaponManager;
     PlayerStats playerStats;
-    float timeToNextShot = 0f;
+   // float timeToNextShot = 0f;
 
     [SerializeField] PlayerData playerData;
 

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class MachineGun : PlayerWeapon
+public class MiniGun : PlayerWeapon
 {
-    public MachineGun(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot) : base(attackMode, damage, rof, range, weaponType, currentWeaponShootAnim, weaponSlot)
+    public MiniGun(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot) : base(attackMode, damage, rof, range, weaponType, currentWeaponShootAnim, weaponSlot)
     {
     }
 
@@ -22,9 +22,9 @@ public class MachineGun : PlayerWeapon
 
     public override void HandleChangeWeaponInput()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !IsWeaponAnimPlaying())
+        if (Input.GetKeyDown(KeyCode.Alpha4) && !IsWeaponAnimPlaying())
         {
-            GetPlayerWeaponManager()._ChangeWeapon(GetPlayerWeaponManager().ExistingWeaponsData.MachineGun);
+            GetPlayerWeaponManager()._ChangeWeapon(GetPlayerWeaponManager().ExistingWeaponsData.MiniGun);
         }
     }
 

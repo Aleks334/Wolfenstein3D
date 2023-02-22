@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class PlayerWeapon
@@ -36,6 +34,7 @@ public abstract class PlayerWeapon
 
     public abstract void PerformAttack();
     public abstract void HandleAttackInput();
+    public abstract void HandleChangeWeaponInput();
 
     public PlayerWeaponManager GetPlayerWeaponManager()
     {
@@ -69,6 +68,13 @@ public abstract class PlayerWeapon
             Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward * range, Color.red, 0.25f);
         }
     }
+    public bool IsWeaponAnimPlaying()
+    {
+        if (GetPlayerWeaponManager().CurrentWeaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(GetPlayerWeaponManager().currentAnim) && GetPlayerWeaponManager().CurrentWeaponAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            return true;
+        else
+            return false;
+    }
 
     //Plays standard shooting anim (for semi/melee or main part of full auto shooting anim)
     public void PlayAttackAnim()
@@ -98,7 +104,7 @@ public enum ShootingMode
 
 public enum WeaponType
 {
-    None  = -1,
+    //None  = -1,
     knife,
     pistol,
     machine_gun,
