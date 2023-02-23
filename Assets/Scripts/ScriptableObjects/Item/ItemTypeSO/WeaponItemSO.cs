@@ -38,7 +38,7 @@ public class WeaponItemSO : ItemDataSO, IWeaponPickable
         if (_weaponManager == null)
             FindNeededManager();
 
-        if (!_weaponManager._HaveThatWeapon(_weaponManager.ExistingWeaponsData.ReturnWeaponClass(_weaponType)))
+        if (!_weaponManager.HaveThatWeapon(_weaponManager.ExistingWeaponsData.ReturnWeaponClass(_weaponType)))
             return true;
         else
             return false;
@@ -47,6 +47,6 @@ public class WeaponItemSO : ItemDataSO, IWeaponPickable
 
     public void PickUpWeapon()
     {
-        _weaponManager._GiveWeapon(_weaponManager.ExistingWeaponsData.ReturnWeaponClass(_weaponType));
+        _weaponManager.GiveWeapon(_weaponManager.ExistingWeaponsData.ReturnWeaponClass(_weaponType));
     }
 }

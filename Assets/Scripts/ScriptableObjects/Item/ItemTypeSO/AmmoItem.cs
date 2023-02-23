@@ -37,7 +37,10 @@ public class AmmoItem : ItemDataSO, IAmmoPickable
     public override bool CanBePickedUp()
     {
         if (_statsManager == null)
+        {
             FindNeededManager();
+        }
+            
 
         if (_statsManager.CanPickUpItem(true, false))
             return true;

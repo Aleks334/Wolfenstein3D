@@ -34,7 +34,6 @@ public abstract class PlayerWeapon
 
     public abstract void PerformAttack();
     public abstract void HandleAttackInput();
-    public abstract void HandleChangeWeaponInput();
 
     public PlayerWeaponManager GetPlayerWeaponManager()
     {
@@ -70,7 +69,7 @@ public abstract class PlayerWeapon
     }
     public bool IsWeaponAnimPlaying()
     {
-        if (GetPlayerWeaponManager().CurrentWeaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(GetPlayerWeaponManager().currentAnim) && GetPlayerWeaponManager().CurrentWeaponAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        if (GetPlayerWeaponManager().CurrentWeaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(GetPlayerWeaponManager().CurrentAnim) && GetPlayerWeaponManager().CurrentWeaponAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
             return true;
         else
             return false;
@@ -79,7 +78,7 @@ public abstract class PlayerWeapon
     //Plays standard shooting anim (for semi/melee or main part of full auto shooting anim)
     public void PlayAttackAnim()
     {
-        GetPlayerWeaponManager().CurrentWeaponAnimator.Play(GetPlayerWeaponManager().currentAnim);
+        GetPlayerWeaponManager().CurrentWeaponAnimator.Play(GetPlayerWeaponManager().CurrentAnim);
     }
 
     //For canceling full auto shooting anim when ammo equals 0

@@ -27,12 +27,6 @@ public class PlayerWeaponsData
 
     public PlayerWeapon ReturnWeaponClass(WeaponType weapon)
     {
-        for(int i = 0; i < ExistingWeapons.Count; i++)
-        {
-            if(ExistingWeapons[i]._weaponType == weapon)
-                return ExistingWeapons[i];
-        }
-        Debug.LogError("can't return PlayerWeapon");
-        return null;
+        return ExistingWeapons[(int)weapon];
     }
 }

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class MiniGun : PlayerWeapon
+public class FullAuto : PlayerWeapon
 {
-    public MiniGun(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot) : base(attackMode, damage, rof, range, weaponType, currentWeaponShootAnim, weaponSlot)
+    public FullAuto(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot) : base(attackMode, damage, rof, range, weaponType, currentWeaponShootAnim, weaponSlot)
     {
     }
 
@@ -18,14 +18,6 @@ public class MiniGun : PlayerWeapon
         // Animation after full auto shot.
         else if (Input.GetKeyUp(KeyCode.LeftControl))
             PlayAfterFullAutoShootAnim(this);
-    }
-
-    public override void HandleChangeWeaponInput()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha4) && !IsWeaponAnimPlaying())
-        {
-            GetPlayerWeaponManager()._ChangeWeapon(GetPlayerWeaponManager().ExistingWeaponsData.MiniGun);
-        }
     }
 
     public override void PerformAttack()
