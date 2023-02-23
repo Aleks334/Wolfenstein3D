@@ -91,7 +91,7 @@ public class PlayerWeaponManager : MonoBehaviour
     public void ChangeWeapon(PlayerWeapon weaponToChange)
     {
 
-        if (!HaveThatWeapon(weaponToChange) && CurrentWeapon == weaponToChange)
+        if (!HaveThatWeapon(weaponToChange) || CurrentWeapon == weaponToChange)
         {
             Debug.Log("Gracz nie posiada " + weaponToChange + " w ekwipunku lub ju¿ j¹ trzyma");
             return;
