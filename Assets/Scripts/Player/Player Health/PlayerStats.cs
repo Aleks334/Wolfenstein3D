@@ -32,9 +32,9 @@ public class PlayerStats : MonoBehaviour
 
         // TESTS OF LIVES SYSTEM
         if (Input.GetKeyDown(KeyCode.L))
-            AddLives(1);
+            AddLifes(1);
         else if(Input.GetKeyDown(KeyCode.J))
-            RemoveLives(1);
+            RemoveLifes(1);
 
         // TESTS OF ADDING AMMO
        if (Input.GetKeyDown(KeyCode.P))
@@ -52,12 +52,12 @@ public class PlayerStats : MonoBehaviour
         UI.healthdecreaseeffect();
 
         //Check if player has 0 health and at least one live
-        if(playerData.playerHealth.CurrentHealth == 0 && playerData.playerLives.CurrentLives > 0)
+        if(playerData.playerHealth.CurrentHealth == 0 && playerData.playerLifes.CurrentLifes > 0)
         {
             GameManager.Instance.UpdateGameState(GameState.LiveLose);
             Debug.Log("UpdateGameState(GameState.LiveLose)");
 
-        } else if(playerData.playerHealth.CurrentHealth == 0 && playerData.playerLives.CurrentLives == 0)
+        } else if(playerData.playerHealth.CurrentHealth == 0 && playerData.playerLifes.CurrentLifes == 0)
         {
             GameManager.Instance.UpdateGameState(GameState.GameOver);
             Debug.Log("UpdateGameState(GameState.GameOver)");
@@ -73,19 +73,19 @@ public class PlayerStats : MonoBehaviour
         UI.ReloadUI();
         UI.healtincreaseeffect();
     }
-    // LIVES Methods
-    public void AddLives(int livesToAdd)
+    // LIFES Methods
+    public void AddLifes(int lifesToAdd)
     {
 
-        playerData.playerLives.IncreasePlayerLives(livesToAdd);
-        Debug.Log("Obecny poziom ¿ycia: " + playerData.playerLives.CurrentLives);
+        playerData.playerLifes.IncreasePlayerLifes(lifesToAdd);
+        Debug.Log("Obecny poziom ¿ycia: " + playerData.playerLifes.CurrentLifes);
         UI.ReloadUI();
     }
-    public void RemoveLives(int livesToRemove)
+    public void RemoveLifes(int lifesToRemove)
     {
 
-        playerData.playerLives.DecreasePlayerLives(livesToRemove);
-        Debug.Log("Obecny poziom ¿ycia: " + playerData.playerLives.CurrentLives);
+        playerData.playerLifes.DecreasePlayerLifes(lifesToRemove);
+        Debug.Log("Obecny poziom ¿ycia: " + playerData.playerLifes.CurrentLifes);
         UI.ReloadUI();
     }
 
@@ -107,34 +107,26 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("Obecny stan amunicji: " + playerData.playerAmmo.CurrentAmmo);
         UI.ReloadUI(playerData.playerAmmo.CurrentAmmo);
     }
-    /*
-    public int GetCurrentAmmo()
+
+    public bool CanPickUpHealth()
     {
-        return playerAmmo.CurrentAmmo;
-    }*/
-  
-    public bool CanPickUpItem(bool checkAmmo, bool checkHealth, bool checkForPowerUp = false)
-    {
-        if (checkAmmo)
-        {
-            if (playerData.playerAmmo.CurrentAmmo == playerData.playerAmmo.MaxAmmo)
-                return false;
-            else
-                return true;
-        }
-        else if (checkHealth)
-        {
-            if (playerData.playerHealth.CurrentHealth == playerData.playerHealth.MaxHealth)
-                return false;
-            else
-                return true;
-        }
-        else if (checkForPowerUp)
-            return true; //Nawet jeœli gracz ma maks. zdrowie, maks. amunicjê to mo¿na dodaæ 1 ¿ycie.
-        else
-        {
+        if (playerData.playerHealth.CurrentHealth == playerData.playerHealth.MaxHealth)
             return false;
-        }
-           
+        else
+            return true;
+    }
+
+    public bool CanPickUpAmmo()
+    {
+        if (playerData.playerAmmo.CurrentAmmo == playerData.playerAmmo.MaxAmmo)
+            return false;
+        else
+            return true;
+    }
+
+    public bool CanPickUpPowerUp()
+    {
+        //Nawet jeœli gracz ma maks. zdrowie, maks. amunicjê to mo¿na dodaæ 1 ¿ycie.
+        return true;
     }
 }

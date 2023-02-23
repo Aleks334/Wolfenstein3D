@@ -45,9 +45,10 @@ public class PlayerWeaponManager : MonoBehaviour
         CurrentWeapon.HandleAttackInput();
 
 
-        foreach(IHandleChangeWeapon weapon in ExistingWeaponsData.ExistingWeapons)
-        {
-            weapon.HandleChangeWeaponInput();
+        foreach(IHandleChangeWeapon weapon in PlayerData.WeaponsInInventory)
+        {  
+            if (weapon != null)
+                weapon.HandleChangeWeaponInput();
         }
     }
 
@@ -58,8 +59,8 @@ public class PlayerWeaponManager : MonoBehaviour
            PlayerData.WeaponsInInventory[i] = null;
         }
 
-        GiveWeapon(ExistingWeaponsData.PistolWeapon);
-        GiveWeapon(ExistingWeaponsData.KnifeWeapon);
+        GiveWeapon(ExistingWeaponsData.Pistol);
+        GiveWeapon(ExistingWeaponsData.Knife);
 
        /*
         for (int i = 0; i < PlayerData.WeaponsInInventory.Length; i++)

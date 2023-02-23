@@ -12,13 +12,13 @@ public class PlayerData : ScriptableObject
 
     public PlayerAmmo playerAmmo = new PlayerAmmo();
     public ObjectHealth playerHealth = new ObjectHealth(100, 100);
-    public PlayerLives playerLives = new PlayerLives(3);
+    public PlayerLifes playerLifes = new PlayerLifes(3);
     public const int DEFAULT_LIFES_NUM = 3;
     public const int DEFAULT_AMMO_NUM = 8;
 
     public void TakeLife()
     {
-        playerLives.DecreasePlayerLives(1);
+        playerLifes.DecreasePlayerLifes(1);
     }
     public void GiveMaxHealth()
     {
@@ -30,8 +30,8 @@ public class PlayerData : ScriptableObject
         playerAmmo.CurrentAmmo = DEFAULT_AMMO_NUM;
     }
 
-    public void RestLifes()
+    public void ResetLifes()
     {
-        playerLives.CurrentLives = DEFAULT_LIFES_NUM;
+        playerLifes.CurrentLifes = DEFAULT_LIFES_NUM;
     }
 }

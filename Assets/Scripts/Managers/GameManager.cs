@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerObj.GetComponent<PlayerStats>().enabled = false;
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
-        PlayerObj.GetComponent<PlayerShooting>().enabled = false;
+      //  PlayerObj.GetComponent<PlayerShooting>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
         PlayerObj.GetComponent<InteractionController>().enabled = false;
 
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerObj.GetComponent<PlayerStats>().enabled = false;
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
-        PlayerObj.GetComponent<PlayerShooting>().enabled = false;
+     //   PlayerObj.GetComponent<PlayerShooting>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
         PlayerObj.GetComponent<InteractionController>().enabled = false;
 
@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerObj.GetComponent<PlayerStats>().enabled = false;
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
-        PlayerObj.GetComponent<PlayerShooting>().enabled = false;
+    //    PlayerObj.GetComponent<PlayerShooting>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
         PlayerObj.GetComponent<InteractionController>().enabled = false;
 

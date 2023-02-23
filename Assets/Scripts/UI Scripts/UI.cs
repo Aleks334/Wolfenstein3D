@@ -28,7 +28,7 @@ public class UI : MonoBehaviour
     private void Start()
     {
         healthtext.text = playerData.playerHealth.CurrentHealth.ToString() + "%";
-        Lifecounttext.text = playerData.playerLives.CurrentLives.ToString();
+        Lifecounttext.text = playerData.playerLifes.CurrentLifes.ToString();
     }
 
     //unsubscribe to event OnGameStateChange when object is destroyed or after loading next scene.
@@ -87,7 +87,7 @@ public class UI : MonoBehaviour
         {
             
             healthtext.text = playerData.playerHealth.CurrentHealth.ToString() + "%";
-            Lifecounttext.text = playerData.playerLives.CurrentLives.ToString();
+            Lifecounttext.text = playerData.playerLifes.CurrentLifes.ToString();
             anim = true;
             reload = false;
             WaeponScript.reload = true;

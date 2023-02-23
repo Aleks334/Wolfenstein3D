@@ -42,7 +42,7 @@ public class AmmoItem : ItemDataSO, IAmmoPickable
         }
             
 
-        if (_statsManager.CanPickUpItem(true, false))
+        if (_statsManager.CanPickUpAmmo())
             return true;
         else
             return false;

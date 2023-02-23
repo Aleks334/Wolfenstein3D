@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item/PowerUp_Data")]
-public class PowerUpItem : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraLifesPickable
+[CreateAssetMenu(menuName = "Item/Health_Data")]
+public class HealthItemSO : ItemDataSO, IHealthPickable
 {
     #region Fields and Properties
 
@@ -10,31 +10,13 @@ public class PowerUpItem : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraLif
     [Tooltip("Select desired health value for item.")]
     [Range(1f, 100f)]
     [SerializeField] private int _healthAmount;
+
     public int HealthAmount
     {
         get { return _healthAmount; }
 
         set { _healthAmount = value; }
     }
-
-    [Tooltip("Select desired ammo value for item.")]
-    [SerializeField] private int _ammoAmount;
-    public int AmmoAmount
-    {
-        get { return _ammoAmount; }
-
-        set { _ammoAmount = value; }
-    }
-
-    [Tooltip("Select desired lifes value for item.")]
-    [SerializeField] private int _extraLifesAmount;
-    public int ExtraLifesAmount
-    {
-        get { return _extraLifesAmount; }
-
-        set { _extraLifesAmount = value; }
-    }
-
     #endregion
 
     #region ItemDataSO methods implementation
@@ -43,7 +25,7 @@ public class PowerUpItem : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraLif
     {
         if (GameManager.Instance.PlayerObj.TryGetComponent<PlayerStats>(out PlayerStats statsManager))
         {
-            //Debug.LogWarning("Znaleziono PlayerStats! (power up)");
+            //Debug.LogWarning("Znaleziono PlayerStats! (health)");
             _statsManager = statsManager;
         }
         else
@@ -57,7 +39,7 @@ public class PowerUpItem : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraLif
         if (_statsManager == null)
             FindNeededManager();
 
-        if (_statsManager.CanPickUpItem(false, false, true))
+        if (_statsManager.CanPickUpHealth())
             return true;
         else
             return false;
@@ -66,25 +48,12 @@ public class PowerUpItem : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraLif
     public override void PickupItem()
     {
         PickUpHealth();
-        PickUpAmmo();
-        PickUpExtraLifes();
     }
+
     #endregion
 
-    #region methods of interfaces implementation
     public void PickUpHealth()
     {
         _statsManager.HealPlayer(HealthAmount);
     }
-
-    public void PickUpAmmo()
-    {
-        _statsManager.AddAmmo(AmmoAmount);
-    }
-
-    public void PickUpExtraLifes()
-    {
-        _statsManager.AddLives(ExtraLifesAmount);
-    }
-    #endregion
 }
