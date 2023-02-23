@@ -77,8 +77,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.75, y: 2.82, z: 0.4}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.75, y: 2.82, z: 0.5857929}
+  m_Center: {x: 8.990646e-18, y: 0, z: 0.008445159}
 --- !u!114 &540887860505136357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +94,8 @@ MonoBehaviour:
   isPlayerInTrigger: 0
   isMoving: 0
   isOpened: 0
-  timeToCloseDoor: 3
+  _currentDoorStatus: 0
+  _timeToCloseDoor: 0
 --- !u!1001 &6468542554803851724
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class PlayerWeaponManager : MonoBehaviour
     public GameObject[] weaponObjects = new GameObject[4];
 
     //For animations
-    public string CurrentAnim;
+    public string CurrentAnim { get; private set; }
     public Animator CurrentWeaponAnimator { get; private set; }
 
     public float _timeToNextShot = 0f;
