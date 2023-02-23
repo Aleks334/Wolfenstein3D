@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InteractionController : MonoBehaviour
+public class RaycastInteractionController : MonoBehaviour
 {
     private Camera playerCam;
     private RaycastHit hit;
@@ -16,7 +16,7 @@ public class InteractionController : MonoBehaviour
         {
             if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, 4f))
             {
-                if (hit.transform.TryGetComponent<IInteractable>(out IInteractable interactableObj))
+                if (hit.transform.TryGetComponent<IInteractableRaycast>(out IInteractableRaycast interactableObj))
                     interactableObj.Interact();
             }
         }

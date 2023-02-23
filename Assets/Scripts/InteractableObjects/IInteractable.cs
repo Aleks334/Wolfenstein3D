@@ -1,6 +1,11 @@
 using UnityEngine;
 
-public interface IInteractable
+public interface IInteractableRaycast
+{
+    void Interact();
+}
+
+public interface IInteractableTrigger
 {
     void Interact();
 }

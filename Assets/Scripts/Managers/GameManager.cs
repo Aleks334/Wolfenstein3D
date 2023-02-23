@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
       //  PlayerObj.GetComponent<PlayerShooting>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
-        PlayerObj.GetComponent<InteractionController>().enabled = false;
+        PlayerObj.GetComponent<RaycastInteractionController>().enabled = false;
 
         yield return new WaitForSeconds(2f);
         //After death anim with game over text
@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
      //   PlayerObj.GetComponent<PlayerShooting>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
-        PlayerObj.GetComponent<InteractionController>().enabled = false;
+        PlayerObj.GetComponent<RaycastInteractionController>().enabled = false;
 
         yield return new WaitForSeconds(2f);
         //After death anim
@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
     //    PlayerObj.GetComponent<PlayerShooting>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
-        PlayerObj.GetComponent<InteractionController>().enabled = false;
+        PlayerObj.GetComponent<RaycastInteractionController>().enabled = false;
 
         ElevatorLever.material = elevatorLeverEnabledMat;
 

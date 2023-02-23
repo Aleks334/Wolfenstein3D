@@ -1,9 +1,7 @@
 public class PlayerLifes
 {
-    //Fields
     private int _currentLifes;
 
-    //Properties
     public int CurrentLifes
     { 
         get
@@ -17,13 +15,11 @@ public class PlayerLifes
         }
     }
 
-    //Constructor
-    public PlayerLifes(int currentLifes)
+    public PlayerLifes(int lifesCount)
     {
-        CurrentLifes = currentLifes;
+        CurrentLifes = lifesCount;
     }
 
-    //Methods
     public void IncreasePlayerLifes(int lifesToIncrease)
     {
         CurrentLifes += lifesToIncrease;
