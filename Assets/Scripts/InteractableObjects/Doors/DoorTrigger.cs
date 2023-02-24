@@ -3,43 +3,50 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour, IInteractableRaycast
 {
-    private bool isPlayerInTrigger;
-    private DoorState _currentDoorStatus;
+   private bool isPlayerInTrigger;
+   private BoxCollider collisionBox;
 
-    private float _timeToCloseDoor;
+   private DoorState _currentDoorStatus;
+
+   private float _timeToCloseDoor;
+    private float _time;
 
     private float TimeToCloseDoor
     {
         get { return _timeToCloseDoor; }
-
         set
         {
             _timeToCloseDoor = value;
 
             if (_timeToCloseDoor <= 0)
             {
-                Debug.Log("Odliczanie dobieg³o koñca. Drzwi zaczynaj¹ siê zamykaæ automatycznie. Box Collider blokuje mo¿liwoœæ przejœcia w trakcie zamykania");
+               // Debug.Log("Odliczanie dobieg³o koñca. Drzwi zaczynaj¹ siê zamykaæ automatycznie. Box Collider blokuje mo¿liwoœæ przejœcia w trakcie zamykania");
                 collisionBox.isTrigger = false;
-                StartCoroutine(CloseDoor(ANIM_TIME));
+                StartCoroutine(CloseDoor(transform.parent.right));
             }
         }
     }
+    private Transform _door;
 
-    const float ANIM_TIME = 2f;
-    private Animator animator;
-    const string DOOR_OPENING = "DoorOpening";
-    const string DOOR_CLOSING = "DoorClosing";
+    private float _mvmtAmount;
 
-    private BoxCollider collisionBox;
+    private Vector3 _startPos;
+    private Vector3 _endPos;
+
+    private float _mvmtSpeed = 1.5f;
 
     void Start()
     {
         isPlayerInTrigger = false;
-        animator = transform.parent.GetChild(0).gameObject.GetComponent<Animator>();
-        collisionBox = GetComponent<BoxCollider>();
+        collisionBox = transform.GetComponent<BoxCollider>();
 
         _currentDoorStatus = DoorState.Closed;
         TimeToCloseDoor = 3f;
+
+        _door = transform.parent.GetChild(0).transform;
+
+        _startPos = _door.position;
+        _mvmtAmount = 3.7f;
     }
 
     void Update()
@@ -55,7 +62,7 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast
     {
         if (_currentDoorStatus == DoorState.Opened)
         {
-            Debug.Log("Obiekt jest w obszarze przesuwania drzwi");
+            //Debug.Log("Obiekt jest w obszarze przesuwania drzwi");
             isPlayerInTrigger = true;
         }
     }
@@ -64,7 +71,7 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast
     {
         if (_currentDoorStatus == DoorState.Opened)
         {
-            Debug.Log("Obiekt wyszed³ z obszaru przesuwania drzwi");
+            //Debug.Log("Obiekt wyszed³ z obszaru przesuwania drzwi");
             isPlayerInTrigger = false;    
         }
     }
@@ -72,34 +79,48 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast
     public void Interact()
     {
         if (_currentDoorStatus == DoorState.Closed)
-        { 
-            StartCoroutine(OpenDoor(ANIM_TIME));
-        }
+            StartCoroutine(OpenDoor(-transform.parent.right));
+
         else if (_currentDoorStatus == DoorState.Opened)
-        {
-            StartCoroutine(CloseDoor(ANIM_TIME));
-        }
+            StartCoroutine(CloseDoor(transform.parent.right));
     }
 
-    IEnumerator OpenDoor(float waitTime)
+    private IEnumerator OpenDoor(Vector3 direction)
     {
-       // Debug.Log("Drzwi otwieraj¹ siê");
         _currentDoorStatus = DoorState.Moving;
-        animator.Play(DOOR_OPENING);
+        direction = Vector3.Normalize(direction);
+        _startPos = _door.position;
+        _endPos = _startPos + _mvmtAmount * direction; 
 
-        yield return new WaitForSeconds(waitTime);
+        _time = 0f;
+        while (_time < 1f)
+        {
+            _door.position = Vector3.Lerp(_startPos, _endPos, _time);
+            yield return null;
+
+            _time += Time.deltaTime * _mvmtSpeed;
+        }
         _currentDoorStatus = DoorState.Opened;
     }
 
-    IEnumerator CloseDoor(float waitTime)
+    private IEnumerator CloseDoor(Vector3 direction)
     {
-       // Debug.Log("Drzwi zamykaj¹ siê");
         _currentDoorStatus = DoorState.Moving;
-        animator.Play(DOOR_CLOSING);
-        TimeToCloseDoor = 3f;
+        direction = Vector3.Normalize(direction);
+        _startPos = _door.position;
+        _endPos = _startPos + _mvmtAmount * direction;
 
-        yield return new WaitForSeconds(waitTime);
+
+        _time = 0f;
+        while (_time < 1f)
+        {
+            _door.position = Vector3.Lerp(_startPos, _endPos, _time);
+            yield return null;
+
+            _time += Time.deltaTime * _mvmtSpeed;
+        }
         _currentDoorStatus = DoorState.Closed;
+        TimeToCloseDoor = 3f;
         collisionBox.isTrigger = true;
     }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ac69006de7025418c2eb3259ec13d5, type: 3}
   m_Name: Movement_Settings
   m_EditorClassIdentifier: 
-  mvmtSpeed: 12
+  mvmtSpeed: 15
   runningRate: 1.8
-  strafingRate: 1.4
-  sensitivity: 150
+  strafingRate: 1.5
+  sensitivity: 170

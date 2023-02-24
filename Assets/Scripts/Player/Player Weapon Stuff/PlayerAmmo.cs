@@ -2,7 +2,7 @@ public class PlayerAmmo
 {
     private int _currentAmmo;
     private int _maxAmmo;
-    public const int StartAmmo = 99;
+    public const int StartAmmo = 8;
 
     public int CurrentAmmo
     {
