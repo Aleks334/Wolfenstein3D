@@ -1,11 +1,13 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Item/PowerUp_Data")]
-public class PowerUpItem : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraLifesPickable
+public class PowerUpItemSO : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraLifesPickable
 {
     #region Fields and Properties
 
-    private PlayerStats _statsManager;
+    private HealthManager _healthManager;
+    private AmmoManager _ammoManager;
+    private LifesManager _lifesManager;
 
     [Tooltip("Select desired health value for item.")]
     [Range(1f, 100f)]
@@ -41,26 +43,31 @@ public class PowerUpItem : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraLif
 
     protected override void FindNeededManager()
     {
-        if (GameManager.Instance.PlayerObj.TryGetComponent<PlayerStats>(out PlayerStats statsManager))
-        {
-            //Debug.LogWarning("Znaleziono PlayerStats! (power up)");
-            _statsManager = statsManager;
-        }
+        if (GameManager.Instance.PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
+            _healthManager = healthManager;
         else
-        {
-            Debug.LogError("Gracz nie ma dodanej klasy PlayerStats!");
-        }
+            Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
+
+
+        if (GameManager.Instance.PlayerObj.TryGetComponent<AmmoManager>(out AmmoManager ammoManager))
+            _ammoManager = ammoManager;
+        else
+            Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
+
+
+        if (GameManager.Instance.PlayerObj.TryGetComponent<LifesManager>(out LifesManager lifesManager))
+            _lifesManager = lifesManager;
+        else
+            Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
     }
 
     public override bool CanBePickedUp()
     {
-        if (_statsManager == null)
+        if (!_healthManager || !_ammoManager || !_lifesManager)
             FindNeededManager();
 
-        if (_statsManager.CanPickUpPowerUp())
-            return true;
-        else
-            return false;
+        //Nawet jeœli gracz ma maks. zdrowie, maks. amunicjê to mo¿na dodaæ 1 ¿ycie.
+        return true;
     }
 
     public override void PickupItem()
@@ -74,17 +81,17 @@ public class PowerUpItem : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraLif
     #region methods of interfaces implementation
     public void PickUpHealth()
     {
-        _statsManager.HealPlayer(HealthAmount);
+        _healthManager.HealPlayer(HealthAmount);
     }
 
     public void PickUpAmmo()
     {
-        _statsManager.AddAmmo(AmmoAmount);
+        _ammoManager.AddAmmo(AmmoAmount);
     }
 
     public void PickUpExtraLifes()
     {
-        _statsManager.AddLifes(ExtraLifesAmount);
+        _lifesManager.AddLifes(ExtraLifesAmount);
     }
     #endregion
 }

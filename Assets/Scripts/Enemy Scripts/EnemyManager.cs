@@ -94,7 +94,7 @@ public class EnemyManager : MonoBehaviour
                     timeshoot = 1f;
                     int dmg = (int)Random.Range(2f, 9f);
                     int chance = (int)Random.Range(0, 10);
-                    if(chance <8)p.GetComponent<PlayerStats>().DamagePlayer(dmg);
+                    if(chance <8)p.GetComponent<HealthManager>().DamagePlayer(dmg);
                     shoot = true;
                     
                 }

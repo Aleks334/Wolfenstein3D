@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerWeaponManager : MonoBehaviour
 {
-    public PlayerData PlayerData;
-    public PlayerStats PlayerStats { get; private set; }
+    public PlayerWeaponsSO _playerWeapons;
+    public AmmoManager AmmoManager { get; private set; }
 
     GameObject weaponsHandler;
     public GameObject[] weaponObjects = new GameObject[4];
@@ -17,7 +17,14 @@ public class PlayerWeaponManager : MonoBehaviour
 
 
     public PlayerWeapon CurrentWeapon { get; private set; }
-    public PlayerWeaponsData ExistingWeaponsData { get; private set; }
+
+    [SerializeField] private PlayerWeaponsData _existingWeaponsData;
+    public PlayerWeaponsData ExistingWeaponsData
+    {
+        get { return _existingWeaponsData; }
+
+        private set { _existingWeaponsData = value; }
+    }
 
     void Awake()
     {
@@ -29,9 +36,9 @@ public class PlayerWeaponManager : MonoBehaviour
         }
 
         PlayerCam = Camera.main;
-        PlayerStats = GetComponent<PlayerStats>();
+        AmmoManager = GetComponent<AmmoManager>();
 
-        ExistingWeaponsData = new PlayerWeaponsData();
+       // ExistingWeaponsData = new PlayerWeaponsData();
     }
     void Start()
     {
@@ -45,7 +52,7 @@ public class PlayerWeaponManager : MonoBehaviour
         CurrentWeapon.HandleAttackInput();
 
 
-        foreach(IHandleChangeWeapon weapon in PlayerData.WeaponsInInventory)
+        foreach(IHandleChangeWeapon weapon in _playerWeapons.WeaponsInInventory)
         {  
             if (weapon != null)
                 weapon.HandleChangeWeaponInput();
@@ -54,9 +61,9 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public void DefaultWeapons()
     {
-        for (int i = 0; i < PlayerData.WeaponsInInventory.Length; i++)
+        for (int i = 0; i < _playerWeapons.WeaponsInInventory.Length; i++)
         {
-           PlayerData.WeaponsInInventory[i] = null;
+            _playerWeapons.WeaponsInInventory[i] = null;
         }
 
         GiveWeapon(ExistingWeaponsData.Pistol);
@@ -72,15 +79,15 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public void GiveWeapon(PlayerWeapon newWeapon)
     {
-      //  Debug.Log("playerData.WeaponsInInventory = " + newWeapon);
-        PlayerData.WeaponsInInventory[newWeapon._weaponSlot] = newWeapon;
+        //  Debug.Log("playerData.WeaponsInInventory = " + newWeapon);
+        _playerWeapons.WeaponsInInventory[newWeapon._weaponSlot] = newWeapon;
 
         ChangeWeapon(newWeapon);
     }
 
     public bool HaveThatWeapon(PlayerWeapon weaponToCheck)
     {
-        foreach (PlayerWeapon weapon in PlayerData.WeaponsInInventory)
+        foreach (PlayerWeapon weapon in _playerWeapons.WeaponsInInventory)
         {
             if (weaponToCheck == weapon)
                 return true;         
@@ -94,11 +101,11 @@ public class PlayerWeaponManager : MonoBehaviour
 
         if (!HaveThatWeapon(weaponToChange) || CurrentWeapon == weaponToChange)
         {
-            Debug.Log("Gracz nie posiada " + weaponToChange + " w ekwipunku lub ju¿ j¹ trzyma");
+            Debug.Log("Gracz ju¿ trzyma " + weaponToChange);
             return;
         }
 
-        CurrentWeapon = PlayerData.WeaponsInInventory[weaponToChange._weaponSlot];
+        CurrentWeapon = _playerWeapons.WeaponsInInventory[weaponToChange._weaponSlot];
         Debug.Log("Aktywna broñ: " + CurrentWeapon);
 
         //Find animator for current weapon

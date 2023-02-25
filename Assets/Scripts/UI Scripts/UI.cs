@@ -14,7 +14,8 @@ public class UI : MonoBehaviour
     public static bool anim = false;
     static bool reload = false;
 
-    public PlayerData playerData;
+    [SerializeField] private PlayerHealthSO _health;
+    [SerializeField] private PlayerLifeSO _lifes;
 
     //subscribe to event OnGameStateChange in order to affect on game state change.
     void Awake()
@@ -27,8 +28,8 @@ public class UI : MonoBehaviour
 
     private void Start()
     {
-        healthtext.text = playerData.playerHealth.CurrentHealth.ToString() + "%";
-        Lifecounttext.text = playerData.playerLifes.CurrentLifes.ToString();
+        healthtext.text = _health.playerHealth.CurrentHealth.ToString() + "%";
+        Lifecounttext.text = _lifes.CurrentLifes.ToString();
     }
 
     //unsubscribe to event OnGameStateChange when object is destroyed or after loading next scene.
@@ -86,8 +87,8 @@ public class UI : MonoBehaviour
         if(reload)
         {
             
-            healthtext.text = playerData.playerHealth.CurrentHealth.ToString() + "%";
-            Lifecounttext.text = playerData.playerLifes.CurrentLifes.ToString();
+            healthtext.text = _health.playerHealth.CurrentHealth.ToString() + "%";
+            Lifecounttext.text = _lifes.CurrentLifes.ToString();
             anim = true;
             reload = false;
             WaeponScript.reload = true;

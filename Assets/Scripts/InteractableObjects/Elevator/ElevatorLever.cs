@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Elevator : MonoBehaviour, IInteractableRaycast
+public class ElevatorLever : MonoBehaviour, IInteractableRaycast
 {
     public void Interact()
     {

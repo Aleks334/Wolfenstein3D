@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,9 +11,12 @@ public class GameManager : MonoBehaviour
     GameObject playerAsset;
 
     public GameObject PlayerObj { get; private set; }
-    public PlayerStats playerStats;
-    [SerializeField] PlayerData playerData;
-    SphereCollider triggerNoise;
+
+    private HealthManager _healthManager;
+    private AmmoManager _ammoManager;
+    private LifesManager _lifesManager;
+
+    //SphereCollider triggerNoise;
     public PlayerNoiseLevel playerNoiseLevel;
 
     //Game State
@@ -87,17 +89,28 @@ public class GameManager : MonoBehaviour
 
         PlayerSpawnPoint = GameObject.Find("PlayerSpawnPoint").transform;
         PlayerObj = Instantiate(playerAsset, PlayerSpawnPoint.position, Quaternion.Euler(0f, -90f, 0f));
-        // = GameObject.FindGameObjectWithTag("Player");
-        playerStats = PlayerObj.GetComponent<PlayerStats>();
-        //triggerNoise = playerObj.GetComponent<SphereCollider>();
-      //  triggerNoise.isTrigger = true;
+        #region Getting all needed player stats managers
+        if (PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
+            _healthManager = healthManager;
+        else
+            Debug.LogError("GameManager couldn't find PlayerHealthManager");
+
+
+        if (PlayerObj.TryGetComponent<AmmoManager>(out AmmoManager ammoManager))
+            _ammoManager = ammoManager;
+        else
+            Debug.LogError("GameManager couldn't find PlayerAmmoManager");
+
+
+        if (PlayerObj.TryGetComponent<LifesManager>(out LifesManager lifesManager))
+            _lifesManager = lifesManager;
+        else
+            Debug.LogError("GameManager couldn't find PlayerLifesManager");
+        #endregion
         ElevatorLever = GameObject.FindGameObjectWithTag("ElevatorLever").GetComponent<Renderer>();
-        Debug.Log("Current Health: " + playerData.playerHealth.CurrentHealth);
-        // playerObj.GetComponent<PlayerStats>().HealPlayer(playerData.playerHealth.MaxHealth);
+        Debug.Log("Current Health: " + _healthManager.Data.playerHealth.CurrentHealth); 
        // ScenesManager.LoadUIAsync(); //Create SO for methods of this type
-        //Summary
-        Debug.Log
-        (
+        Debug.Log(
         " <b>CLICK TO VIEW SUMMARY OF INITIALIZATION --> </b>\n\n" +
         "=====================================================\n\n" +
 
@@ -105,28 +118,24 @@ public class GameManager : MonoBehaviour
         "Current Episode: <b>" + database.SelectedEpisode + "</b>\n" +
         "--------------------------------\n" +
         "Current Difficulty Level: <b>" + database.DifficultyLvl + "</b>\n" +
-        "--------------------------------\n"
-        );
+        "--------------------------------\n");
     }
 
     void RestoreDefaultPlayerSettings()
     {
         PlayerObj.GetComponent<PlayerWeaponManager>().DefaultWeapons();
-        playerData.ResetAmmo();
-        playerData.TakeLife();
-        playerData.GiveMaxHealth();   
+        _ammoManager.Data.ResetAmmo();
+        _lifesManager.Data.DecreasePlayerLifes(1);
+        _healthManager.Data.GiveMaxHealth();   
     }
-
-  /*  void Update()
-    {
-      ChangePlayerNoiseLevel();
-    }*/
 
     IEnumerator HandlePlayerGameOver()
     {
-        PlayerObj.GetComponent<PlayerStats>().enabled = false;
+        _healthManager.enabled = false;
+        _ammoManager.enabled = false;
+        _lifesManager.enabled = false;
+
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
-      //  PlayerObj.GetComponent<PlayerShooting>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
         PlayerObj.GetComponent<RaycastInteractionController>().enabled = false;
 
@@ -134,17 +143,16 @@ public class GameManager : MonoBehaviour
         //After death anim with game over text
         Debug.Log("HandlePlayerGameOver");
         RestoreDefaultPlayerSettings();
-        ScenesManager.instance.LoadLevel(Scenes.floor_1);
-       // ScenesManager.instance.ResetAttemps();
-
-        
+        ScenesManager.instance.LoadLevel(Scenes.floor_1); 
     }
 
     IEnumerator HandlePlayerLiveLose()
     {
-        PlayerObj.GetComponent<PlayerStats>().enabled = false;
+        _healthManager.enabled = false;
+        _ammoManager.enabled = false;
+        _lifesManager.enabled = false;
+
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
-     //   PlayerObj.GetComponent<PlayerShooting>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
         PlayerObj.GetComponent<RaycastInteractionController>().enabled = false;
 
@@ -152,16 +160,16 @@ public class GameManager : MonoBehaviour
         //After death anim
         Debug.Log("HandlePlayerLiveLose");
          RestoreDefaultPlayerSettings();
-      //  ScenesManager.instance.PlayerLostLife(true);
         ScenesManager.instance.LoadLevel(Scenes.floor_1);
-       
     }
 
     IEnumerator HandlePlayerVictory()
     {
-        PlayerObj.GetComponent<PlayerStats>().enabled = false;
+        _healthManager.enabled = false;
+        _ammoManager.enabled = false;
+        _lifesManager.enabled = false;
+
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
-    //    PlayerObj.GetComponent<PlayerShooting>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
         PlayerObj.GetComponent<RaycastInteractionController>().enabled = false;
 
@@ -172,28 +180,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("HandlePlayerVictory"); 
         ScenesManager.instance.LoadLevel(0);
     }
-    /*
-    public void ChangePlayerNoiseLevel()
-    {
-        //Changing sphere collider trigger radius on different level of player noise.
-        switch ((int)playerNoiseLevel)
-        {
-            case (int)PlayerNoiseLevel.standing:
-                triggerNoise.radius = (int)PlayerNoiseLevel.standing;
-                break;
-            case (int)PlayerNoiseLevel.walking:
-                triggerNoise.radius = (int)PlayerNoiseLevel.walking;
-                break;
-            case (int)PlayerNoiseLevel.running:
-                triggerNoise.radius = (int)PlayerNoiseLevel.running;
-                break;
-            case (int)PlayerNoiseLevel.shooting:
-                triggerNoise.radius = (int)PlayerNoiseLevel.shooting;
-                break;
-            default:
-                break;
-        }
-    }*/
 }
 
 public enum GameState
@@ -204,7 +190,6 @@ public enum GameState
     GameOver,
     Victory,
 }
-
 
 public enum PlayerNoiseLevel
 {

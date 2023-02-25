@@ -5,7 +5,7 @@ public class HealthItemSO : ItemDataSO, IHealthPickable
 {
     #region Fields and Properties
 
-    private PlayerStats _statsManager;
+    private HealthManager _healthManager;
 
     [Tooltip("Select desired health value for item.")]
     [Range(1f, 100f)]
@@ -23,23 +23,23 @@ public class HealthItemSO : ItemDataSO, IHealthPickable
 
     protected override void FindNeededManager()
     {
-        if (GameManager.Instance.PlayerObj.TryGetComponent<PlayerStats>(out PlayerStats statsManager))
+        if (GameManager.Instance.PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
         {
-            //Debug.LogWarning("Znaleziono PlayerStats! (health)");
-            _statsManager = statsManager;
+            //Debug.LogWarning("Znaleziono HealthManager! (health)");
+            _healthManager = healthManager;
         }
         else
         {
-            Debug.LogError("Gracz nie ma dodanej klasy PlayerStats!");
+            Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
         }
     }
 
     public override bool CanBePickedUp()
     {
-        if (_statsManager == null)
+        if (_healthManager == null)
             FindNeededManager();
 
-        if (_statsManager.CanPickUpHealth())
+        if (_healthManager.CanPickUpHealth())
             return true;
         else
             return false;
@@ -54,6 +54,6 @@ public class HealthItemSO : ItemDataSO, IHealthPickable
 
     public void PickUpHealth()
     {
-        _statsManager.HealPlayer(HealthAmount);
+        _healthManager.HealPlayer(HealthAmount);
     }
 }

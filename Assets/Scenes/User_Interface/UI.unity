@@ -789,7 +789,7 @@ MonoBehaviour:
   - {fileID: -2104119933, guid: 9d87b6bcacf81414199f7e63bd601c55, type: 3}
   ammocounttext: {fileID: 134974428}
   weaponimg: {fileID: 428244463}
-  playerData: {fileID: 11400000, guid: 72dda0c7639a20b4b91e7343e8ea6206, type: 2}
+  _weapons: {fileID: 11400000, guid: 5db54a8e397a39143beea64a8ab4ec56, type: 2}
 --- !u!114 &428244463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,7 +1368,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthtext: {fileID: 350085517}
   Lifecounttext: {fileID: 2035796911}
-  playerData: {fileID: 11400000, guid: 72dda0c7639a20b4b91e7343e8ea6206, type: 2}
+  _health: {fileID: 11400000, guid: d6640dddce45a4046a3bf26c30979c95, type: 2}
+  _lifes: {fileID: 11400000, guid: 68a8efc9324616040bec981d11dd63a2, type: 2}
 --- !u!114 &1649078092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1504,7 +1505,7 @@ MonoBehaviour:
   - {fileID: -244315526, guid: 974f7bd9525f77449ac45a3081615e01, type: 3}
   - {fileID: -1913050361, guid: 974f7bd9525f77449ac45a3081615e01, type: 3}
   - {fileID: 326416837, guid: 974f7bd9525f77449ac45a3081615e01, type: 3}
-  playerData: {fileID: 11400000, guid: 72dda0c7639a20b4b91e7343e8ea6206, type: 2}
+  _health: {fileID: 11400000, guid: d6640dddce45a4046a3bf26c30979c95, type: 2}
 --- !u!114 &1655441137
 MonoBehaviour:
   m_ObjectHideFlags: 0

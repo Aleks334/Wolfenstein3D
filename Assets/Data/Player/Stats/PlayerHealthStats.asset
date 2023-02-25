@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39b6f4d903c38324aababb8e12a3ba7b, type: 3}
-  m_Name: Player_Data
+  m_Script: {fileID: 11500000, guid: fd921de80bb1e2a4fb1b04b414e509e8, type: 3}
+  m_Name: PlayerHealthStats
   m_EditorClassIdentifier: 
-  _weaponsInInventory: 0000000001000000ffffffff03000000
+  _defaultAmount: 100
+  _maxAmount: 100

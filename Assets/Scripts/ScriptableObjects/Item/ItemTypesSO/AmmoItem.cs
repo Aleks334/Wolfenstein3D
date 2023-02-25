@@ -5,7 +5,7 @@ public class AmmoItem : ItemDataSO, IAmmoPickable
 {
     #region Fields and Properties
 
-    private PlayerStats _statsManager;
+    private AmmoManager _ammoManager;
 
     [Tooltip("Select desired ammo value for item.")]
     [SerializeField] private int _ammoAmount;
@@ -23,10 +23,10 @@ public class AmmoItem : ItemDataSO, IAmmoPickable
 
     protected override void FindNeededManager()
     {
-        if (GameManager.Instance.PlayerObj.TryGetComponent<PlayerStats>(out PlayerStats statsManager))
+        if (GameManager.Instance.PlayerObj.TryGetComponent<AmmoManager>(out AmmoManager ammoManager))
         {
             //Debug.LogWarning("Znaleziono PlayerStats (ammo)!");
-            _statsManager = statsManager;
+            _ammoManager = ammoManager;
         }
         else
         {
@@ -36,13 +36,13 @@ public class AmmoItem : ItemDataSO, IAmmoPickable
 
     public override bool CanBePickedUp()
     {
-        if (_statsManager == null)
+        if (_ammoManager == null)
         {
             FindNeededManager();
         }
             
 
-        if (_statsManager.CanPickUpAmmo())
+        if (_ammoManager.CanPickUpAmmo())
             return true;
         else
             return false;
@@ -56,6 +56,6 @@ public class AmmoItem : ItemDataSO, IAmmoPickable
 
     public void PickUpAmmo()
     {
-        _statsManager.AddAmmo(AmmoAmount);
+        _ammoManager.AddAmmo(AmmoAmount);
     }
 }

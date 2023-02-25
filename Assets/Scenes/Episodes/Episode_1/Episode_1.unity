@@ -7372,7 +7372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
-  playerData: {fileID: 11400000, guid: 72dda0c7639a20b4b91e7343e8ea6206, type: 2}
+  _health: {fileID: 11400000, guid: d6640dddce45a4046a3bf26c30979c95, type: 2}
   playerNoiseLevel: 0
   gameState: 0
   database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}

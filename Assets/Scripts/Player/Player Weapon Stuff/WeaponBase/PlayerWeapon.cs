@@ -2,15 +2,6 @@ using UnityEngine;
 
 public abstract class PlayerWeapon
 {
-  /*  public static Dictionary<WeaponType, PlayerWeapon> playerWeapons = new Dictionary<WeaponType, PlayerWeapon>()
-    {
-        { WeaponType.knife, new PlayerWeapon(ShootingMode.meele, 9, 0.2f, 3f, WeaponType.knife, "knife_stabbing", 0) },
-        { WeaponType.pistol, new PlayerWeapon(ShootingMode.semi_auto, 18, 0.35f, 50f, WeaponType.pistol, "pistol_shooting", 1) },
-        { WeaponType.machine_gun, new PlayerWeapon(ShootingMode.full_auto, 25, 0.25f, 65f, WeaponType.machine_gun, "machine_gun_shooting", 2) },
-        { WeaponType.mini_gun, new PlayerWeapon(ShootingMode.full_auto, 30, 0.17f, 55f, WeaponType.mini_gun, "mini_gun_shooting", 3) },
-        // Add new weapons here.
-    };*/
-
     public int _damage;
     public float _range;
     public float _rof;
@@ -43,8 +34,8 @@ public abstract class PlayerWeapon
 
         if (GameManager.Instance.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
         {
-                //Debug.LogWarning("Znaleziono PlayerStats (ammo)!");
-                WeaponManager = weaponManager;
+            //Debug.LogWarning("Znaleziono PlayerWeaponManager (ammo)!");
+            WeaponManager = weaponManager;
             return WeaponManager;
         }
         else
@@ -103,7 +94,6 @@ public enum ShootingMode
 
 public enum WeaponType
 {
-    //None  = -1,
     knife,
     pistol,
     machine_gun,

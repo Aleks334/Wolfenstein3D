@@ -22,14 +22,14 @@ public class FullAuto : PlayerWeapon
 
     public override void PerformAttack()
     {
-        if (GetPlayerWeaponManager().PlayerData.playerAmmo.CurrentAmmo == 0)
+        if (GetPlayerWeaponManager().AmmoManager.Data.CurrentAmmo == 0)
         {
             CanFullAutoShootAnim(false);
             return;
         }
 
         CanFullAutoShootAnim(true);
-        GetPlayerWeaponManager().PlayerStats.RemoveAmmo();
+        GetPlayerWeaponManager().AmmoManager.RemoveAmmo();
         PlayAttackAnim();
         GetPlayerWeaponManager()._timeToNextShot = _rof;
 
