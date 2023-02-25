@@ -111,3 +111,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84090634ad905246939f16e3df17ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elevatorLeverEnabledMat: {fileID: 2100000, guid: e0551d8be4ea61c498ddeb770cc6a9e6, type: 2}

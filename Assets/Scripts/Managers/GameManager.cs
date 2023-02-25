@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
 
     //Elevator lever
-    Renderer ElevatorLever;
-    Material elevatorLeverEnabledMat;
+ //   Renderer ElevatorLever;
+   // Material elevatorLeverEnabledMat;
 
     //Menu data for import settings
     [SerializeField] ScenesData database;
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         database.UpdateMenuPage(MenuPage.InGame);
         playerAsset = Resources.Load("Player/Player") as GameObject;
-        elevatorLeverEnabledMat = Resources.Load("Materials/ElevatorLeverMat") as Material;
+      //  elevatorLeverEnabledMat = Resources.Load("Materials/ElevatorLeverMat") as Material;
 
         PlayerSpawnPoint = GameObject.Find("PlayerSpawnPoint").transform;
         PlayerObj = Instantiate(playerAsset, PlayerSpawnPoint.position, Quaternion.Euler(0f, -90f, 0f));
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
         else
             Debug.LogError("GameManager couldn't find PlayerLifesManager");
         #endregion
-        ElevatorLever = GameObject.FindGameObjectWithTag("ElevatorLever").GetComponent<Renderer>();
+      //  ElevatorLever = GameObject.FindGameObjectWithTag("ElevatorLever").GetComponent<Renderer>();
         Debug.Log("Current Health: " + _healthManager.Data.playerHealth.CurrentHealth); 
        // ScenesManager.LoadUIAsync(); //Create SO for methods of this type
         Debug.Log(
@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
         PlayerObj.GetComponent<RaycastInteractionController>().enabled = false;
 
-        ElevatorLever.material = elevatorLeverEnabledMat;
+        //ElevatorLever.material = elevatorLeverEnabledMat;
 
         yield return new WaitForSeconds(2f);
         //After victory anim
