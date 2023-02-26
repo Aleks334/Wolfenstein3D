@@ -11,7 +11,7 @@ public class enemystats : MonoBehaviour
     public float speed;
     public int dmg;
     public bool hurt = false;
-    public int noisevalue;
+    public float noisevalue;
     public int hp;
     public Transform player;
     public enemy_type type;
@@ -23,6 +23,7 @@ public class enemystats : MonoBehaviour
     }
     public void Dmgenemy(int value)
     {
+
         enemyhealth.DmgValue(value);
         hurt = true;
     }

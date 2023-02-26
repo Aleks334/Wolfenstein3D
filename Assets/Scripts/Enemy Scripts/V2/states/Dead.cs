@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Dead : state
 {
@@ -8,6 +9,7 @@ public class Dead : state
 
     public override void on_state_enter()
     {
+        this.gameObject.GetComponent<NavMeshAgent>().isStopped = true;
         if(this.GetComponent<enemystats>().type == enemystats.enemy_type.Doge)
         {
             //œmieræ psa

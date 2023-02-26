@@ -30,17 +30,17 @@ public class Aminations : MonoBehaviour
     public void anim()
     {
         string state = this.gameObject.GetComponentInParent<Enemy>().state;
-        if (spritetime <= 0 || state == "Attacking")
+        if (spritetime <= 0 || state == "Attacking" || state== "Stunned")
         {
             
             int index = getindex();
-            if(state== "Standing") { this.GetComponent<SpriteRenderer>().sprite = movesprites[index * 5];addtime(0.5f); }
+            if (state == "Stunned") { this.GetComponent<SpriteRenderer>().sprite = deathsprites[0]; addtime(0.5f); }
+            if (state== "Standing") { this.GetComponent<SpriteRenderer>().sprite = movesprites[index * 5];addtime(0.5f); }
             if(state== "Walking") { this.GetComponent<SpriteRenderer>().sprite = movesprites[index * 5 + iteration];addtime(0.5f); }
             if(state== "Running") { this.GetComponent<SpriteRenderer>().sprite = movesprites[index * 5 + iteration];addtime(0.25f); }
             if(state== "Aiming") { this.GetComponent<SpriteRenderer>().sprite = attacksprites[0];addtime(0.2f); }
             if(state== "Attacking") { this.GetComponent<SpriteRenderer>().sprite = attacksprites[1];addtime(0.15f); }
-            if(state== "Stunned") { this.GetComponent<SpriteRenderer>().sprite = deathsprites[0];addtime(0.2f); }
-            if(state== "Dead") { this.GetComponent<SpriteRenderer>().sprite = deathsprites[deathcount];addtime(0.2f); deathcount++; }
+            if(state== "Dead") { this.GetComponent<SpriteRenderer>().sprite = deathsprites[deathcount];addtime(0.15f); deathcount++; }
             iteration++;
             if (iteration > 4) iteration = 1;
             if (deathcount == deathsprites.Count) deathcount--;
@@ -66,8 +66,8 @@ public class Aminations : MonoBehaviour
                 int index = getindex();
                 if (state == "Walking") { this.GetComponent<SpriteRenderer>().sprite = movesprites[index * 4 + iteration]; addtime(0.2f); }
                 if (state == "Running") { this.GetComponent<SpriteRenderer>().sprite = movesprites[index * 4 + iteration]; addtime(0.1f); }
-                if (state == "Stunned") { this.GetComponent<SpriteRenderer>().sprite = deathsprites[0]; addtime(0.2f); }
-                if (state == "Dead") { this.GetComponent<SpriteRenderer>().sprite = deathsprites[deathcount]; addtime(0.2f); deathcount++; }
+                if (state == "Stunned") { this.GetComponent<SpriteRenderer>().sprite = deathsprites[0]; addtime(0.5f); }
+                if (state == "Dead") { this.GetComponent<SpriteRenderer>().sprite = deathsprites[deathcount]; addtime(0.15f); deathcount++; }
             }
             iteration++;
             if (iteration > 3) iteration = 0;

@@ -45,7 +45,7 @@ public class Warmed : state
         }
        else  if (!mele)
         {
-            if (this.gameObject.GetComponent<Sight>().see)
+            if (this.gameObject.GetComponent<Sight>().see || this.GetComponent<enemystats>().getdistance() < 5)
             {
                 if (shoottime <= 0)
                 {
