@@ -20,6 +20,8 @@ public class RunningState : Grounded
 
         defaultMvmtSpeed = mvmtSpeed;
         mvmtSpeed *= runningRate;
+
+        _movementManager.PlayerNoiseLevel = PlayerNoiseLevel.Running;
     }
 
     public override void ExitState()

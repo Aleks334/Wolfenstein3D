@@ -39,7 +39,7 @@ public class Patroling : state
         {
             changestate = "Warmed";
         }
-        else if (((int)GameManager.instance.playerNoiseLevel * (int)(GameManager.instance.playerNoiseLevel)) / this.gameObject.GetComponent<enemystats>().getdistance() > this.gameObject.GetComponent<enemystats>().noisevalue)
+        else if (((int)GameManager.PlayerObj.GetComponent< PlayerMovementManager>().PlayerNoiseLevel * (int)(GameManager.PlayerObj.GetComponent<PlayerMovementManager>().PlayerNoiseLevel)) / this.gameObject.GetComponent<enemystats>().getdistance() > this.gameObject.GetComponent<enemystats>().noisevalue)
         {
             changestate = "Warmed";
         }

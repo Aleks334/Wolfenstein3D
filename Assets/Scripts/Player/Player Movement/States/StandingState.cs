@@ -16,6 +16,7 @@ public class StandingState : Grounded
     public override void EnterState()
     {
         base.EnterState();
+        _movementManager.PlayerNoiseLevel = PlayerNoiseLevel.Standing;
     }
 
     public override void HandleInput()

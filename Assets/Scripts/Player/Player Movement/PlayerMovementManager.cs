@@ -18,6 +18,8 @@ public class PlayerMovementManager : MonoBehaviour
 
     public PlayerMovementSettings MvmtSettings;
 
+    [HideInInspector] public PlayerNoiseLevel PlayerNoiseLevel;
+
     #endregion
 
     void Awake()
@@ -52,4 +54,14 @@ public class PlayerMovementManager : MonoBehaviour
         PlayerMovementFSM.CurrentState.HandleInput();
         PlayerMovementFSM.CurrentState.LogicUpdate();
     }
+}
+
+
+public enum PlayerNoiseLevel
+{
+    Standing,
+    Strafing,
+    Walking,
+    Running,
+    Shooting,
 }

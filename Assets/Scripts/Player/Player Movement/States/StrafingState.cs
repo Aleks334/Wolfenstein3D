@@ -22,6 +22,8 @@ public class StrafingState : Grounded
 
         defaultMvmtSpeed = mvmtSpeed;
         mvmtSpeed *= strafingRate;
+
+        _movementManager.PlayerNoiseLevel = PlayerNoiseLevel.Strafing;
     }
 
     public override void ExitState()

@@ -23,6 +23,6 @@ public abstract class Melee : PlayerWeapon
         GetPlayerWeaponManager()._timeToNextShot = _rof;
         CreateRay(_range);
 
-        Debug.Log("tryb strzelania aktualnej broni: " + _shootingMode);
+        //Debug.Log("tryb strzelania aktualnej broni: " + _shootingMode);
     }
 }

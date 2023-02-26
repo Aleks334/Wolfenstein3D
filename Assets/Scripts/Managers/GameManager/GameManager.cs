@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
     //Player
     Transform PlayerSpawnPoint;
     GameObject playerAsset;
-
     public static GameObject PlayerObj { get; private set; }
 
     private HealthManager _healthManager;
