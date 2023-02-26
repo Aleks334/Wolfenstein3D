@@ -23,9 +23,8 @@ public class Enemynevmesh : MonoBehaviour
     void Update()
     {
 
-
-        //move(destination);
-        agent.destination = destination.position;
+            move(destination);
+        //agent.destination = destination.position;
         Debug.DrawRay(transform.position, transform.forward);
 
 
@@ -33,6 +32,7 @@ public class Enemynevmesh : MonoBehaviour
     public void move(Transform dir)
     {
         agent.destination = dir.position;
+
 
 
     }

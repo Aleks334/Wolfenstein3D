@@ -10,7 +10,7 @@ public class Sight : MonoBehaviour
     // Start is called before the first frame update
     public bool see = false;
     public bool seedeadfriend = false;
-    public List<Collider> objectsintrigger;
+    public List<Collider> objectsintrigger = new List<Collider>();
     public List<Collider> seenobjects;
     Vector3 v = new Vector3(20, 0, 0);
     // Update is called once per frame
@@ -72,12 +72,20 @@ public class Sight : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
-            foreach(Collider c in objectsintrigger)
+            /*foreach(Collider c in objectsintrigger)
             {
                 if(c.transform.position == other.transform.position)
                 {
                     objectsintrigger.Remove(c);
                 }
+            }*/
+            for(int i=0;i<objectsintrigger.Count; i++)
+            {
+                if (objectsintrigger[i].transform.position == other.transform.position)
+                {
+                    objectsintrigger.Remove(objectsintrigger[i]);
+                }
+
             }
         }
     }
@@ -86,28 +94,32 @@ public class Sight : MonoBehaviour
         see = false;
         seedeadfriend = false;
         seenobjects.Clear();
-        foreach(Collider collider in objectsintrigger)
+        if (objectsintrigger != null)
         {
-            float angle = getangle(collider.transform);
-            if (angle<22.6 && angle >-22.6  )
+            foreach (Collider collider in objectsintrigger)
             {
-                Vector3 dir = (transform.position - collider.transform.position).normalized;
-                Ray ray = new Ray(transform.position,dir*-1);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
+                float angle = getangle(collider.transform);
+                if (angle < 22.6 && angle > -22.6)
                 {
-                    if (hit.transform.gameObject.CompareTag("Player"))
+                    Vector3 dir = (transform.position - collider.transform.position).normalized;
+                    Ray ray = new Ray(transform.position, dir * -1);
+                    UnityEngine.Debug.DrawRay(transform.position, dir * -1);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit))
                     {
-
-                        see = true;
-                        seenobjects.Add(collider);
-                    }
-                    if(hit.transform.gameObject.CompareTag("Enemy"))
-                    {
-                        if(hit.transform.gameObject.GetComponent<EnemyManager>().dead )
+                        if (hit.transform.gameObject.CompareTag("Player"))
                         {
-                            seedeadfriend = true;
+
+                            see = true;
                             seenobjects.Add(collider);
+                        }
+                        else if (hit.transform.gameObject.CompareTag("Enemy"))
+                        {
+                            if (hit.transform.gameObject.GetComponent<Enemy>().state == "Dead")
+                            {
+                                seedeadfriend = true;
+                                seenobjects.Add(collider);
+                            }
                         }
                     }
                 }
