@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 960241868837493644}
   - component: {fileID: 955066249734082031}
   - component: {fileID: 4517086610603761268}
-  - component: {fileID: 8785545167644692015}
+  - component: {fileID: 705022714305027756}
   m_Layer: 0
   m_Name: Ammo_Clip
   m_TagString: Untagged
@@ -60,7 +60,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8785545167644692015
+--- !u!114 &705022714305027756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,10 +69,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3357493184913307264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a78f9f5ca8410468fce08014a69ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cabd4ab425ca4e4a937b700a1c33a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpItemType: 8
+  _itemData: {fileID: 11400000, guid: cab2acd10e76d9747a40a6b4764790ca, type: 2}
 --- !u!1 &8836113392863545614
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SplashScreensManager : MonoBehaviour
@@ -22,7 +21,6 @@ public class SplashScreensManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.anyKeyDown)
@@ -53,6 +51,5 @@ public class SplashScreensManager : MonoBehaviour
         }
 
         yield return null;
-
     }
 }

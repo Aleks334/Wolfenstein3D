@@ -94,7 +94,7 @@ public class EnemyManager : MonoBehaviour
                     timeshoot = 1f;
                     int dmg = (int)Random.Range(2f, 9f);
                     int chance = (int)Random.Range(0, 10);
-                    if(chance <8)p.GetComponent<PlayerStats>().DamagePlayer(dmg);
+                    if(chance <8)p.GetComponent<HealthManager>().DamagePlayer(dmg);
                     shoot = true;
                     
                 }
@@ -203,7 +203,7 @@ public class EnemyManager : MonoBehaviour
         {
 
             //je¿eli gracz jest zbyt g³oœny to przeciwnik zostaje ostrze¿ony
-            noicevalue = (int)GameManager.instance.playerNoiseLevel;
+            //noicevalue = (int)GameManager.Instance.playerNoiseLevel;
             noicevalue *= noicevalue;
             double distance = (System.Math.Pow((p.transform.position.x - transform.position.x), 2)+ System.Math.Pow((p.transform.position.z - transform.position.z), 2));
             if(noicevalue / distance >noisereactvalue)

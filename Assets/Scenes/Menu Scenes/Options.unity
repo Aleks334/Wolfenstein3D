@@ -3253,6 +3253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
   menuControls: {fileID: 1004248361}
+  _exitQuotesSO: {fileID: 11400000, guid: 088066f4631fed3458c292d6c1da3096, type: 2}
 --- !u!4 &2086239185
 Transform:
   m_ObjectHideFlags: 0

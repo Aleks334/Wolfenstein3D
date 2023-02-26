@@ -14,14 +14,16 @@ public class WaeponScript : MonoBehaviour
     public static string ammoamount = "8";
     string kammoamount = "-";
 
-    [SerializeField] PlayerData playerData;
+    [SerializeField] private PlayerWeaponsSO _weapons;
+    private PlayerWeaponManager weaponmanager;
+    //[SerializeField] PlayerData playerData;
 
     private void Start()
     {
-        PlayerWeaponManager weaponmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponManager>();
+        weaponmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponManager>();
         for (int i = 0; i < 4; i++)
         {
-            if (weaponmanager._currentWeapon == playerData._weaponsInInventory[i])
+            if (weaponmanager.CurrentWeapon == _weapons.WeaponsInInventory[i])
             {
 
                 weaponimg.sprite = weaponspritesarray[i];
@@ -52,10 +54,10 @@ public class WaeponScript : MonoBehaviour
     public void Reload()
     {
 
-        PlayerWeaponManager weaponmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponManager>();
+    //    PlayerWeaponManager weaponmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponManager>();
         for(int i=0;i<4;i++)
         {
-            if(weaponmanager._currentWeapon == playerData._weaponsInInventory[i])
+            if(weaponmanager.CurrentWeapon == _weapons.WeaponsInInventory[i])
             {
                 
                weaponimg.sprite = weaponspritesarray[i];

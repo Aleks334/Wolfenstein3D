@@ -1,83 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using Unity.VisualScripting;
-using System;
 
 public class UI : MonoBehaviour
 {
-
     public  TextMeshProUGUI healthtext;
     public  TextMeshProUGUI Lifecounttext;
     public static bool anim = false;
     static bool reload = false;
 
-    public PlayerData playerData;
+    [SerializeField] private PlayerHealthSO _health;
+    [SerializeField] private PlayerLifeSO _lifes;
+
+    [SerializeField] private VoidEventChannelSO _onPlayerDeath;
+    [SerializeField] private VoidEventChannelSO _onGameOver;
+    [SerializeField] private VoidEventChannelSO _onPlayerVictory;
 
     //subscribe to event OnGameStateChange in order to affect on game state change.
-    void Awake()
+    void OnEnable()
     {
-        GameManager.OnGameStateChanged += LiveLose_OnGameStateChanged;
-        GameManager.OnGameStateChanged += Victory_OnGameStateChanged;
-        GameManager.OnGameStateChanged += GameOver_OnGameStateChanged;
-        GameManager.OnGameStateChanged += Running_OnGameStateChanged; 
-    }
-
-    private void Start()
-    {
-        healthtext.text = playerData.playerHealth.CurrentHealth.ToString() + "%";
-        Lifecounttext.text = playerData.playerLives.CurrentLives.ToString();
+        _onPlayerDeath.OnEventRaised += OnPlayerDeath;
+        _onGameOver.OnEventRaised += OnGameOver;
+        _onPlayerVictory.OnEventRaised += OnPlayerVictory;
     }
 
     //unsubscribe to event OnGameStateChange when object is destroyed or after loading next scene.
-    void OnDestroy()
+    void OnDisable()
     {
-        GameManager.OnGameStateChanged -= LiveLose_OnGameStateChanged;
-        GameManager.OnGameStateChanged -= Victory_OnGameStateChanged;
-        GameManager.OnGameStateChanged -= GameOver_OnGameStateChanged;
-        GameManager.OnGameStateChanged -= Running_OnGameStateChanged;
+        _onPlayerDeath.OnEventRaised -= OnPlayerDeath;
+        _onGameOver.OnEventRaised -= OnGameOver;
+        _onPlayerVictory.OnEventRaised -= OnPlayerVictory;
+    }
+    private void Start()
+    {
+        healthtext.text = _health.playerHealth.CurrentHealth.ToString() + "%";
+        Lifecounttext.text = _lifes.CurrentLifes.ToString();
     }
 
-    void Running_OnGameStateChanged(GameState state)
+    void OnPlayerDeath()
     {
-        if (state == GameState.Running)
-        {
-            HealthChangePanelScript.zeroHealth = false;
-            HealthChangePanelScript.gameOverEffect = false;
-            HealthChangePanelScript.victory = false;
-        }
+       HealthChangePanelScript.zeroHealth = true;
+       Debug.Log("Utrata 1 ¿ycia. Wyœwietlenie efektu panelu, który staje siê coraz bardziej czerwony");     
     }
 
-    void LiveLose_OnGameStateChanged(GameState state)
+    void OnGameOver()
     {
-        if (state == GameState.LiveLose)
-        {
-            HealthChangePanelScript.zeroHealth = true;
-            Debug.Log("Utrata 1 ¿ycia. Wyœwietlenie efektu panelu, który staje siê coraz bardziej czerwony");
-        }
-           
+       HealthChangePanelScript.zeroHealth = true;
+       HealthChangePanelScript.gameOverEffect = true;
+       Debug.Log("Wyœwietlenie efektu panelu jak wczeœniej, tylko z napisem w stylu GameOver");    
     }
-
-    void GameOver_OnGameStateChanged(GameState state)
+    void OnPlayerVictory()
     {
-        if (state == GameState.GameOver)
-        {
-            HealthChangePanelScript.zeroHealth = true;
-            HealthChangePanelScript.gameOverEffect = true;
-            Debug.Log("Wyœwietlenie efektu panelu jak wczeœniej, tylko z napisem w stylu GameOver");
-        }
-           
-    }
-
-    void Victory_OnGameStateChanged(GameState state)
-    {
-        if (state == GameState.Victory)
-        {
-            HealthChangePanelScript.victory = true;
-            Debug.Log("Wyœwietlenie panelu dot. wygranej gracza");
-        }
+        HealthChangePanelScript.victory = true;
+        Debug.Log("Wyœwietlenie panelu dot. wygranej gracza");
     }
 
     void Update()
@@ -86,8 +60,8 @@ public class UI : MonoBehaviour
         if(reload)
         {
             
-            healthtext.text = playerData.playerHealth.CurrentHealth.ToString() + "%";
-            Lifecounttext.text = playerData.playerLives.CurrentLives.ToString();
+            healthtext.text = _health.playerHealth.CurrentHealth.ToString() + "%";
+            Lifecounttext.text = _lifes.CurrentLifes.ToString();
             anim = true;
             reload = false;
             WaeponScript.reload = true;

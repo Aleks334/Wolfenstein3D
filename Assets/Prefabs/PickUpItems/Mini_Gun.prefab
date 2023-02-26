@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6260295378758059946}
   - component: {fileID: 8351651873123398275}
   - component: {fileID: 8055399348550943939}
-  - component: {fileID: 9033960423861472486}
+  - component: {fileID: -5307417517612204518}
   m_Layer: 0
   m_Name: Mini_Gun
   m_TagString: Untagged
@@ -144,7 +144,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.56
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9033960423861472486
+--- !u!114 &-5307417517612204518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8885312030326292526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a78f9f5ca8410468fce08014a69ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cabd4ab425ca4e4a937b700a1c33a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpItemType: 99
+  _itemData: {fileID: 11400000, guid: ea2a35eb8cdc0544c9c661fa31330bde, type: 2}

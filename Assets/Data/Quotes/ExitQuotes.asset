@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174623bf3fae0ae42be4b0796b2e2805, type: 3}
+  m_Name: ExitQuotes
+  m_EditorClassIdentifier: 
+  exitQuotes:
+  - Heroes, press 'N,' wimps press 'Y'
+  - Chickening out...<br>already?
+  - Press N for more carnage.<br>Press Y to be a weenie.
+  - So, you think you can<br>quit this easily, huh?
+  - Press N to save the world.<br>Press Y to abandon it in<br>its hour of need.
+  - Press N if you are brave.<br>Press Y to cover in shame.
+  - You are at an intersection.<br>A sign says, 'Press Y to quit.'<br>
+  - For guns and glory, press N.<br>For work and worry, press Y.

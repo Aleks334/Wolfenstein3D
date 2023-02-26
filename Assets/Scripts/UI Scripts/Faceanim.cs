@@ -14,7 +14,7 @@ public class Faceanim : MonoBehaviour
     bool lookforward = false;
     public Sprite[] spritesarray = new Sprite[22];
 
-    [SerializeField] PlayerData playerData;
+    [SerializeField] PlayerHealthSO _health;
     void Update()
     {
 
@@ -35,7 +35,7 @@ public class Faceanim : MonoBehaviour
         time = rand.Next(1, 3);
         time -= (float)0.5;
 
-        int currenthp = playerData.playerHealth.CurrentHealth;
+        int currenthp = _health.playerHealth.CurrentHealth;
         if (currenthp > 90)
         {
             image =0;
