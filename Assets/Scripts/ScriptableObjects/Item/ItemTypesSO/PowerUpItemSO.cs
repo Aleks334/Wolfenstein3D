@@ -43,19 +43,15 @@ public class PowerUpItemSO : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraL
 
     protected override void FindNeededManager()
     {
-        if (GameManager.Instance.PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
+       if (GameManager.PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
             _healthManager = healthManager;
         else
-            Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
-
-
-        if (GameManager.Instance.PlayerObj.TryGetComponent<AmmoManager>(out AmmoManager ammoManager))
+           Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
+        if (GameManager.PlayerObj.TryGetComponent<AmmoManager>(out AmmoManager ammoManager))
             _ammoManager = ammoManager;
         else
             Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
-
-
-        if (GameManager.Instance.PlayerObj.TryGetComponent<LifesManager>(out LifesManager lifesManager))
+        if (GameManager.PlayerObj.TryGetComponent<LifesManager>(out LifesManager lifesManager))
             _lifesManager = lifesManager;
         else
             Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
@@ -63,9 +59,8 @@ public class PowerUpItemSO : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraL
 
     public override bool CanBePickedUp()
     {
-        if (!_healthManager || !_ammoManager || !_lifesManager)
+        if(!_healthManager || !_ammoManager || !_lifesManager)
             FindNeededManager();
-
         //Nawet jeœli gracz ma maks. zdrowie, maks. amunicjê to mo¿na dodaæ 1 ¿ycie.
         return true;
     }

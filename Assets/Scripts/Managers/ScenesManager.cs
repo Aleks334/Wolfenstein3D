@@ -1,44 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
-    public static ScenesManager instance { get; private set; }
+    [Header("Event Channels")]
+    [SerializeField] private StringEventChannelSO _onChangingLevel;
 
-    void Awake()
+    private void OnEnable()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-        }
+        _onChangingLevel.OnEventRaised += LoadLevel;
     }
 
-    public void LoadLevel(string newScene)
+    private void OnDisable()
+    {
+        _onChangingLevel.OnEventRaised -= LoadLevel;
+    }
+
+    private void LoadLevel(string newScene)
     {
         SceneManager.LoadScene(newScene);
-    }
-
-    //for tests
-    public void LoadGame()
-    {
-        SceneManager.LoadScene(0);
     }
 
     public static void LoadUIAsync()
     {
         SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
     }
-}
-
-public enum Scenes
-{
-    floor_1,
-    floor_2,
 }

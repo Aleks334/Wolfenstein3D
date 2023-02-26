@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +24,7 @@ public class DifficultyLvlSelection : MonoBehaviour
 
     public void ChooseDifficultyLvl(DifficultyLevel clickedDifficultyLvl)
     {
-        database.SelectDifficultyLevel(clickedDifficultyLvl); // TODO: Load different scene depending on selected episode (clicked btn)
+        database.SelectDifficultyLevel(clickedDifficultyLvl);
         //Debug.Log("clicked Difficulty Lvl: " + clickedDifficultyLvl);
         gameLoader.LoadGameAsync();
     }

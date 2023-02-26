@@ -1,9 +1,12 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class ElevatorLever : MonoBehaviour, IInteractableRaycast
 {
     private Renderer _renderer;
     [SerializeField] private Material elevatorLeverEnabledMat;
+
+    [SerializeField] private VoidEventChannelSO _onPlayerVictory;
 
     private void Start()
     {
@@ -13,6 +16,7 @@ public class ElevatorLever : MonoBehaviour, IInteractableRaycast
     public void Interact()
     {
         _renderer.material = elevatorLeverEnabledMat;
-        GameManager.Instance.UpdateGameState(GameState.Victory);
+        _onPlayerVictory.RaiseEvent();
+      //  GameManager.Instance.UpdateGameState(GameState.Victory);
     }
 }

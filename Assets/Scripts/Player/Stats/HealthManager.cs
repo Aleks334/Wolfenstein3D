@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class HealthManager : MonoBehaviour, IPlayerProfile
 {
     [SerializeField] private PlayerHealthSO _data;
     [SerializeField] private PlayerLifeSO _lifesData;
@@ -32,19 +32,15 @@ public class HealthManager : MonoBehaviour
         if (!Data.isAlive() && _lifesData.CurrentLifes > 0)
         {
             _onPlayerDeath.RaiseEvent();
-            Debug.LogWarning("Event player died raised");
         }
         else if (!Data.isAlive() && _lifesData.CurrentLifes == 0)
         {
             _onGameOver.RaiseEvent();
-            Debug.LogWarning("Event gameOver raised");
         }
     }
 
     public void HealPlayer(int healing)
     {
-        // if (playerData.playerHealth.CurrentHealth == 0)
-        //     return;
         Data.playerHealth.HealingValue(healing);
         Debug.Log("Obecny poziom ¿ycia: " + Data.playerHealth.CurrentHealth);
         UI.ReloadUI();

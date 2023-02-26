@@ -30,6 +30,10 @@ public class HealthChangePanelScript : MonoBehaviour
         gameObject.GetComponent<Image>().color = nonecolor;
         gameOverText.alpha = zeroHealthColor.a;
         this.gameObject.GetComponent<Image>().sprite = null;
+
+        zeroHealth = false;
+        gameOverEffect = false;
+        victory = false;
     }
 
     // Update is called once per frame
@@ -81,8 +85,6 @@ public class HealthChangePanelScript : MonoBehaviour
                 zeroHealth = false;
 
         }
-        
-        
 
         if(victory)
         {
@@ -92,7 +94,6 @@ public class HealthChangePanelScript : MonoBehaviour
             {
                 victoryAlphaColor.a += Time.deltaTime;
             }
-            Debug.Log("victory");
         }
     }
 }

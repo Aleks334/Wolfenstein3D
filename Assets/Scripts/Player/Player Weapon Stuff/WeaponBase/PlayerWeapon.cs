@@ -32,7 +32,7 @@ public abstract class PlayerWeapon
             return WeaponManager;
 
 
-        if (GameManager.Instance.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
+        if (GameManager.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
         {
             //Debug.LogWarning("Znaleziono PlayerWeaponManager (ammo)!");
             WeaponManager = weaponManager;

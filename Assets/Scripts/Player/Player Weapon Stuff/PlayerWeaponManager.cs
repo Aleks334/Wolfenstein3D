@@ -15,7 +15,6 @@ public class PlayerWeaponManager : MonoBehaviour
     public float _timeToNextShot = 0f;
     public Camera PlayerCam { get; private set; }
 
-
     public PlayerWeapon CurrentWeapon { get; private set; }
 
     [SerializeField] private PlayerWeaponsData _existingWeaponsData;

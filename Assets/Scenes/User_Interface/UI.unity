@@ -790,6 +790,8 @@ MonoBehaviour:
   ammocounttext: {fileID: 134974428}
   weaponimg: {fileID: 428244463}
   _weapons: {fileID: 11400000, guid: 5db54a8e397a39143beea64a8ab4ec56, type: 2}
+  _onWeaponChanged: {fileID: 11400000, guid: 6a5b9747fde0afc488a222f9a5585200, type: 2}
+  _onAmmoChanged: {fileID: 11400000, guid: cac0b0b5644eccf4fb04b7489312bf98, type: 2}
 --- !u!114 &428244463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,6 +1374,7 @@ MonoBehaviour:
   _lifes: {fileID: 11400000, guid: 68a8efc9324616040bec981d11dd63a2, type: 2}
   _onPlayerDeath: {fileID: 11400000, guid: c1f17fa6ef083fc4fa062057f2aeafed, type: 2}
   _onGameOver: {fileID: 11400000, guid: f38061fb70b4af044bd7e680ac148e75, type: 2}
+  _onPlayerVictory: {fileID: 11400000, guid: 4a01a5ef7aa89e0449173f3c63fb9fda, type: 2}
 --- !u!114 &1649078092
 MonoBehaviour:
   m_ObjectHideFlags: 0

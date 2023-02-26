@@ -166,6 +166,8 @@ MonoBehaviour:
   - {fileID: 0}
   _timeToNextShot: 0
   _existingWeaponsData: {fileID: 11400000, guid: 9ed3dd1099247c645be8ac603ab46134, type: 2}
+  _onWeaponChanged: {fileID: 11400000, guid: 6a5b9747fde0afc488a222f9a5585200, type: 2}
+  _onAmmoChanged: {fileID: 11400000, guid: cac0b0b5644eccf4fb04b7489312bf98, type: 2}
 --- !u!114 &6887898477794353334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 82f53aa92e54af845a540bc8a1c5a081, type: 2}
+  _onAmmoChanged: {fileID: 11400000, guid: cac0b0b5644eccf4fb04b7489312bf98, type: 2}
 --- !u!114 &8773108895325640481
 MonoBehaviour:
   m_ObjectHideFlags: 0

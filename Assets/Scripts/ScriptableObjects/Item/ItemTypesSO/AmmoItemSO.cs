@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Item/Ammo_Data")]
-public class AmmoItem : ItemDataSO, IAmmoPickable
+public class AmmoItemSO : ItemDataSO, IAmmoPickable
 {
     #region Fields and Properties
 
@@ -23,14 +23,13 @@ public class AmmoItem : ItemDataSO, IAmmoPickable
 
     protected override void FindNeededManager()
     {
-        if (GameManager.Instance.PlayerObj.TryGetComponent<AmmoManager>(out AmmoManager ammoManager))
+        if (GameManager.PlayerObj.TryGetComponent<AmmoManager>(out AmmoManager ammoManager))
         {
-            //Debug.LogWarning("Znaleziono PlayerStats (ammo)!");
             _ammoManager = ammoManager;
         }
         else
         {
-            Debug.LogError("Gracz nie ma dodanej klasy PlayerStats!");
+            Debug.LogError("Gracz nie ma dodanej klasy AmmoManager!");
         }
     }
 
@@ -39,8 +38,7 @@ public class AmmoItem : ItemDataSO, IAmmoPickable
         if (_ammoManager == null)
         {
             FindNeededManager();
-        }
-            
+        }       
 
         if (_ammoManager.CanPickUpAmmo())
             return true;

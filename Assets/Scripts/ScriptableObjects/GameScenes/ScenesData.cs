@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,10 +6,6 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "NewSceneDB", menuName = "Game_Data/Database")]
 public class ScenesData : ScriptableObject
 {
-
-    //Sentences that appear when player tries to leave the game
-    public string[] exitQuotes = new string[8];
-
     /*--------------------------
      * Episode Selection START
      * -------------------------*/

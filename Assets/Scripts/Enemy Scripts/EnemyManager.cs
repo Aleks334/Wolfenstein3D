@@ -203,7 +203,7 @@ public class EnemyManager : MonoBehaviour
         {
 
             //je¿eli gracz jest zbyt g³oœny to przeciwnik zostaje ostrze¿ony
-            noicevalue = (int)GameManager.Instance.playerNoiseLevel;
+            //noicevalue = (int)GameManager.Instance.playerNoiseLevel;
             noicevalue *= noicevalue;
             double distance = (System.Math.Pow((p.transform.position.x - transform.position.x), 2)+ System.Math.Pow((p.transform.position.z - transform.position.z), 2));
             if(noicevalue / distance >noisereactvalue)

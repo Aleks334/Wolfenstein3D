@@ -23,7 +23,7 @@ public class HealthItemSO : ItemDataSO, IHealthPickable
 
     protected override void FindNeededManager()
     {
-        if (GameManager.Instance.PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
+        if (GameManager.PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
         {
             //Debug.LogWarning("Znaleziono HealthManager! (health)");
             _healthManager = healthManager;

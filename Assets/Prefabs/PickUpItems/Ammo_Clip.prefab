@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 960241868837493644}
   - component: {fileID: 955066249734082031}
   - component: {fileID: 4517086610603761268}
-  - component: {fileID: 819724158569028029}
+  - component: {fileID: 705022714305027756}
   m_Layer: 0
   m_Name: Ammo_Clip
   m_TagString: Untagged
@@ -60,7 +60,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &819724158569028029
+--- !u!114 &705022714305027756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

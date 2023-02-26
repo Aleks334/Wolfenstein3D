@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LifesManager : MonoBehaviour
+public class LifesManager : MonoBehaviour, IPlayerProfile
 {
     [SerializeField] private PlayerLifeSO _data;
 

@@ -21,7 +21,7 @@ public class WeaponItemSO : ItemDataSO, IWeaponPickable
 
     protected override void FindNeededManager()
     {
-        if (GameManager.Instance.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
+        if (GameManager.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
         {
             _weaponManager = weaponManager;
            // Debug.LogWarning("Znaleziono PlayerWeaponManager!");
