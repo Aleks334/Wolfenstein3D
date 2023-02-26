@@ -2,7 +2,7 @@
 
 ## Summary
 
-Two students of technical secondary school are attempting to create a 1992 Wolfenstein 3D clone whose visuals and game mechanics look similarly to the original game.
+Two students of technical secondary school are attempting to recreate a 1992 Wolfenstein 3D clone whose visuals and game mechanics look similarly to the original game.
 
 ## What we changed/added since last project deadline (turn of November/December):
 
