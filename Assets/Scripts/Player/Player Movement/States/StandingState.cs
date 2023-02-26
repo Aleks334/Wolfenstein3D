@@ -16,7 +16,7 @@ public class StandingState : Grounded
     public override void EnterState()
     {
         base.EnterState();
-        _movementManager.PlayerNoiseLevel = PlayerNoiseLevel.Standing;
+        
     }
 
     public override void HandleInput()
@@ -27,7 +27,8 @@ public class StandingState : Grounded
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
+        _movementManager.PlayerNoiseLevel = PlayerNoiseLevel.Standing;
+
         if (isRunning)
         {
             _fsm.ChangeState(_movementManager.Running);

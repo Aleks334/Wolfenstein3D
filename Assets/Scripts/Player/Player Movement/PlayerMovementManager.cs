@@ -53,6 +53,8 @@ public class PlayerMovementManager : MonoBehaviour
     {
         PlayerMovementFSM.CurrentState.HandleInput();
         PlayerMovementFSM.CurrentState.LogicUpdate();
+
+//        Debug.LogWarning("Sound: " + PlayerNoiseLevel);
     }
 }
 

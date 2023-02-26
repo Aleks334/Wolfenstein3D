@@ -51,7 +51,7 @@ public abstract class PlayerWeapon
 
         if (Physics.Raycast(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward, out hit, range))
         {
-            if(hit.transform.TryGetComponent<enemystats>(out enemystats enemy))
+            if (hit.transform.TryGetComponent<enemystats>(out enemystats enemy))
             {
                 enemy.Dmgenemy(GetPlayerWeaponManager().CurrentWeapon._damage);
             }

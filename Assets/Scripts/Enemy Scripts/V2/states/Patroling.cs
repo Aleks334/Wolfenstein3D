@@ -46,7 +46,7 @@ public class Patroling : state
         }
         else
         {
-            Debug.Log(((int)GameManager.PlayerObj.GetComponent<PlayerMovementManager>().PlayerNoiseLevel * (int)(GameManager.PlayerObj.GetComponent<PlayerMovementManager>().PlayerNoiseLevel)) / this.gameObject.GetComponent<enemystats>().getdistance());
+         //   Debug.Log(((int)GameManager.PlayerObj.GetComponent<PlayerMovementManager>().PlayerNoiseLevel * (int)(GameManager.PlayerObj.GetComponent<PlayerMovementManager>().PlayerNoiseLevel)) / this.gameObject.GetComponent<enemystats>().getdistance());
             
             if (walktime <= 0)
             {
@@ -61,7 +61,7 @@ public class Patroling : state
                     //float x = this.transform.position.x + this.transform.forward.x * random.Next(-30, 30) + this.transform.right.x * random.Next(-30, 30);
                     //float z = this.transform.position.z + this.transform.forward.z * random.Next(-30, 30) + this.transform.right.z * random.Next(-30, 30);
                     Transform x = p.getrandompoint();
-                    Debug.Log(x.position);
+                   // Debug.Log(x.position);
                     Vector3 direction = new Vector3(x.position.x, this.transform.position.y, x.position.z);
                     this.GetComponent<NavMeshAgent>().destination = direction;
                     walktime = (float)(random.Next(5, 20));
