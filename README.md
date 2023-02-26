@@ -7,7 +7,7 @@ Two students of technical secondary school are attempting to create a 1992 Wolfe
 ## What we changed/added since last project deadline (turn of November/December):
 
 * Refactored most of the classes, that was created previously.
-* Improved player movement (used FSM)
+* Improved player movement (used FSM). Furthermore we added new movement way - strafing. Player can change defualt behaviour of rotating when hold left/right arrow. As long as he presses ALT key he can move left/right using left/right arrows.
 * Improved weapon system (through inheritance and polymorphism)
 * Enhanced items system. We used Scriptable Objects advantages to make it more flexible and easy to maintain.
 * Used Scriptable Objects as intermediate point of communication. They hold events which are raised by MonoBehaviours. Other scripts can subscribe to SO events.
