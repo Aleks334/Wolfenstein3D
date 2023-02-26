@@ -16,3 +16,11 @@ Two students of technical secondary school are attempting to create a 1992 Wolfe
 * Added menu system with splash screens, main menu, which holds multiple pages, quotes on exit from original game, episode selection and level difficulty selection (this menu system wasn't refactored though, so it needs lots of improvements in order to make menu more scalable).
 * Added more weapons (mini gun, machine gun). These weapons are new type - full auto (others are melee and semi auto). 
 * Basically rebuilt enemy system. Moreover we added new enemy types (dog, machine-gun guy). Previously there was only one type (guard). In system used state pattern in order to make code cleaner and more flexible.
+
+## What we can do during next project:
+
+* Make gun system even more flexible. All weapons of type that exists (class was made previously) could be made by adding new SO that would have weapon data, sprites, sounds etc. Player weapons could be stored in other inventory SO in list. Player would change sprite of current weapon instead of setting active one of gameobjects that he have (in player object there are all weapon game objects).
+* Improve UI system. It could rely on events instead of statics. It would make code more modular and decoupled. Then parts of the system could be test individually.
+* Add sound effects nad music
+* Refactor menu system
+* Make a possibility to get parameters of certain type enemy from SO, which could hold all needed data for one type of enemy. This would make gameplay settings adjustments easier to test.
