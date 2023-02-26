@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using Unity.VisualScripting;
-using System;
 
 public class UI : MonoBehaviour
 {
@@ -17,13 +12,17 @@ public class UI : MonoBehaviour
     [SerializeField] private PlayerHealthSO _health;
     [SerializeField] private PlayerLifeSO _lifes;
 
+    [SerializeField] private VoidEventChannelSO _onPlayerDeath;
+
     //subscribe to event OnGameStateChange in order to affect on game state change.
-    void Awake()
+    void OnEnable()
     {
         GameManager.OnGameStateChanged += LiveLose_OnGameStateChanged;
         GameManager.OnGameStateChanged += Victory_OnGameStateChanged;
         GameManager.OnGameStateChanged += GameOver_OnGameStateChanged;
-        GameManager.OnGameStateChanged += Running_OnGameStateChanged; 
+        GameManager.OnGameStateChanged += Running_OnGameStateChanged;
+
+        _onPlayerDeath.OnEventRaised += Test;
     }
 
     private void Start()
@@ -32,8 +31,14 @@ public class UI : MonoBehaviour
         Lifecounttext.text = _lifes.CurrentLifes.ToString();
     }
 
+    void Test()
+    {
+        HealthChangePanelScript.zeroHealth = true;
+        Debug.Log("Utrata 1 ¿ycia. Wyœwietlenie efektu panelu, który staje siê coraz bardziej czerwony");
+    }
+
     //unsubscribe to event OnGameStateChange when object is destroyed or after loading next scene.
-    void OnDestroy()
+    void OnDisable()
     {
         GameManager.OnGameStateChanged -= LiveLose_OnGameStateChanged;
         GameManager.OnGameStateChanged -= Victory_OnGameStateChanged;

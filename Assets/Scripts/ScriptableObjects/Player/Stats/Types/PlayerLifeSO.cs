@@ -6,10 +6,7 @@ public class PlayerLifeSO : ScriptableObject
     [SerializeField] private int _defaultAmount;
     public int CurrentLifes { get; private set; }
 
-    private void OnEnable()
-    {
-        CurrentLifes = _defaultAmount;
-    }
+    [SerializeField] private VoidEventChannelSO _onPlayerDeath;
 
     public void ResetLifes()
     {
@@ -24,8 +21,14 @@ public class PlayerLifeSO : ScriptableObject
     public void DecreasePlayerLifes(int lifesToDecrease)
     {
         if (CurrentLifes > 0)
+        {
+            _onPlayerDeath.RaiseEvent();
             CurrentLifes -= lifesToDecrease;
+        }
+            
         if (CurrentLifes < 0)
+        {
             CurrentLifes = 0;
+        }   
     }
 }

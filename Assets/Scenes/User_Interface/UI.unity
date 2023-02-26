@@ -1370,6 +1370,7 @@ MonoBehaviour:
   Lifecounttext: {fileID: 2035796911}
   _health: {fileID: 11400000, guid: d6640dddce45a4046a3bf26c30979c95, type: 2}
   _lifes: {fileID: 11400000, guid: 68a8efc9324616040bec981d11dd63a2, type: 2}
+  _onPlayerDeath: {fileID: 11400000, guid: c1f17fa6ef083fc4fa062057f2aeafed, type: 2}
 --- !u!114 &1649078092
 MonoBehaviour:
   m_ObjectHideFlags: 0

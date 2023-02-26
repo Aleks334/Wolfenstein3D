@@ -16,20 +16,17 @@ public class GameManager : MonoBehaviour
     private AmmoManager _ammoManager;
     private LifesManager _lifesManager;
 
-    //SphereCollider triggerNoise;
+    //OLD
     public PlayerNoiseLevel playerNoiseLevel;
 
     //Game State
     public GameState gameState;
     public static event Action<GameState> OnGameStateChanged;
 
-    //Elevator lever
- //   Renderer ElevatorLever;
-   // Material elevatorLeverEnabledMat;
-
     //Menu data for import settings
     [SerializeField] ScenesData database;
 
+    [SerializeField] private VoidEventChannelSO _onPlayerDeath;
 
     void Awake()
     {
@@ -37,13 +34,13 @@ public class GameManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
         } else if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
 
-        UpdateGameState(GameState.Init);
+        Init();
+        //  UpdateGameState(GameState.Init);
     }
 
     private void Start()
@@ -85,10 +82,9 @@ public class GameManager : MonoBehaviour
     {
         database.UpdateMenuPage(MenuPage.InGame);
         playerAsset = Resources.Load("Player/Player") as GameObject;
-      //  elevatorLeverEnabledMat = Resources.Load("Materials/ElevatorLeverMat") as Material;
-
         PlayerSpawnPoint = GameObject.Find("PlayerSpawnPoint").transform;
         PlayerObj = Instantiate(playerAsset, PlayerSpawnPoint.position, Quaternion.Euler(0f, -90f, 0f));
+
         #region Getting all needed player stats managers
         if (PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
             _healthManager = healthManager;
@@ -107,7 +103,7 @@ public class GameManager : MonoBehaviour
         else
             Debug.LogError("GameManager couldn't find PlayerLifesManager");
         #endregion
-      //  ElevatorLever = GameObject.FindGameObjectWithTag("ElevatorLever").GetComponent<Renderer>();
+
         Debug.Log("Current Health: " + _healthManager.Data.playerHealth.CurrentHealth); 
        // ScenesManager.LoadUIAsync(); //Create SO for methods of this type
         Debug.Log(
@@ -119,6 +115,8 @@ public class GameManager : MonoBehaviour
         "--------------------------------\n" +
         "Current Difficulty Level: <b>" + database.DifficultyLvl + "</b>\n" +
         "--------------------------------\n");
+
+        _onPlayerDeath.OnEventRaised += () => StartCoroutine(HandlePlayerLiveLose());
     }
 
     void RestoreDefaultPlayerSettings()
@@ -159,7 +157,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         //After death anim
         Debug.Log("HandlePlayerLiveLose");
-         RestoreDefaultPlayerSettings();
+        // RestoreDefaultPlayerSettings();
         ScenesManager.instance.LoadLevel(Scenes.floor_1);
     }
 
@@ -172,8 +170,6 @@ public class GameManager : MonoBehaviour
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
         PlayerObj.GetComponent<RaycastInteractionController>().enabled = false;
-
-        //ElevatorLever.material = elevatorLeverEnabledMat;
 
         yield return new WaitForSeconds(2f);
         //After victory anim

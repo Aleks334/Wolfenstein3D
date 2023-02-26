@@ -7,7 +7,7 @@ public class HealthManager : MonoBehaviour
     {
         get { return _data; }
     }
-    /*
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
@@ -15,7 +15,7 @@ public class HealthManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.H))
             HealPlayer(13);
     }
-    */
+    
     public void DamagePlayer(int dmg)
     {
 

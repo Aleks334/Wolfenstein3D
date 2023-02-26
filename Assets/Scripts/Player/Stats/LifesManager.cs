@@ -7,7 +7,12 @@ public class LifesManager : MonoBehaviour
     {
         get { return _data; }
     }
-    /*
+
+    private void Start()
+    {
+        Data.ResetLifes();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
@@ -15,7 +20,7 @@ public class LifesManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.J))
             RemoveLifes(1);
     }
-    */
+    
     public void AddLifes(int lifesToAdd)
     {
 
