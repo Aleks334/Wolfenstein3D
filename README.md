@@ -1,10 +1,10 @@
 # Wolfenstein 3D - a long-term project for programming lessons
 
-##Summary
+## Summary
 
 Two students of technical secondary school are attempting to create a 1992 Wolfenstein 3D clone whose visuals and game mechanics look similarly to the original game.
 
-#What we changed/added since last project deadline (turn of November/December):
+## What we changed/added since last project deadline (turn of November/December):
 
 * Refactored most of the classes, that was created previously.
 * Improved player movement (used FSM)
