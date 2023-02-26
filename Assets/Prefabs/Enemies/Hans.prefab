@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Dead
   changestate: 
+  _ammoPickUp: {fileID: 3357493184913307264, guid: bbc9391043a6efa4380bdfd53b928609, type: 3}
 --- !u!114 &967603319049741477
 MonoBehaviour:
   m_ObjectHideFlags: 0

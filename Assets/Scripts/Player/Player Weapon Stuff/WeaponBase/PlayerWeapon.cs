@@ -51,6 +51,10 @@ public abstract class PlayerWeapon
 
         if (Physics.Raycast(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward, out hit, range))
         {
+            if(hit.transform.TryGetComponent<enemystats>(out enemystats enemy))
+            {
+                enemy.Dmgenemy(GetPlayerWeaponManager().CurrentWeapon._damage);
+            }
             Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward * range, Color.green, 0.25f);
         }
         else
