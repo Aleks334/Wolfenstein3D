@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: PlayerLifesStats
   m_EditorClassIdentifier: 
   _defaultAmount: 3
-  _onPlayerDeath: {fileID: 11400000, guid: c1f17fa6ef083fc4fa062057f2aeafed, type: 2}
+  _currentLifes: 3
+  _healthData: {fileID: 11400000, guid: d6640dddce45a4046a3bf26c30979c95, type: 2}
+  _onGameOver: {fileID: 11400000, guid: f38061fb70b4af044bd7e680ac148e75, type: 2}

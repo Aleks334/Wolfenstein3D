@@ -255,6 +255,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: d6640dddce45a4046a3bf26c30979c95, type: 2}
+  _lifesData: {fileID: 11400000, guid: 68a8efc9324616040bec981d11dd63a2, type: 2}
+  _onPlayerDeath: {fileID: 11400000, guid: c1f17fa6ef083fc4fa062057f2aeafed, type: 2}
+  _onGameOver: {fileID: 11400000, guid: f38061fb70b4af044bd7e680ac148e75, type: 2}
 --- !u!1 &6887898478164598351
 GameObject:
   m_ObjectHideFlags: 0

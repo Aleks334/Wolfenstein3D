@@ -54,24 +54,35 @@ public class HealthChangePanelScript : MonoBehaviour
             gameObject.GetComponent<Image>().color = healthdecreasecolor;
             healthdecrease = false;
             time = 0.1f;
-        } 
-        
-        if(zeroHealth)
-        {
-            gameObject.GetComponent<Image>().color = zeroHealthColor;
-            if(zeroHealthColor.a < 255)
-                zeroHealthColor.a += Time.deltaTime;
-
         }
-        
         if (gameOverEffect && zeroHealth)
         {
             gameObject.GetComponent<Image>().color = zeroHealthColor;
-            if (zeroHealthColor.a < 255) {
+            if (zeroHealthColor.a < 255)
+            {
                 gameOverText.alpha = zeroHealthColor.a;
                 zeroHealthColor.a += Time.deltaTime;
-            } 
+            }
+            else
+            {
+                zeroHealth = false;
+                gameOverEffect = false;
+            }
         }
+
+        if (zeroHealth)
+        {
+            gameObject.GetComponent<Image>().color = zeroHealthColor;
+            if(zeroHealthColor.a < 255)
+            {
+                zeroHealthColor.a += Time.deltaTime;
+                
+            } else
+                zeroHealth = false;
+
+        }
+        
+        
 
         if(victory)
         {

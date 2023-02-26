@@ -8,13 +8,23 @@ public class PlayerHealthSO : ScriptableObject
     [SerializeField] private int _defaultAmount;
     [SerializeField] private int _maxAmount;
 
-    private void OnEnable()
+     [HideInInspector] public bool _justDied = false;
+
+    public void OnEnable()
     {
         playerHealth = new ObjectHealth(_defaultAmount, _maxAmount);
     }
 
-    public void GiveMaxHealth()
+    public void GiveDefaultHealth()
     {
         playerHealth.HealingValue(playerHealth.MaxHealth);
+    }
+
+    public bool isAlive()
+    {
+        if (playerHealth.CurrentHealth == 0)
+            return false;
+        else
+            return true;
     }
 }

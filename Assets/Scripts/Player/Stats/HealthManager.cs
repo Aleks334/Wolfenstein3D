@@ -3,11 +3,16 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] private PlayerHealthSO _data;
+    [SerializeField] private PlayerLifeSO _lifesData;
+
+    [Header("Event Channels")]
+    [SerializeField] private VoidEventChannelSO _onPlayerDeath;
+    [SerializeField] private VoidEventChannelSO _onGameOver;
     public PlayerHealthSO Data
     {
         get { return _data; }
     }
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
@@ -18,24 +23,22 @@ public class HealthManager : MonoBehaviour
     
     public void DamagePlayer(int dmg)
     {
-
         Data.playerHealth.DmgValue(dmg);
-        Debug.Log("Obecny poziom ¿ycia: " + Data.playerHealth.CurrentHealth);
+        Debug.Log("Obecny poziom zdrowia: " + Data.playerHealth.CurrentHealth);
         UI.ReloadUI();
         UI.healthdecreaseeffect();
 
-        //Check if player has 0 health and at least one live
-      /*  if (Data.playerHealth.CurrentHealth == 0 && Data.playerLifes.CurrentLifes > 0)
+        //For raising events when player die and have lifes or not.
+        if (!Data.isAlive() && _lifesData.CurrentLifes > 0)
         {
-            GameManager.Instance.UpdateGameState(GameState.LiveLose);
-            Debug.Log("UpdateGameState(GameState.LiveLose)");
-
+            _onPlayerDeath.RaiseEvent();
+            Debug.LogWarning("Event player died raised");
         }
-        else if (Data.playerHealth.CurrentHealth == 0 && Data.playerLifes.CurrentLifes == 0)
+        else if (!Data.isAlive() && _lifesData.CurrentLifes == 0)
         {
-            GameManager.Instance.UpdateGameState(GameState.GameOver);
-            Debug.Log("UpdateGameState(GameState.GameOver)");
-        }*/
+            _onGameOver.RaiseEvent();
+            Debug.LogWarning("Event gameOver raised");
+        }
     }
 
     public void HealPlayer(int healing)

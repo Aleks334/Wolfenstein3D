@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "NewSceneDB", menuName = "Game_Data/Database")]
 public class ScenesData : ScriptableObject
 {
+
     //Sentences that appear when player tries to leave the game
     public string[] exitQuotes = new string[8];
 
@@ -103,10 +104,10 @@ public class ScenesData : ScriptableObject
             case MenuPage.InGame:
                 Debug.Log("current state: " + CurrentMenupage);
                 LoadSceneAdditive("UI");
-                if (SceneManager.GetSceneByName(menuTabs[(int)MenuPage.Pause].sceneName).isLoaded)
+                /*if (SceneManager.GetSceneByName(menuTabs[(int)MenuPage.Pause].sceneName).isLoaded)
                 {
                     UnloadSceneAsync(menuTabs[(int)MenuPage.Pause].sceneName);
-                }
+                }*/
                 break;
             case MenuPage.Sound:
                 Debug.Log("current state: " + CurrentMenupage);

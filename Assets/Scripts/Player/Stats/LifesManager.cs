@@ -3,14 +3,10 @@ using UnityEngine;
 public class LifesManager : MonoBehaviour
 {
     [SerializeField] private PlayerLifeSO _data;
+
     public PlayerLifeSO Data
     {
         get { return _data; }
-    }
-
-    private void Start()
-    {
-        Data.ResetLifes();
     }
 
     void Update()
@@ -23,14 +19,12 @@ public class LifesManager : MonoBehaviour
     
     public void AddLifes(int lifesToAdd)
     {
-
         Data.IncreasePlayerLifes(lifesToAdd);
         Debug.Log("Obecny poziom ¿ycia: " + Data.CurrentLifes);
         UI.ReloadUI();
     }
     public void RemoveLifes(int lifesToRemove)
     {
-
         Data.DecreasePlayerLifes(lifesToRemove);
         Debug.Log("Obecny poziom ¿ycia: " + Data.CurrentLifes);
         UI.ReloadUI();

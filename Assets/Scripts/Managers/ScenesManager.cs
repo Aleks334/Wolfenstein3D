@@ -20,9 +20,9 @@ public class ScenesManager : MonoBehaviour
         }
     }
 
-    public void LoadLevel(Scenes newScene)
+    public void LoadLevel(string newScene)
     {
-        SceneManager.LoadScene((int)newScene);
+        SceneManager.LoadScene(newScene);
     }
 
     //for tests

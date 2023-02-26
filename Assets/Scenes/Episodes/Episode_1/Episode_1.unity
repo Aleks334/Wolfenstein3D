@@ -7375,6 +7375,7 @@ MonoBehaviour:
   gameState: 0
   database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
   _onPlayerDeath: {fileID: 11400000, guid: c1f17fa6ef083fc4fa062057f2aeafed, type: 2}
+  _onGameOver: {fileID: 11400000, guid: f38061fb70b4af044bd7e680ac148e75, type: 2}
 --- !u!4 &1198356965
 Transform:
   m_ObjectHideFlags: 0

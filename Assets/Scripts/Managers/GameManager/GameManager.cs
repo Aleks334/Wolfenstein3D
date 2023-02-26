@@ -26,7 +26,9 @@ public class GameManager : MonoBehaviour
     //Menu data for import settings
     [SerializeField] ScenesData database;
 
+    [Header("Event Channels")]
     [SerializeField] private VoidEventChannelSO _onPlayerDeath;
+    [SerializeField] private VoidEventChannelSO _onGameOver;
 
     void Awake()
     {
@@ -41,6 +43,18 @@ public class GameManager : MonoBehaviour
 
         Init();
         //  UpdateGameState(GameState.Init);
+    }
+
+    private void OnEnable()
+    {
+        _onPlayerDeath.OnEventRaised += OnPlayerDeath;
+        _onGameOver.OnEventRaised += OnGameOver;
+    }
+
+    private void OnDisable()
+    {
+        _onPlayerDeath.OnEventRaised -= OnPlayerDeath;
+        _onGameOver.OnEventRaised -= OnGameOver;
     }
 
     private void Start()
@@ -62,12 +76,12 @@ public class GameManager : MonoBehaviour
                 OnGameStateChanged?.Invoke(newState);
                 break;
             case GameState.LiveLose:
-                OnGameStateChanged?.Invoke(newState);
-                StartCoroutine(HandlePlayerLiveLose());
+              //  OnGameStateChanged?.Invoke(newState);
+             //   StartCoroutine(HandlePlayerLifeLoss());
                 break;
             case GameState.GameOver:
-                OnGameStateChanged?.Invoke(newState);
-                StartCoroutine(HandlePlayerGameOver());
+             //   OnGameStateChanged?.Invoke(newState);
+             //   StartCoroutine(HandlePlayerGameOver());
                 break;
             case GameState.Victory:
                 StartCoroutine(HandlePlayerVictory());
@@ -104,6 +118,22 @@ public class GameManager : MonoBehaviour
             Debug.LogError("GameManager couldn't find PlayerLifesManager");
         #endregion
 
+        if(database.episodes[(int)database.SelectedEpisode]._preload)
+        {
+            RestoreDefaultPlayerSettings();
+            database.episodes[(int)database.SelectedEpisode]._preload = false;
+        }
+
+        if (_healthManager.Data._justDied)
+        {
+            
+            _healthManager.Data.GiveDefaultHealth();
+            _lifesManager.RemoveLifes(1);
+            PlayerObj.GetComponent<PlayerWeaponManager>().DefaultWeapons();
+            _ammoManager.Data.ResetAmmo();
+            _healthManager.Data._justDied = false;
+        }
+
         Debug.Log("Current Health: " + _healthManager.Data.playerHealth.CurrentHealth); 
        // ScenesManager.LoadUIAsync(); //Create SO for methods of this type
         Debug.Log(
@@ -116,15 +146,27 @@ public class GameManager : MonoBehaviour
         "Current Difficulty Level: <b>" + database.DifficultyLvl + "</b>\n" +
         "--------------------------------\n");
 
-        _onPlayerDeath.OnEventRaised += () => StartCoroutine(HandlePlayerLiveLose());
+        
     }
-
+    
     void RestoreDefaultPlayerSettings()
     {
+        _lifesManager.Data.GiveDefaultLifes();
+        _healthManager.Data.GiveDefaultHealth();
         PlayerObj.GetComponent<PlayerWeaponManager>().DefaultWeapons();
         _ammoManager.Data.ResetAmmo();
-        _lifesManager.Data.DecreasePlayerLifes(1);
-        _healthManager.Data.GiveMaxHealth();   
+    }
+   
+    
+
+    private void OnPlayerDeath()
+    {
+        StartCoroutine(HandlePlayerLifeLoss());
+    }
+
+    private void OnGameOver()
+    {
+        StartCoroutine(HandlePlayerGameOver());
     }
 
     IEnumerator HandlePlayerGameOver()
@@ -140,11 +182,13 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         //After death anim with game over text
         Debug.Log("HandlePlayerGameOver");
-        RestoreDefaultPlayerSettings();
-        ScenesManager.instance.LoadLevel(Scenes.floor_1); 
+        //  RestoreDefaultPlayerSettings();
+
+        //_lifesManager.RemoveLifes(1);
+        ScenesManager.instance.LoadLevel(database.menuTabs[0].sceneName);
     }
 
-    IEnumerator HandlePlayerLiveLose()
+    IEnumerator HandlePlayerLifeLoss()
     {
         _healthManager.enabled = false;
         _ammoManager.enabled = false;
@@ -158,7 +202,10 @@ public class GameManager : MonoBehaviour
         //After death anim
         Debug.Log("HandlePlayerLiveLose");
         // RestoreDefaultPlayerSettings();
-        ScenesManager.instance.LoadLevel(Scenes.floor_1);
+
+        _healthManager.Data._justDied = true;
+        ScenesManager.instance.LoadLevel(database.episodes[(int)database.SelectedEpisode].sceneName);
+        
     }
 
     IEnumerator HandlePlayerVictory()
@@ -173,8 +220,8 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         //After victory anim
-        Debug.Log("HandlePlayerVictory"); 
-        ScenesManager.instance.LoadLevel(0);
+        Debug.Log("HandlePlayerVictory");
+        ScenesManager.instance.LoadLevel(database.menuTabs[1].sceneName);
     }
 }
 

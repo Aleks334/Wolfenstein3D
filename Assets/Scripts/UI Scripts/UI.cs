@@ -13,16 +13,18 @@ public class UI : MonoBehaviour
     [SerializeField] private PlayerLifeSO _lifes;
 
     [SerializeField] private VoidEventChannelSO _onPlayerDeath;
+    [SerializeField] private VoidEventChannelSO _onGameOver;
 
     //subscribe to event OnGameStateChange in order to affect on game state change.
     void OnEnable()
     {
-        GameManager.OnGameStateChanged += LiveLose_OnGameStateChanged;
+      //  GameManager.OnGameStateChanged += LiveLose_OnGameStateChanged;
         GameManager.OnGameStateChanged += Victory_OnGameStateChanged;
-        GameManager.OnGameStateChanged += GameOver_OnGameStateChanged;
+      //  GameManager.OnGameStateChanged += GameOver_OnGameStateChanged;
         GameManager.OnGameStateChanged += Running_OnGameStateChanged;
 
-        _onPlayerDeath.OnEventRaised += Test;
+        _onPlayerDeath.OnEventRaised += OnPlayerDeath;
+        _onGameOver.OnEventRaised += OnGameOver;
     }
 
     private void Start()
@@ -31,18 +33,15 @@ public class UI : MonoBehaviour
         Lifecounttext.text = _lifes.CurrentLifes.ToString();
     }
 
-    void Test()
-    {
-        HealthChangePanelScript.zeroHealth = true;
-        Debug.Log("Utrata 1 ¿ycia. Wyœwietlenie efektu panelu, który staje siê coraz bardziej czerwony");
-    }
-
     //unsubscribe to event OnGameStateChange when object is destroyed or after loading next scene.
     void OnDisable()
     {
-        GameManager.OnGameStateChanged -= LiveLose_OnGameStateChanged;
+        _onPlayerDeath.OnEventRaised -= OnPlayerDeath;
+        _onGameOver.OnEventRaised -= OnGameOver;
+
+        //  GameManager.OnGameStateChanged -= LiveLose_OnGameStateChanged;
         GameManager.OnGameStateChanged -= Victory_OnGameStateChanged;
-        GameManager.OnGameStateChanged -= GameOver_OnGameStateChanged;
+      //  GameManager.OnGameStateChanged -= GameOver_OnGameStateChanged;
         GameManager.OnGameStateChanged -= Running_OnGameStateChanged;
     }
 
@@ -56,25 +55,17 @@ public class UI : MonoBehaviour
         }
     }
 
-    void LiveLose_OnGameStateChanged(GameState state)
+    void OnPlayerDeath()
     {
-        if (state == GameState.LiveLose)
-        {
-            HealthChangePanelScript.zeroHealth = true;
-            Debug.Log("Utrata 1 ¿ycia. Wyœwietlenie efektu panelu, który staje siê coraz bardziej czerwony");
-        }
-           
+       HealthChangePanelScript.zeroHealth = true;
+       Debug.Log("Utrata 1 ¿ycia. Wyœwietlenie efektu panelu, który staje siê coraz bardziej czerwony");     
     }
 
-    void GameOver_OnGameStateChanged(GameState state)
+    void OnGameOver()
     {
-        if (state == GameState.GameOver)
-        {
-            HealthChangePanelScript.zeroHealth = true;
-            HealthChangePanelScript.gameOverEffect = true;
-            Debug.Log("Wyœwietlenie efektu panelu jak wczeœniej, tylko z napisem w stylu GameOver");
-        }
-           
+       HealthChangePanelScript.zeroHealth = true;
+       HealthChangePanelScript.gameOverEffect = true;
+       Debug.Log("Wyœwietlenie efektu panelu jak wczeœniej, tylko z napisem w stylu GameOver");    
     }
 
     void Victory_OnGameStateChanged(GameState state)

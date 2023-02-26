@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewEpisode", menuName = "Game_Data/Episode")]
 public class Episode : GameSceneData
 {
-
+    public bool _preload = true;
 }

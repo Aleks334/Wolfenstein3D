@@ -4,11 +4,14 @@ using UnityEngine;
 public class PlayerLifeSO : ScriptableObject
 {
     [SerializeField] private int _defaultAmount;
-    public int CurrentLifes { get; private set; }
+    [SerializeField] private int _currentLifes;
+    public int CurrentLifes
+    {
+        get { return _currentLifes; }
+        private set { _currentLifes = value; }
+    }
 
-    [SerializeField] private VoidEventChannelSO _onPlayerDeath;
-
-    public void ResetLifes()
+    public void OnEnable()
     {
         CurrentLifes = _defaultAmount;
     }
@@ -21,14 +24,16 @@ public class PlayerLifeSO : ScriptableObject
     public void DecreasePlayerLifes(int lifesToDecrease)
     {
         if (CurrentLifes > 0)
-        {
-            _onPlayerDeath.RaiseEvent();
             CurrentLifes -= lifesToDecrease;
-        }
             
         if (CurrentLifes < 0)
         {
             CurrentLifes = 0;
-        }   
+        }       
+    }
+
+    public void GiveDefaultLifes()
+    {
+        CurrentLifes = _defaultAmount;
     }
 }
