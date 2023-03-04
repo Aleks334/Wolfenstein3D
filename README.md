@@ -1,5 +1,8 @@
 # Wolfenstein 3D - a long-term project for programming lessons
 
+##READ THIS!
+After cloning the repo and opening it in Unity, you may see the "Untitled" scene loaded. If this happens, you should select the first scene from the Build Settings (go to Scenes/Menu Scenes/ in Assets and open the scene named "SplashScreens").
+
 ## Summary
 
 Two students of technical secondary school are attempting to recreate a 1992 Wolfenstein 3D clone whose visuals and game mechanics look similarly to the original game. We code it in Unity Engine.
