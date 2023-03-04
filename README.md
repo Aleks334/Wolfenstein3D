@@ -1,6 +1,6 @@
 # Wolfenstein 3D - a long-term project for programming lessons
 
-## READ THIS!
+## PLEASE READ THIS!
 After cloning the repo and opening it in Unity, you may see the "Untitled" scene loaded. If this happens, you should select the first scene from the Build Settings (go to Scenes/Menu Scenes/ in Assets and open the scene named "SplashScreens").
 
 ## Summary
