@@ -1,7 +1,7 @@
 # Wolfenstein 3D - a long-term project for programming lessons
 
 ## PLEASE READ THIS!
-After cloning the repo and opening it in Unity, you may see the "Untitled" scene loaded. If this happens, you should select the first scene from the Build Settings (go to Scenes/Menu Scenes/ in Assets and open the scene named "SplashScreens").
+After cloning the repo and opening it in Unity, you may see the "Untitled" scene loaded. If this happens, you should select the first scene from the Build Settings (go to Scenes/Menu Scenes/ in Assets and open the scene named "SplashScreens"). Furthermore in order to have the best game experience (in editor) while running game you should change game resolution in Game Window from "Free aspect" to "Full HD (1920x1080)".
 
 ## Summary
 
