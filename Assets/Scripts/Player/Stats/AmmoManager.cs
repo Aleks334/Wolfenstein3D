@@ -21,13 +21,13 @@ public class AmmoManager : MonoBehaviour
     public void AddAmmo(int ammoToAdd)
     {
         Data.AddAmmo(ammoToAdd);
-        Debug.Log("Obecny stan amunicji: " + Data.CurrentAmmo);
+       // Debug.Log("Obecny stan amunicji: " + Data.CurrentAmmo);
         UI.ReloadUI(Data.CurrentAmmo);
     }
     public void RemoveAmmo()
     {
         Data.RemoveAmmo();
-        Debug.Log("Obecny stan amunicji: " + Data.CurrentAmmo);
+       // Debug.Log("Obecny stan amunicji: " + Data.CurrentAmmo);
         UI.ReloadUI(Data.CurrentAmmo);
     }
 

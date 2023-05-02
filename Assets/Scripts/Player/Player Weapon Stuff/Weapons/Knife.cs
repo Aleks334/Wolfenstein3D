@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Knife : Melee, IHandleChangeWeapon
 {
-    public Knife(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot) : base(attackMode, damage, rof, range, weaponType, currentWeaponShootAnim, weaponSlot)
+    public Knife(WeaponSO weaponData) : base(weaponData)
     {
+        
     }
 
     public void HandleChangeWeaponInput()

@@ -14,7 +14,7 @@ public class WaeponScript : MonoBehaviour
     public static string ammoamount = "8";
     string kammoamount = "-";
 
-    [SerializeField] private PlayerWeaponsSO _weapons;
+    [SerializeField] private WeaponsInventorySO _weapons;
     private PlayerWeaponManager weaponmanager;
     //[SerializeField] PlayerData playerData;
 

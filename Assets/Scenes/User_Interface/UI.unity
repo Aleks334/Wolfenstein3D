@@ -789,9 +789,7 @@ MonoBehaviour:
   - {fileID: -2104119933, guid: 9d87b6bcacf81414199f7e63bd601c55, type: 3}
   ammocounttext: {fileID: 134974428}
   weaponimg: {fileID: 428244463}
-  _weapons: {fileID: 11400000, guid: 5db54a8e397a39143beea64a8ab4ec56, type: 2}
-  _onWeaponChanged: {fileID: 11400000, guid: 6a5b9747fde0afc488a222f9a5585200, type: 2}
-  _onAmmoChanged: {fileID: 11400000, guid: cac0b0b5644eccf4fb04b7489312bf98, type: 2}
+  _weapons: {fileID: 11400000, guid: b6d0189c41cb4cf43a2a6e114ab207f3, type: 2}
 --- !u!114 &428244463
 MonoBehaviour:
   m_ObjectHideFlags: 0

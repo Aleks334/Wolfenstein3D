@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SemiAuto : PlayerWeapon
 {
-    public SemiAuto(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot) : base(attackMode, damage, rof, range, weaponType, currentWeaponShootAnim, weaponSlot)
+    public SemiAuto(WeaponSO weaponData) : base(weaponData)
     {
     }
 

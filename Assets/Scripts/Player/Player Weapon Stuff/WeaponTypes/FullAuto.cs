@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FullAuto : PlayerWeapon
 {
-    public FullAuto(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot) : base(attackMode, damage, rof, range, weaponType, currentWeaponShootAnim, weaponSlot)
+    public FullAuto(WeaponSO weaponData) : base(weaponData)
     {
     }
 

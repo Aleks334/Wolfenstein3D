@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pistol : SemiAuto, IHandleChangeWeapon
 {
-    public Pistol(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot) : base(attackMode, damage, rof, range, weaponType, currentWeaponShootAnim, weaponSlot)
+    public Pistol(WeaponSO weaponData) : base(weaponData)
     {
     }    
 

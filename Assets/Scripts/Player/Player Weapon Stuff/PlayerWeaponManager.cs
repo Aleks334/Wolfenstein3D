@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class PlayerWeaponManager : MonoBehaviour
 {
-    public PlayerWeaponsSO _playerWeapons;
+    public WeaponsInventorySO _playerWeapons;
     public AmmoManager AmmoManager { get; private set; }
 
-    GameObject weaponsHandler;
-    public GameObject[] weaponObjects = new GameObject[4];
+    private GameObject _weaponHandler;
+   // public GameObject[] weaponObjects = new GameObject[4];
 
     //For animations
     public string CurrentAnim { get; private set; }
-    public Animator CurrentWeaponAnimator { get; private set; }
+    public Animator WeaponHandlerAnimator { get; private set; }
 
     public float _timeToNextShot = 0f;
     public Camera PlayerCam { get; private set; }
 
     public PlayerWeapon CurrentWeapon { get; private set; }
 
-    [SerializeField] private PlayerWeaponsData _existingWeaponsData;
-    public PlayerWeaponsData ExistingWeaponsData
+    [SerializeField] private AllWeaponsData _existingWeaponsData;
+    public AllWeaponsData ExistingWeaponsData
     {
         get { return _existingWeaponsData; }
 
@@ -27,17 +27,18 @@ public class PlayerWeaponManager : MonoBehaviour
 
     void Awake()
     {
-        weaponsHandler = GameObject.FindGameObjectWithTag("WeaponsHandler");
-
-        for(int i = 0; i < weaponObjects.Length; i++)
-        {
-            weaponObjects[i] = weaponsHandler.transform.GetChild(i).gameObject;
-        }
-
         PlayerCam = Camera.main;
         AmmoManager = GetComponent<AmmoManager>();
 
-       // ExistingWeaponsData = new PlayerWeaponsData();
+        ExistingWeaponsData.StartUp();
+
+        _weaponHandler = GameObject.FindGameObjectWithTag("WeaponsHandler");
+        WeaponHandlerAnimator = _weaponHandler.GetComponent<Animator>();
+        /*
+        for(int i = 0; i < weaponObjects.Length; i++)
+        {
+            weaponObjects[i] = weaponsHandler.transform.GetChild(i).gameObject;
+        }*/
     }
     void Start()
     {
@@ -67,13 +68,12 @@ public class PlayerWeaponManager : MonoBehaviour
 
         GiveWeapon(ExistingWeaponsData.Pistol);
         GiveWeapon(ExistingWeaponsData.Knife);
-
-       /*
-        for (int i = 0; i < PlayerData.WeaponsInInventory.Length; i++)
-        {
-           Debug.LogWarning("Slot " + i + ": " + PlayerData.WeaponsInInventory[i]);
-        }
-        */
+        /*
+         for (int i = 0; i < PlayerData.WeaponsInInventory.Length; i++)
+         {
+            Debug.Log("Slot " + i + ": " + PlayerData.WeaponsInInventory[i]);
+         }
+         */
     }
 
     public void GiveWeapon(PlayerWeapon newWeapon)
@@ -107,19 +107,11 @@ public class PlayerWeaponManager : MonoBehaviour
         CurrentWeapon = _playerWeapons.WeaponsInInventory[weaponToChange._weaponSlot];
         Debug.Log("Aktywna broñ: " + CurrentWeapon);
 
-        //Find animator for current weapon
-        CurrentWeaponAnimator = weaponObjects[(int)CurrentWeapon._weaponSlot].GetComponent<Animator>();
-
-        //Enable current weapon gameobject and disable other.
-        weaponObjects[(int)CurrentWeapon._weaponSlot].SetActive(true);
-        for (int i = 0; i < weaponObjects.Length; i++)
-        {
-            if (i != (int)CurrentWeapon._weaponSlot)
-                weaponObjects[i].SetActive(false);
-        }
+        
+        _weaponHandler.GetComponent<SpriteRenderer>().sprite = CurrentWeapon._sprite;
+        _weaponHandler.GetComponent<Animator>().runtimeAnimatorController = CurrentWeapon._animatorController;
 
         CurrentAnim = CurrentWeapon._currentWeaponShootAnim;
-        //  Debug.Log("Obecny obiekt broni: " + weaponObjects[(int)CurrentWeapon._weaponSlot]);
         UI.ReloadUI();
     }
 }

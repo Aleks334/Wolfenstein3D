@@ -4,8 +4,8 @@ using UnityEngine;
 /// SO for keeping track of player weapon inventory.
 /// </summary>
 
-[CreateAssetMenu(menuName = "Player/Stats/Weapons_Stats")]
-public class PlayerWeaponsSO : ScriptableObject
+[CreateAssetMenu(menuName = "Player/Stats/Weapons Inventory")]
+public class WeaponsInventorySO : ScriptableObject
 {
     public PlayerWeapon[] WeaponsInInventory;
 

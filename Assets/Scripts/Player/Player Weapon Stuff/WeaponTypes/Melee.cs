@@ -2,8 +2,9 @@ using UnityEngine;
 
 public abstract class Melee : PlayerWeapon
 {
-    public Melee(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot) : base(attackMode, damage, rof, range, weaponType, currentWeaponShootAnim, weaponSlot)
+    public Melee(WeaponSO weaponData) : base(weaponData)
     {
+        
     }
 
     public override void HandleAttackInput()

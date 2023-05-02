@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MiniGun : FullAuto, IHandleChangeWeapon
 {
-    public MiniGun(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot) : base(attackMode, damage, rof, range, weaponType, currentWeaponShootAnim, weaponSlot)
+    public MiniGun(WeaponSO weaponData) : base(weaponData)
     {
     }
 

@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public abstract class PlayerWeapon
@@ -10,17 +11,23 @@ public abstract class PlayerWeapon
     public string _currentWeaponShootAnim;
     public int _weaponSlot;
 
+    public AnimatorController _animatorController;
+    public Sprite _sprite;
+
     public PlayerWeaponManager WeaponManager { get; private set; }
 
-    public PlayerWeapon(ShootingMode attackMode, int damage, float rof, float range, WeaponType weaponType, string currentWeaponShootAnim, int weaponSlot)
+    public PlayerWeapon(WeaponSO weaponData)
     {
-        _shootingMode = attackMode;
-        _damage = damage;
-        _rof = rof;
-        _range = range;
-        _weaponType = weaponType;
-        _currentWeaponShootAnim = currentWeaponShootAnim;
-        _weaponSlot = weaponSlot;
+        _shootingMode = weaponData.AttackMode;
+        _damage = weaponData.Damage;
+        _rof = weaponData.Rof;
+        _range = weaponData.Range;
+        _weaponType = weaponData.WeaponType;
+        _currentWeaponShootAnim = weaponData.CurrentWeaponShootAnim;
+        _weaponSlot = weaponData.WeaponSlot;
+
+        _animatorController = weaponData.WeaponAnimatorController;
+        _sprite = weaponData.WeaponSprite;
     }
 
     public abstract void PerformAttack();
@@ -34,7 +41,6 @@ public abstract class PlayerWeapon
 
         if (GameManager.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
         {
-            //Debug.LogWarning("Znaleziono PlayerWeaponManager (ammo)!");
             WeaponManager = weaponManager;
             return WeaponManager;
         }
@@ -64,7 +70,7 @@ public abstract class PlayerWeapon
     }
     public bool IsWeaponAnimPlaying()
     {
-        if (GetPlayerWeaponManager().CurrentWeaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(GetPlayerWeaponManager().CurrentAnim) && GetPlayerWeaponManager().CurrentWeaponAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        if (GetPlayerWeaponManager().WeaponHandlerAnimator.GetCurrentAnimatorStateInfo(0).IsName(GetPlayerWeaponManager().CurrentAnim) && GetPlayerWeaponManager().WeaponHandlerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
             return true;
         else
             return false;
@@ -73,19 +79,19 @@ public abstract class PlayerWeapon
     //Plays standard shooting anim (for semi/melee or main part of full auto shooting anim)
     public void PlayAttackAnim()
     {
-        GetPlayerWeaponManager().CurrentWeaponAnimator.Play(GetPlayerWeaponManager().CurrentAnim);
+        GetPlayerWeaponManager().WeaponHandlerAnimator.Play(GetPlayerWeaponManager().CurrentAnim);
     }
 
     //For canceling full auto shooting anim when ammo equals 0
     public void CanFullAutoShootAnim(bool canShoot)
     {
-        GetPlayerWeaponManager().CurrentWeaponAnimator.SetBool("canShoot", canShoot);
+        GetPlayerWeaponManager().WeaponHandlerAnimator.SetBool("canShoot", canShoot);
     }
 
     //Plays animation of elevating / lowering full-auto gun
     public void PlayAfterFullAutoShootAnim(PlayerWeapon currentWeapon)
     {
-        GetPlayerWeaponManager().CurrentWeaponAnimator.Play(currentWeapon._weaponType.ToString() + "_after_shoot");
+        GetPlayerWeaponManager().WeaponHandlerAnimator.Play(currentWeapon._weaponType.ToString() + "_after_shoot");
     }
 }
 

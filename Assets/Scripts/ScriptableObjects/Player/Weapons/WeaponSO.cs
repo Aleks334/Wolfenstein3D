@@ -1,14 +1,53 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Player/Weapons/New Weapon Data SO")]
 public class WeaponSO : ScriptableObject
 {
-    public int _damage;
-    public float _range;
-    public float _rof;
-    public ShootingMode _shootingMode;
-    public WeaponType _weaponType; //for visual selection
-    public string _currentWeaponShootAnim;
-    public int _weaponSlot;
+    [Header("Properties of weapon")]
+    [SerializeField] private int _damage;
+    public int Damage
+    { 
+        get { return _damage; }
+    }
 
-    public PlayerWeapon _weapon; //for coding
+    [SerializeField] private float _range;
+    public float Range
+    {
+        get { return _range;  }
+    }
+
+    [SerializeField] private float _rof;
+    public float Rof
+    {
+        get { return _rof;  }
+    }
+
+    [SerializeField] private ShootingMode _attackMode;
+    public ShootingMode AttackMode
+    {
+        get { return _attackMode; }
+    }
+
+    [SerializeField] private WeaponType _weaponType;
+    public WeaponType WeaponType
+    {
+        get { return _weaponType; }
+    }
+
+    [SerializeField] private string _currentWeaponShootAnim;
+    public string CurrentWeaponShootAnim
+    {
+        get { return _currentWeaponShootAnim; }
+    }
+
+    [SerializeField] private int _weaponSlot;
+    public int WeaponSlot
+    {
+        get { return _weaponSlot; }
+    }
+
+    [Header("Appearance of weapon")]
+    public Sprite WeaponSprite;
+    public AnimatorController WeaponAnimatorController;
 }
