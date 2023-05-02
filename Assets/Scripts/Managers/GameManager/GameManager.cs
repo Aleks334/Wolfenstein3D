@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
         "--------------------------------\n");
     }
     
+    /*
     void RestoreDefaultPlayerSettings()
     {
         Debug.LogWarning("RestoreDefaultPlayerSettings");
@@ -93,7 +94,7 @@ public class GameManager : MonoBehaviour
         PlayerObj.GetComponent<PlayerWeaponManager>().DefaultWeapons();
         _ammoManager.Data.ResetAmmo();
     }
-
+    */
     private void OnPlayerDeath()
     {
         StartCoroutine(HandlePlayerLifeLoss());

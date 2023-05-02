@@ -10,7 +10,7 @@ public class StringEventChannelSO : ScriptableObject
     {
         if (OnEventRaised != null)
         {
-            //Debug.LogWarning("Raised event" + this.name);
+            Debug.LogWarning("Raised event" + this.name);
             OnEventRaised.Invoke(value);
         }
 

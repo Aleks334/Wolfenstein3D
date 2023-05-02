@@ -20,9 +20,9 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(newScene);
     }
-
+    /*
     public static void LoadUIAsync()
     {
         SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
-    }
+    }*/
 }

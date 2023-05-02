@@ -1,14 +1,53 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelSelection : MonoBehaviour
 {
     [SerializeField] ScenesData database;
-    [SerializeField] Button[] episodeBtns = new Button[6]; 
+    [SerializeField] Button[] episodeBtns = new Button[6];
+
+    public Episodes SelectedEpisode { get; private set; }
+
+    public void SelectEpisode(Episodes newSelectedEpisode)
+    {
+        SelectedEpisode = newSelectedEpisode;
+
+        //save for database
+        database.SelectedEpisode = SelectedEpisode;
+
+        switch (SelectedEpisode)
+        {
+            case Episodes.None:
+                Debug.Log("Default episode: " + SelectedEpisode);
+                break;
+            case Episodes.Episode_1:
+                Debug.Log("Selected Episode: " + SelectedEpisode);
+                break;
+            case Episodes.Episode_2:
+                Debug.Log("Selected Episode: " + SelectedEpisode);
+                break;
+            case Episodes.Episode_3:
+                Debug.Log("Selected Episode: " + SelectedEpisode);
+                break;
+            case Episodes.Episode_4:
+                Debug.Log("Selected Episode: " + SelectedEpisode);
+                break;
+            case Episodes.Episode_5:
+                Debug.Log("Selected Episode: " + SelectedEpisode);
+                break;
+            case Episodes.Episode_6:
+                Debug.Log("Selected Episode: " + SelectedEpisode);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(SelectedEpisode), SelectedEpisode, null);
+        }
+
+    }
 
     private void Start()
     {
-        database.SelectEpisode(Episodes.None);
+        SelectEpisode(Episodes.None);
 
         /* this adds listener for every episode btn. TODO: replace it with loop */
         episodeBtns[0].onClick.AddListener(() => ChooseEpisode((Episodes)0));
@@ -21,8 +60,7 @@ public class LevelSelection : MonoBehaviour
 
     public void ChooseEpisode(Episodes clickedEpisode)
     {
-        database.SelectEpisode(clickedEpisode);
-        // Debug.Log("clickedEpisode: " + clickedEpisode);
+        SelectEpisode(clickedEpisode);
         database.UpdateMenuPage(MenuPage.NewGame_DifficultyLevelSelection);
     }
 }

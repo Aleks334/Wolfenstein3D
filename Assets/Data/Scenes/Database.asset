@@ -12,15 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230a14ed250f1294ca9a9f674c6ef676, type: 3}
   m_Name: Database
   m_EditorClassIdentifier: 
-  exitQuotes:
-  - Heroes, press 'N,' wimps press 'Y'
-  - Chickening out...<br>already?
-  - Press N for more carnage.<br>Press Y to be a weenie.
-  - So, you think you can<br>quit this easily, huh?
-  - Press N to save the world.<br>Press Y to abandon it in<br>its hour of need.
-  - Press N if you are brave.<br>Press Y to cover in shame.
-  - You are at an intersection.<br>A sign says, 'Press Y to quit.'<br>
-  - For guns and glory, press N.<br>For work and worry, press Y.
   episodes:
   - {fileID: 11400000, guid: 4c889360ae840a94b92ef56b01a7a6c6, type: 2}
   - {fileID: 11400000, guid: 024c9ffe62ea6024c8c9de2f2ed25315, type: 2}
@@ -39,4 +30,3 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 11400000, guid: b7b36851e4624ad479f21789a5223f70, type: 2}
   - {fileID: 11400000, guid: 59267c05b547cdd47b991e4ff8c6db6b, type: 2}
-  _currentMenuPage: 9
