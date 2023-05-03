@@ -35,19 +35,20 @@ public class WeaponSO : ScriptableObject
         get { return _weaponType; }
     }
 
-    [SerializeField] private string _currentWeaponShootAnim;
-    public string CurrentWeaponShootAnim
-    {
-        get { return _currentWeaponShootAnim; }
-    }
-
     [SerializeField] private int _weaponSlot;
     public int WeaponSlot
     {
         get { return _weaponSlot; }
     }
 
+
     [Header("Appearance of weapon")]
+    [SerializeField] private AnimationClip _weaponAttackAnim;
+    public string WeaponAttackAnim
+    {
+        get { return _weaponAttackAnim.name; }
+    }
+
     public Sprite WeaponSprite;
     public AnimatorController WeaponAnimatorController;
 }

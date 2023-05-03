@@ -24,9 +24,9 @@ public class SemiAuto : PlayerWeapon
 
         GetPlayerWeaponManager().AmmoManager.RemoveAmmo();
         PlayAttackAnim();
-        GetPlayerWeaponManager()._timeToNextShot = _rof;
+        GetPlayerWeaponManager()._timeToNextShot = Rof;
 
-        CreateRay(_range);
-        Debug.Log("tryb strzelania aktualnej broni: " + _shootingMode);
+        CreateRay(Range);
+        Debug.Log("tryb strzelania aktualnej broni: " + ShootingMode);
     }
 }

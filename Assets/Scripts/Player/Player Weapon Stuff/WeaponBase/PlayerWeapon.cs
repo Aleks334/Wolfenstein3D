@@ -3,31 +3,31 @@ using UnityEngine;
 
 public abstract class PlayerWeapon
 {
-    public int _damage;
-    public float _range;
-    public float _rof;
-    public ShootingMode _shootingMode;
-    public WeaponType _weaponType;
-    public string _currentWeaponShootAnim;
-    public int _weaponSlot;
+    protected int Damage { get; private set; }
+    protected float Range { get; private set; }
+    protected float Rof { get; private set; }
+    protected ShootingMode ShootingMode { get; private set; }
+    protected WeaponType WeaponType { get; private set; }
 
-    public AnimatorController _animatorController;
-    public Sprite _sprite;
+    public int WeaponSlot { get; private set; }
+    public string WeaponAttackAnim { get; private set; }
+    public AnimatorController AnimatorController { get; private set; }
+    public Sprite WeaponSprite { get; private set; }
 
     public PlayerWeaponManager WeaponManager { get; private set; }
 
     public PlayerWeapon(WeaponSO weaponData)
     {
-        _shootingMode = weaponData.AttackMode;
-        _damage = weaponData.Damage;
-        _rof = weaponData.Rof;
-        _range = weaponData.Range;
-        _weaponType = weaponData.WeaponType;
-        _currentWeaponShootAnim = weaponData.CurrentWeaponShootAnim;
-        _weaponSlot = weaponData.WeaponSlot;
+        ShootingMode = weaponData.AttackMode;
+        Damage = weaponData.Damage;
+        Rof = weaponData.Rof;
+        Range = weaponData.Range;
+        WeaponType = weaponData.WeaponType;
+        WeaponAttackAnim = weaponData.WeaponAttackAnim;
+        WeaponSlot = weaponData.WeaponSlot;
 
-        _animatorController = weaponData.WeaponAnimatorController;
-        _sprite = weaponData.WeaponSprite;
+        AnimatorController = weaponData.WeaponAnimatorController;
+        WeaponSprite = weaponData.WeaponSprite;
     }
 
     public abstract void PerformAttack();
@@ -59,7 +59,7 @@ public abstract class PlayerWeapon
         {
             if (hit.transform.TryGetComponent<enemystats>(out enemystats enemy))
             {
-                enemy.Dmgenemy(GetPlayerWeaponManager().CurrentWeapon._damage);
+                enemy.Dmgenemy(GetPlayerWeaponManager().CurrentWeapon.Damage);
             }
             Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward * range, Color.green, 0.25f);
         }
@@ -91,7 +91,7 @@ public abstract class PlayerWeapon
     //Plays animation of elevating / lowering full-auto gun
     public void PlayAfterFullAutoShootAnim(PlayerWeapon currentWeapon)
     {
-        GetPlayerWeaponManager().WeaponHandlerAnimator.Play(currentWeapon._weaponType.ToString() + "_after_shoot");
+        GetPlayerWeaponManager().WeaponHandlerAnimator.Play(currentWeapon.WeaponType.ToString() + "_after_shoot");
     }
 }
 

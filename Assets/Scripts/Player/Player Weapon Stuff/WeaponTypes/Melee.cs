@@ -21,8 +21,8 @@ public abstract class Melee : PlayerWeapon
     public override void PerformAttack()
     {
         PlayAttackAnim();
-        GetPlayerWeaponManager()._timeToNextShot = _rof;
-        CreateRay(_range);
+        GetPlayerWeaponManager()._timeToNextShot = Rof;
+        CreateRay(Range);
 
         //Debug.Log("tryb strzelania aktualnej broni: " + _shootingMode);
     }

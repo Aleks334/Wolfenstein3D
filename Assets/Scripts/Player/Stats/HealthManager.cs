@@ -24,7 +24,7 @@ public class HealthManager : MonoBehaviour, IPlayerProfile
     public void DamagePlayer(int dmg)
     {
         Data.playerHealth.DmgValue(dmg);
-        Debug.Log("Obecny poziom zdrowia: " + Data.playerHealth.CurrentHealth);
+        //Debug.Log("Obecny poziom zdrowia: " + Data.playerHealth.CurrentHealth);
         UI.ReloadUI();
         UI.healthdecreaseeffect();
 

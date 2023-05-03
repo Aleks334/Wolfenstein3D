@@ -79,7 +79,7 @@ public class PlayerWeaponManager : MonoBehaviour
     public void GiveWeapon(PlayerWeapon newWeapon)
     {
         //  Debug.Log("playerData.WeaponsInInventory = " + newWeapon);
-        _playerWeapons.WeaponsInInventory[newWeapon._weaponSlot] = newWeapon;
+        _playerWeapons.WeaponsInInventory[newWeapon.WeaponSlot] = newWeapon;
 
         ChangeWeapon(newWeapon);
     }
@@ -104,14 +104,14 @@ public class PlayerWeaponManager : MonoBehaviour
             return;
         }
 
-        CurrentWeapon = _playerWeapons.WeaponsInInventory[weaponToChange._weaponSlot];
+        CurrentWeapon = _playerWeapons.WeaponsInInventory[weaponToChange.WeaponSlot];
         Debug.Log("Aktywna broñ: " + CurrentWeapon);
 
         
-        _weaponHandler.GetComponent<SpriteRenderer>().sprite = CurrentWeapon._sprite;
-        _weaponHandler.GetComponent<Animator>().runtimeAnimatorController = CurrentWeapon._animatorController;
+        _weaponHandler.GetComponent<SpriteRenderer>().sprite = CurrentWeapon.WeaponSprite;
+        _weaponHandler.GetComponent<Animator>().runtimeAnimatorController = CurrentWeapon.AnimatorController;
 
-        CurrentAnim = CurrentWeapon._currentWeaponShootAnim;
+        CurrentAnim = CurrentWeapon.WeaponAttackAnim;
         UI.ReloadUI();
     }
 }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "NewSceneDB", menuName = "Game_Data/Database")]
 public class ScenesData : ScriptableObject
@@ -14,6 +13,23 @@ public class ScenesData : ScriptableObject
     public Episodes SelectedEpisode { get; set; }
     public DifficultyLevel DifficultyLvl { get; set; }
     public MenuPage CurrentMenupage { get; private set; }
+
+    private ScenesFlowController _scenesFlowController;
+    private ScenesFlowController ScenesController
+    {
+        get
+        {
+            if (_scenesFlowController != null)
+                return _scenesFlowController;
+            else
+            {
+                _scenesFlowController = new ScenesFlowController();
+                return _scenesFlowController;
+            }
+               
+        }
+        set { _scenesFlowController = value;  }
+    }
 
     public void UpdateMenuPage(MenuPage menuPageToLoad)
     {
@@ -29,19 +45,19 @@ public class ScenesData : ScriptableObject
                 break;
             case MenuPage.Options:
                 //Debug.Log("current state: " + CurrentMenupage);
-                LoadScene(menuTabs[(int)MenuPage.Options].sceneName);
+                ScenesController.LoadScene(menuTabs[(int)MenuPage.Options].sceneName);
                 break;
             case MenuPage.NewGame_EpisodeSelection:
                 //Debug.Log("current state: " + CurrentMenupage);
-                LoadScene(menuTabs[(int)MenuPage.NewGame_EpisodeSelection].sceneName);
+                ScenesController.LoadScene(menuTabs[(int)MenuPage.NewGame_EpisodeSelection].sceneName);
                 break;
             case MenuPage.NewGame_DifficultyLevelSelection:
                 //Debug.Log("current state: " + CurrentMenupage);
-                LoadScene(menuTabs[(int)MenuPage.NewGame_DifficultyLevelSelection].sceneName);
+                ScenesController.LoadScene(menuTabs[(int)MenuPage.NewGame_DifficultyLevelSelection].sceneName);
                 break;
             case MenuPage.InGame:
                 //Debug.Log("current state: " + CurrentMenupage);
-                LoadSceneAdditive("UI");
+                ScenesController.LoadSceneAdditive("UI");
                 break;
             case MenuPage.Sound:
                 //Debug.Log("current state: " + CurrentMenupage);
@@ -49,7 +65,7 @@ public class ScenesData : ScriptableObject
                 break;
             case MenuPage.Control:
                 //Debug.Log("current state: " + CurrentMenupage);
-                LoadScene(menuTabs[(int)MenuPage.Control].sceneName);
+                ScenesController.LoadScene(menuTabs[(int)MenuPage.Control].sceneName);
                 break;
             case MenuPage.LoadGame:
                 //Debug.Log("current state: " + CurrentMenupage);
@@ -61,12 +77,12 @@ public class ScenesData : ScriptableObject
                 break;
             case MenuPage.ReadThis:
                 //Debug.Log("current state: " + CurrentMenupage);
-                LoadScene(menuTabs[(int)MenuPage.ReadThis].sceneName);
+                ScenesController.LoadScene(menuTabs[(int)MenuPage.ReadThis].sceneName);
                 break;
             case MenuPage.Pause:
                 //Debug.Log("current state: " + CurrentMenupage);
-                LoadSceneAdditive(menuTabs[(int)MenuPage.Pause].sceneName);
-                UnloadSceneAsync("UI");
+                ScenesController.LoadSceneAdditive(menuTabs[(int)MenuPage.Pause].sceneName);
+                ScenesController.UnloadSceneAsync("UI");
                 break;
             case MenuPage.TryToQuit:
                 //Debug.Log("current state: " + CurrentMenupage);
@@ -81,23 +97,7 @@ public class ScenesData : ScriptableObject
                 throw new ArgumentOutOfRangeException(nameof(menuPageToLoad), menuPageToLoad, null);
         }
     }
-
-    void LoadScene(string sceneToLoad)
-    {
-        SceneManager.LoadScene(sceneToLoad);
-    }
-
-    void LoadSceneAdditive(string sceneToLoad)
-    {
-        SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
-    }
-
-    void UnloadSceneAsync(string sceneToLoad)
-    {
-        SceneManager.UnloadSceneAsync(sceneToLoad);
-    }
 }
-
 
 public enum MenuPage
 {

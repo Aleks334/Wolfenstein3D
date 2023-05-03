@@ -17,7 +17,7 @@ MonoBehaviour:
   _rof: 0.2
   _attackMode: 0
   _weaponType: 0
-  _currentWeaponShootAnim: knife_stabbing
   _weaponSlot: 0
+  _weaponAttackAnim: {fileID: 7400000, guid: a1cc8fe5e11b91c4c89daeb270011a96, type: 2}
   WeaponSprite: {fileID: 1758740724, guid: 22095a3353382af4da54c23142b51649, type: 3}
   WeaponAnimatorController: {fileID: 9100000, guid: 78744b356b9b2d84c9f48f50f338a590, type: 2}
