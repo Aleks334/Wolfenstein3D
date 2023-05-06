@@ -25,21 +25,29 @@ public class SoundEmitter : MonoBehaviour
         _audioSource.clip = clip;
         _audioSource.loop = hasToLoop;
         settings.ApplyTo(_audioSource);
-
         _audioSource.transform.position = position;
         _audioSource.Play();
 
-       // if(!hasToLoop)
-       //     StartCoroutine(FinishedPlaying(clip.length));
+        if(!hasToLoop)
+            StartCoroutine(FinishedPlaying(clip.length));
     }
-    /*
+    
     IEnumerator FinishedPlaying(float clipLength)
     {
         yield return new WaitForSeconds(clipLength);
+       
         _status = SoundEmitterStatus.Free;
         gameObject.SetActive(false);
         OnSoundFinishedPlaying.Invoke(this); // The AudioManager will pick this up
-    }*/
+    }
+
+    /// <summary>
+    /// Used when the SFX finished playing. Called by the <c>AudioManager</c>.
+    /// </summary>
+    public void Stop()
+    {
+        _audioSource.Stop();
+    }
 
     public enum SoundEmitterStatus
     {

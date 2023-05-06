@@ -1,15 +1,23 @@
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "newAudioCue", menuName = "Audio/Audio Cue")]
 public class AudioCueSO : ScriptableObject
 {
-    [Header("Looping works only for single clip!")]
+    [Header("Looping works only when array includes single clip!")]
     public bool looping = false;
-    [SerializeField] private PlaybackMode sequenceMode = PlaybackMode.Sequential;
-    public AudioClip[] audioClips;
+    [SerializeField] private PlaybackMode _sequenceMode = PlaybackMode.Sequential;
+    public PlaybackMode SequenceMode 
+    { 
+        get { return _sequenceMode; }
+    }
 
-    private int _nextClipToPlay = -1;
+    [SerializeField] private AudioClip[] _audioClips;
+    public AudioClip[] AudioClips 
+    {
+        get { return _audioClips; }
+    }
+
+    private int _nextClipToPlay;
 
     private void OnEnable()
     {
@@ -18,22 +26,22 @@ public class AudioCueSO : ScriptableObject
 
     public AudioClip GetNextClip()
     {
-        if (audioClips.Length == 1)
-            return audioClips[0];
+        if (AudioClips.Length == 1)
+            return AudioClips[0];
 
-        switch (sequenceMode)
+        switch (_sequenceMode)
         {
                 case PlaybackMode.Sequential:
-                    _nextClipToPlay = (int)Mathf.Repeat(++_nextClipToPlay, audioClips.Length);
+                    _nextClipToPlay = (int)Mathf.Repeat(++_nextClipToPlay, AudioClips.Length);
                     break;
                 case PlaybackMode.Random:
-                    _nextClipToPlay = UnityEngine.Random.Range(0, audioClips.Length);
+                    _nextClipToPlay = UnityEngine.Random.Range(0, AudioClips.Length);
                     break;
                 default:
                     break;
         }
 
-        return audioClips[_nextClipToPlay];
+        return AudioClips[_nextClipToPlay];
     }
 
     public enum PlaybackMode

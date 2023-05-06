@@ -36,26 +36,16 @@ public class AudioManager : MonoBehaviour
         return SoundEmitter;
     }
 
-    private void PlayAudioCue(AudioCueSO audioData, AudioConfigurationSO audioSettings, Vector3 position)
+    private void PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioSettings, Vector3 position)
     {
-        int numOfClips = audioData.audioClips.Length;
-        bool hasToLoop = audioData.looping;
+        AudioClip clipToPlay = audioCue.GetNextClip();
+            //_pool.Request();
+            SoundEmitter availableSoundEmitter = GetAvailableSoundEmitter();
 
-        AudioClip[] clipsToPlay = new AudioClip[numOfClips];
-
-        //Passing clips from audioCueSO to array based on enum PlaybackMode (in GetNextClip method)
-        for (int i = 0; i < numOfClips; i++)
-        {
-            clipsToPlay[i] = audioData.GetNextClip();
-        }
-
-        SoundEmitter availableSoundEmitter = GetAvailableSoundEmitter();
-      /*  if (!hasToLoop)
-        {
-            availableSoundEmitter.OnSoundFinishedPlaying += OnSoundEmitterFinishedPlaying;
-        }*/
-
-        availableSoundEmitter.PlayAudioClip(clipsToPlay[0], audioSettings, hasToLoop, position);
+            availableSoundEmitter.PlayAudioClip(clipToPlay, audioSettings, audioCue.looping, position);
+            if (!audioCue.looping)
+                availableSoundEmitter.OnSoundFinishedPlaying += OnSoundEmitterFinishedPlaying;
+          
     }
 
     private SoundEmitter GetAvailableSoundEmitter()
@@ -79,10 +69,11 @@ public class AudioManager : MonoBehaviour
 
         return availableSoundEmitter;
     }
-    /*
+    
     private void OnSoundEmitterFinishedPlaying(SoundEmitter soundEmitter)
     {
         soundEmitter.OnSoundFinishedPlaying -= OnSoundEmitterFinishedPlaying;
-        
-    }*/
+        soundEmitter.Stop();
+        //_pool.Return(soundEmitter);
+    }
 }
