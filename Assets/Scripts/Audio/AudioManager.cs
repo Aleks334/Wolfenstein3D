@@ -6,74 +6,41 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioCueEventChannelSO _SFXEventChannel;
     [SerializeField] private AudioCueEventChannelSO _musicEventChannel;
 
-    [SerializeField] private int _initalPoolSize = 1;
-    private Transform _soundEmitterPool;
-
-    [SerializeField] private SoundEmitter _soundEmitterPrefab;
-
-    [SerializeField] private List<SoundEmitter> _soundEmittersOnScene;
+    [SerializeField] private SoundEmitterPoolSO _pool;
 
     private void Awake()
     {
         _SFXEventChannel.OnAudioCueRequested += PlayAudioCue;
         _musicEventChannel.OnAudioCueRequested += PlayAudioCue;
 
-        GameObject soundEmitterPool = new GameObject("SoundEmitterPool");
-        soundEmitterPool.transform.parent = this.transform;
-        _soundEmitterPool = soundEmitterPool.transform;
-
-        for (int i = 0; i < _initalPoolSize; i++)
-        {
-            CreateNewSoundEmitter();
-        }
+        _pool.InitPoolParent += SetPoolParent;
     }
 
-    private SoundEmitter CreateNewSoundEmitter()
+    private void Start()
     {
-        SoundEmitter SoundEmitter = GameObject.Instantiate(_soundEmitterPrefab, _soundEmitterPool);
-        _soundEmittersOnScene.Add(SoundEmitter);
-
-        return SoundEmitter;
+        _pool.SetupPool();
     }
 
     private void PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioSettings, Vector3 position)
     {
-        AudioClip clipToPlay = audioCue.GetNextClip();
-            //_pool.Request();
-            SoundEmitter availableSoundEmitter = GetAvailableSoundEmitter();
+        AudioClip[] clipsToPlay = audioCue.GetClips();
+        SoundEmitter available = _pool.Request();
 
-            availableSoundEmitter.PlayAudioClip(clipToPlay, audioSettings, audioCue.looping, position);
-            if (!audioCue.looping)
-                availableSoundEmitter.OnSoundFinishedPlaying += OnSoundEmitterFinishedPlaying;
-          
-    }
+        available.PlayAudioClip(clipsToPlay, audioSettings, audioCue.looping, position);
 
-    private SoundEmitter GetAvailableSoundEmitter()
-    {
-        SoundEmitter availableSoundEmitter = null;
-
-        foreach (var soundEmitter in _soundEmittersOnScene)
-        {
-            if (soundEmitter._status == SoundEmitter.SoundEmitterStatus.Free)
-            {
-                availableSoundEmitter = soundEmitter;
-                soundEmitter._status = SoundEmitter.SoundEmitterStatus.Used;
-                break;
-            }
-        }
-
-        if(availableSoundEmitter == null)
-        {
-            availableSoundEmitter = CreateNewSoundEmitter();
-        }
-
-        return availableSoundEmitter;
+        if (!audioCue.looping)
+            available.OnSoundFinishedPlaying += OnSoundEmitterFinishedPlaying;
     }
     
     private void OnSoundEmitterFinishedPlaying(SoundEmitter soundEmitter)
     {
         soundEmitter.OnSoundFinishedPlaying -= OnSoundEmitterFinishedPlaying;
         soundEmitter.Stop();
-        //_pool.Return(soundEmitter);
+        _pool.Return(soundEmitter);
+    }
+
+    private Transform SetPoolParent()
+    {
+        return transform.GetChild(0);
     }
 }
