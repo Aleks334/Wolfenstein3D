@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DoorTrigger : MonoBehaviour, IInteractableRaycast
+public class DoorTrigger : MonoBehaviour, IInteractableRaycast, IAudio
 {
    private bool isPlayerInTrigger;
    private BoxCollider collisionBox;
@@ -79,10 +79,15 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast
     public void Interact()
     {
         if (_currentDoorStatus == DoorState.Closed)
+        {
+            PlaySound();
             StartCoroutine(OpenDoor(-transform.parent.right));
-
+        }
         else if (_currentDoorStatus == DoorState.Opened)
+        {
+            PlaySound();
             StartCoroutine(CloseDoor(transform.parent.right));
+        }   
     }
 
     private IEnumerator OpenDoor(Vector3 direction)
@@ -122,6 +127,12 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast
         _currentDoorStatus = DoorState.Closed;
         TimeToCloseDoor = 3f;
         collisionBox.isTrigger = true;
+    }
+
+    public void PlaySound()
+    {
+        if (TryGetComponent<AudioCue>(out AudioCue audioCue))
+            audioCue.PlayAudioCue();
     }
 
     private enum DoorState

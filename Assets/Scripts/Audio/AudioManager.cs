@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -7,6 +6,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioCueEventChannelSO _musicEventChannel;
 
     [SerializeField] private SoundEmitterPoolSO _pool;
+
+    [SerializeField] bool _forceUniversalVolume = false;
+    [SerializeField] private float _globalMusicVolume = 0.15f;
+    [SerializeField] private float _globalSFXVolume = 1f;
 
     private void Awake()
     {

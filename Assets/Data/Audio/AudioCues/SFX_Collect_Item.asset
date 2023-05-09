@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3478f19ba00547f41848bb7c7d1fee6e, type: 3}
-  m_Name: Start_Music
+  m_Name: SFX_Collect_Item
   m_EditorClassIdentifier: 
   looping: 0
   _audioClipGroup:
     sequenceMode: 1
     audioClips:
-    - {fileID: 8300000, guid: 72bbecf2103b8a143b18d7c588288ca2, type: 3}
-    - {fileID: 8300000, guid: b9dc8d1cd24e7d14890ef05b37a5389f, type: 3}
+    - {fileID: 8300000, guid: d6345f63bd48d2d4397e3f338d9429b5, type: 3}

@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2d01f9b698d5f4fbac6e716c99f241, type: 3}
-  m_Name: Music_Configuration
+  m_Script: {fileID: 11500000, guid: 3478f19ba00547f41848bb7c7d1fee6e, type: 3}
+  m_Name: Music_Beginning
   m_EditorClassIdentifier: 
-  Mute: 0
-  Volume: 1
+  looping: 0
+  _audioClipGroup:
+    sequenceMode: 1
+    audioClips:
+    - {fileID: 8300000, guid: 72bbecf2103b8a143b18d7c588288ca2, type: 3}
