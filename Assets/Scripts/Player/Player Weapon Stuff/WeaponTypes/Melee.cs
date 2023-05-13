@@ -22,6 +22,8 @@ public abstract class Melee : PlayerWeapon
     {
         PlayAttackAnim();
         GetPlayerWeaponManager()._timeToNextShot = Rof;
+
+        GetPlayerWeaponManager().PlaySound();
         CreateRay(Range);
 
         //Debug.Log("tryb strzelania aktualnej broni: " + _shootingMode);

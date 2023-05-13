@@ -1,15 +1,17 @@
 using System.Collections;
 using UnityEngine;
 
-public class DoorTrigger : MonoBehaviour, IInteractableRaycast, IAudio
+public class DoorTrigger : AudioPlayable, IInteractableRaycast
 {
    private bool isPlayerInTrigger;
    private BoxCollider collisionBox;
 
    private DoorState _currentDoorStatus;
 
+   [SerializeField] private float _openedDoorDuration = 3f;
+
    private float _timeToCloseDoor;
-    private float _time;
+   private float _time;
 
     private float TimeToCloseDoor
     {
@@ -33,7 +35,7 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast, IAudio
     private Vector3 _startPos;
     private Vector3 _endPos;
 
-    private float _mvmtSpeed = 1.5f;
+    [SerializeField] private float _mvmtSpeed = 1.5f;
 
     void Start()
     {
@@ -41,7 +43,7 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast, IAudio
         collisionBox = transform.GetComponent<BoxCollider>();
 
         _currentDoorStatus = DoorState.Closed;
-        TimeToCloseDoor = 3f;
+        TimeToCloseDoor = _openedDoorDuration;
 
         _door = transform.parent.GetChild(0).transform;
 
@@ -80,12 +82,12 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast, IAudio
     {
         if (_currentDoorStatus == DoorState.Closed)
         {
+            ChangeDefaultClipGroup(0);
             PlaySound();
             StartCoroutine(OpenDoor(-transform.parent.right));
         }
         else if (_currentDoorStatus == DoorState.Opened)
         {
-            PlaySound();
             StartCoroutine(CloseDoor(transform.parent.right));
         }   
     }
@@ -124,15 +126,12 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast, IAudio
 
             _time += Time.deltaTime * _mvmtSpeed;
         }
-        _currentDoorStatus = DoorState.Closed;
-        TimeToCloseDoor = 3f;
-        collisionBox.isTrigger = true;
-    }
 
-    public void PlaySound()
-    {
-        if (TryGetComponent<AudioCue>(out AudioCue audioCue))
-            audioCue.PlayAudioCue();
+        ChangeDefaultClipGroup(1);
+        PlaySound();
+        _currentDoorStatus = DoorState.Closed;
+        TimeToCloseDoor = _openedDoorDuration;
+        collisionBox.isTrigger = true;
     }
 
     private enum DoorState

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerWeaponManager : MonoBehaviour
+public class PlayerWeaponManager : MonoBehaviour, IAudio
 {
     public WeaponsInventorySO _playerWeapons;
     public AmmoManager AmmoManager { get; private set; }
@@ -106,12 +106,28 @@ public class PlayerWeaponManager : MonoBehaviour
 
         CurrentWeapon = _playerWeapons.WeaponsInInventory[weaponToChange.WeaponSlot];
         Debug.Log("Aktywna broñ: " + CurrentWeapon);
-
         
         _weaponHandler.GetComponent<SpriteRenderer>().sprite = CurrentWeapon.WeaponSprite;
         _weaponHandler.GetComponent<Animator>().runtimeAnimatorController = CurrentWeapon.AnimatorController;
-
         CurrentAnim = CurrentWeapon.WeaponAttackAnim;
+
+        ChangeAudioCueCurrentWeapon(CurrentWeapon);
         UI.ReloadUI();
+    }
+
+    public void PlaySound()
+    {
+        if (_weaponHandler.TryGetComponent<AudioCue>(out AudioCue audioCue))
+            audioCue.PlayAudioCue();
+        else
+            Debug.LogError("_weaponHandler doesn't have AudioCue");
+    }
+
+    private void ChangeAudioCueCurrentWeapon(PlayerWeapon currentWeapon)
+    {
+        if (_weaponHandler.TryGetComponent<AudioCue>(out AudioCue audioCue))
+            audioCue.AudioData = currentWeapon.WeaponAttackSound;
+        else
+            Debug.LogError("_weaponHandler doesn't have AudioCue");
     }
 }

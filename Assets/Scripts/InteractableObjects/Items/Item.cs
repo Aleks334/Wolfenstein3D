@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour, IInteractableTrigger, IAudio
+public class Item : AudioPlayable, IInteractableTrigger
 {
     [SerializeField] private ItemDataSO _itemData;
 
@@ -14,11 +14,5 @@ public class Item : MonoBehaviour, IInteractableTrigger, IAudio
             UI.healtincreaseeffect();
             Destroy(this.gameObject);
         }
-    }
-
-    public void PlaySound()
-    {
-        if (TryGetComponent<AudioCue>(out AudioCue audioCue))
-            audioCue.PlayAudioCue();
     }
 }

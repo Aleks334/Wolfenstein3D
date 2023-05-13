@@ -13,6 +13,7 @@ public abstract class PlayerWeapon
     public string WeaponAttackAnim { get; private set; }
     public AnimatorController AnimatorController { get; private set; }
     public Sprite WeaponSprite { get; private set; }
+    public AudioCueSO WeaponAttackSound { get; private set; }
 
     public PlayerWeaponManager WeaponManager { get; private set; }
 
@@ -28,6 +29,7 @@ public abstract class PlayerWeapon
 
         AnimatorController = weaponData.WeaponAnimatorController;
         WeaponSprite = weaponData.WeaponSprite;
+        WeaponAttackSound = weaponData.WeaponAttackSound;
     }
 
     public abstract void PerformAttack();

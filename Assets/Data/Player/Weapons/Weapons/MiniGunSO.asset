@@ -21,3 +21,4 @@ MonoBehaviour:
   _weaponAttackAnim: {fileID: 7400000, guid: 47a19fc5c9b135144857041d5eee4b1e, type: 2}
   WeaponSprite: {fileID: 1954617417, guid: 22095a3353382af4da54c23142b51649, type: 3}
   WeaponAnimatorController: {fileID: 9100000, guid: d425144380782354ba799132dcf74c5a, type: 2}
+  _audioCueSO: {fileID: 11400000, guid: f72271700154521468c6ddc40a8deb5d, type: 2}

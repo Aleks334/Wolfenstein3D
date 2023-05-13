@@ -8130,6 +8130,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 967603319049741495, guid: 856c845a63e1deb489e0530be7511f44, type: 3}
   m_PrefabInstance: {fileID: 1157456508}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1169005330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1169005332}
+  - component: {fileID: 1169005331}
+  m_Layer: 0
+  m_Name: Background_Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1169005331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169005330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc1de5580220c34e95e8f7235c86737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioData: {fileID: 11400000, guid: f92a8b42b3cbdbf438883833b6e5c81c, type: 2}
+  _playOnStart: 1
+  _audioSettings: {fileID: 11400000, guid: b0297a43762590d48b567ad77a172711, type: 2}
+  _audioCueEventChannel: {fileID: 11400000, guid: 3b384d9182d04744f929dc81749c8904, type: 2}
+--- !u!4 &1169005332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169005330}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -40.79548, y: 1.0405827, z: 46.043606}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1174972869
 GameObject:
   m_ObjectHideFlags: 0
@@ -12403,6 +12451,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2158040780198049627, guid: 9245b939ca7fb824a8b51e2e06dd5a97, type: 3}
   m_PrefabInstance: {fileID: 1877061798}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1890134656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1890134658}
+  - component: {fileID: 1890134657}
+  m_Layer: 0
+  m_Name: AudioManager(only temporary)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1890134657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890134656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28780ab97346d7d44b77d6d5e09bc4ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SFXEventChannel: {fileID: 11400000, guid: f4cbb7369826f9d49881ee6bffcfc966, type: 2}
+  _musicEventChannel: {fileID: 11400000, guid: 3b384d9182d04744f929dc81749c8904, type: 2}
+  _pool: {fileID: 11400000, guid: 4354ef1f33e00da40b8ce449f79158b0, type: 2}
+--- !u!4 &1890134658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890134656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2077669454}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1897268379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13922,6 +14018,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5380d0d734653f141873a946cc9d275a, type: 3}
+--- !u!1 &2077669453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2077669454}
+  m_Layer: 0
+  m_Name: SoundEmitterPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2077669454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077669453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1890134658}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2081299739
 PrefabInstance:
   m_ObjectHideFlags: 0

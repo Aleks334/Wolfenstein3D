@@ -5,22 +5,29 @@ using UnityEngine;
 public class AudioCueSO : ScriptableObject
 {
     public bool looping = false;
-    [SerializeField] private AudioClipsGroup _audioClipGroup;
-
-    public AudioClip[] GetClips()
+    [SerializeField] private int _defaultClipGroup = 0;
+    public int DefaultClipGroup
     {
-        int numberOfClips = _audioClipGroup.audioClips.Length;
+        get => _defaultClipGroup;
+        set => _defaultClipGroup = value;
+    }
+
+    [SerializeField] private AudioClipsGroups[] _audioClipGroups;
+
+    public AudioClip[] GetClips(int clipGroup)
+    {
+        int numberOfClips = _audioClipGroups[clipGroup].audioClips.Length;
         AudioClip[] resultingClips = new AudioClip[numberOfClips];
 
-        if (_audioClipGroup.sequenceMode == AudioClipsGroup.PlaybackMode.Random)
+        if (_audioClipGroups[clipGroup].sequenceMode == AudioClipsGroups.PlaybackMode.Random)
         {
-            resultingClips[0] = _audioClipGroup.GetNextClip();
+            resultingClips[0] = _audioClipGroups[clipGroup].GetNextClip();
         }
         else
         {
             for (int i = 0; i < numberOfClips; i++)
             {
-                resultingClips[i] = _audioClipGroup.GetNextClip();
+                resultingClips[i] = _audioClipGroups[clipGroup].GetNextClip();
             }
         }
 
@@ -29,7 +36,7 @@ public class AudioCueSO : ScriptableObject
 }
 
 [Serializable]
-public class AudioClipsGroup
+public class AudioClipsGroups
 {
     public PlaybackMode sequenceMode = PlaybackMode.Sequential;
     public AudioClip[] audioClips;
@@ -64,7 +71,7 @@ public class AudioClipsGroup
 
     public enum PlaybackMode
     {
-        Random,
         Sequential,
+        Random
     }
 }

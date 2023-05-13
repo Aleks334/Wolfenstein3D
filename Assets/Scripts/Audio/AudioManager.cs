@@ -7,26 +7,24 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private SoundEmitterPoolSO _pool;
 
+    /*
     [SerializeField] bool _forceUniversalVolume = false;
     [SerializeField] private float _globalMusicVolume = 0.15f;
     [SerializeField] private float _globalSFXVolume = 1f;
-
+    */
     private void Awake()
     {
         _SFXEventChannel.OnAudioCueRequested += PlayAudioCue;
         _musicEventChannel.OnAudioCueRequested += PlayAudioCue;
 
         _pool.InitPoolParent += SetPoolParent;
-    }
 
-    private void Start()
-    {
-        _pool.SetupPool();
+         _pool.SetupPool();
     }
 
     private void PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioSettings, Vector3 position)
     {
-        AudioClip[] clipsToPlay = audioCue.GetClips();
+        AudioClip[] clipsToPlay = audioCue.GetClips(audioCue.DefaultClipGroup);
         SoundEmitter available = _pool.Request();
 
         available.PlayAudioClip(clipsToPlay, audioSettings, audioCue.looping, position);

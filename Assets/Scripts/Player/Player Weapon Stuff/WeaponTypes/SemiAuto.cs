@@ -26,7 +26,8 @@ public class SemiAuto : PlayerWeapon
         PlayAttackAnim();
         GetPlayerWeaponManager()._timeToNextShot = Rof;
 
+        GetPlayerWeaponManager().PlaySound();
         CreateRay(Range);
-        Debug.Log("tryb strzelania aktualnej broni: " + ShootingMode);
+        //Debug.Log("tryb strzelania aktualnej broni: " + ShootingMode);
     }
 }

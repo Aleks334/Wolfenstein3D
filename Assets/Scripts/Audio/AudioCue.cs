@@ -4,6 +4,12 @@ public class AudioCue : MonoBehaviour
 {
     [Header("Sound definition")]
     [SerializeField] private AudioCueSO _audioData;
+    public AudioCueSO AudioData
+    {
+        get => _audioData;
+        set => _audioData = value;
+    }
+
     [SerializeField] private bool _playOnStart = false;
 
     [Header("Sound Configuration")]
