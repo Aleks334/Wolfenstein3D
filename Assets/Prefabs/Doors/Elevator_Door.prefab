@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3743886684791712310}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 26.939999, y: 0, z: -17.696999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3743886685370946449}
   - component: {fileID: 3743886685370946448}
   - component: {fileID: 3743886685370946463}
+  - component: {fileID: 1567716560915743795}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Door
@@ -91,6 +92,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465859aaa8e058e428edbe4a82f98fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _openedDoorDuration: 8
+  _mvmtSpeed: 1.1
+--- !u!114 &1567716560915743795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743886685370946450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc1de5580220c34e95e8f7235c86737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioData: {fileID: 11400000, guid: e3c590fa7dee83b42a9d4d03d71c04a7, type: 2}
+  _playOnStart: 0
+  _audioSettings: {fileID: 11400000, guid: ceecefa7a0338354092118a214c2593c, type: 2}
+  _audioCueEventChannel: {fileID: 11400000, guid: f4cbb7369826f9d49881ee6bffcfc966, type: 2}
 --- !u!1 &7021361689026802663
 GameObject:
   m_ObjectHideFlags: 0

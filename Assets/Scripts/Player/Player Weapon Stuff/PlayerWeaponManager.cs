@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerWeaponManager : MonoBehaviour, IAudio
@@ -6,7 +7,6 @@ public class PlayerWeaponManager : MonoBehaviour, IAudio
     public AmmoManager AmmoManager { get; private set; }
 
     private GameObject _weaponHandler;
-   // public GameObject[] weaponObjects = new GameObject[4];
 
     //For animations
     public string CurrentAnim { get; private set; }

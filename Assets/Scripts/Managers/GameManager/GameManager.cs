@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         {
             _healthManager.Data.GiveDefaultHealth();
             _lifesManager.RemoveLifes(1);
-            PlayerObj.GetComponent<PlayerWeaponManager>().DefaultWeapons();
+          //  PlayerObj.GetComponent<PlayerWeaponManager>().DefaultWeapons(); (redundant)
             _ammoManager.Data.ResetAmmo();
             _healthManager.Data._justDied = false;
         }

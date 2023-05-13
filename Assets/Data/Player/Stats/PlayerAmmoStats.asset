@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac618d8707abe9541802614acdb7f913, type: 3}
   m_Name: PlayerAmmoStats
   m_EditorClassIdentifier: 
-  _defaultAmount: 40
+  _defaultAmount: 8
   _maxAmount: 99

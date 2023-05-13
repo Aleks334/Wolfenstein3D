@@ -82,7 +82,6 @@ public class DoorTrigger : AudioPlayable, IInteractableRaycast
     {
         if (_currentDoorStatus == DoorState.Closed)
         {
-            ChangeDefaultClipGroup(0);
             PlaySound();
             StartCoroutine(OpenDoor(-transform.parent.right));
         }
@@ -127,8 +126,7 @@ public class DoorTrigger : AudioPlayable, IInteractableRaycast
             _time += Time.deltaTime * _mvmtSpeed;
         }
 
-        ChangeDefaultClipGroup(1);
-        PlaySound();
+        PlaySound(1);
         _currentDoorStatus = DoorState.Closed;
         TimeToCloseDoor = _openedDoorDuration;
         collisionBox.isTrigger = true;

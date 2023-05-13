@@ -7,11 +7,6 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private SoundEmitterPoolSO _pool;
 
-    /*
-    [SerializeField] bool _forceUniversalVolume = false;
-    [SerializeField] private float _globalMusicVolume = 0.15f;
-    [SerializeField] private float _globalSFXVolume = 1f;
-    */
     private void Awake()
     {
         _SFXEventChannel.OnAudioCueRequested += PlayAudioCue;
