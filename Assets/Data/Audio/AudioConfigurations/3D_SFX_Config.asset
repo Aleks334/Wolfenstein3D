@@ -19,4 +19,4 @@ MonoBehaviour:
   SpatialBlend: 1
   RolloffMode: 1
   MinDistance: 2.3
-  MaxDistance: 50
+  MaxDistance: 65

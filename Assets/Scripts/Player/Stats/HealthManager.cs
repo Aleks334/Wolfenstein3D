@@ -42,7 +42,7 @@ public class HealthManager : MonoBehaviour, IPlayerProfile
     public void HealPlayer(int healing)
     {
         Data.playerHealth.HealingValue(healing);
-        Debug.Log("Obecny poziom ¿ycia: " + Data.playerHealth.CurrentHealth);
+      //  Debug.Log("Obecny poziom ¿ycia: " + Data.playerHealth.CurrentHealth);
         UI.ReloadUI();
         UI.healtincreaseeffect();
     }

@@ -11,6 +11,10 @@ public class Warmed : state
     public int shootcount;
     public int shootcount2 = 0;
     public bool mele;
+
+    [SerializeField] private AudioCueSO _warmedAudioCue;
+    private AudioCue _audioCue;
+
     public void Start()
     {
         states.Add(this.GetComponent<Aiming>());
@@ -25,10 +29,15 @@ public class Warmed : state
         {
             shootcount = 5;
         }
+
+        _audioCue = AudioCueComponent;
     }
     public override void on_state_enter()
     {
         base.on_state_enter();
+
+        _audioCue.AudioData = _warmedAudioCue;
+        PlaySound();
         state_change("Running");
     }
     public override void state_action()

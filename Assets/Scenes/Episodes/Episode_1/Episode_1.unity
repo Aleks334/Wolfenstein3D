@@ -2423,6 +2423,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1679201790}
     m_Modifications:
+    - target: {fileID: 967603319049741476, guid: 856c845a63e1deb489e0530be7511f44, type: 3}
+      propertyPath: _audioCue
+      value: 
+      objectReference: {fileID: 11400000, guid: 4aaffbdd02432bc41b961d16aa57f1ba, type: 2}
     - target: {fileID: 967603319049741495, guid: 856c845a63e1deb489e0530be7511f44, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -2470,6 +2474,10 @@ PrefabInstance:
     - target: {fileID: 967603319049741499, guid: 856c845a63e1deb489e0530be7511f44, type: 3}
       propertyPath: m_Name
       value: Hans (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 967603319049741499, guid: 856c845a63e1deb489e0530be7511f44, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 967603319049741502, guid: 856c845a63e1deb489e0530be7511f44, type: 3}
       propertyPath: p
@@ -9836,6 +9844,10 @@ PrefabInstance:
       propertyPath: p
       value: 
       objectReference: {fileID: 862176832}
+    - target: {fileID: 1838373801550459897, guid: 856c845a63e1deb489e0530be7511f44, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 856c845a63e1deb489e0530be7511f44, type: 3}
 --- !u!4 &1392345053 stripped
