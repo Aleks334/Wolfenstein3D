@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class Dead : state
 {
     [SerializeField] private GameObject _ammoPickUp;
+    [SerializeField] private GameObject _deadEnemy;
 
     [SerializeField] private AudioCueSO _deathAudioCue;
     private AudioCue _audioCue;
@@ -22,21 +23,27 @@ public class Dead : state
         {
             //œmieræ psa
             PlaySound();
-            this.gameObject.GetComponent<CapsuleCollider>().isTrigger = true;
+            Instantiate(_deadEnemy, transform.position, Quaternion.identity);
+
+            Destroy(this.gameObject);
         }
         else if (this.GetComponent<enemystats>().type == enemystats.enemy_type.Hans)
         {
             //œmieræ zwyk³ego ¿o³mierza
-            Instantiate(_ammoPickUp, transform.position, Quaternion.identity);
             PlaySound();
-            this.gameObject.GetComponent<CapsuleCollider>().isTrigger = true;
+            Instantiate(_deadEnemy, transform.position, Quaternion.identity);
+            Instantiate(_ammoPickUp, transform.position, Quaternion.identity);
+
+            Destroy(this.gameObject);
         }
         else if (this.GetComponent<enemystats>().type == enemystats.enemy_type.Helmut)
         {
             //œmieræ SS
-            Instantiate(_ammoPickUp, transform.position, Quaternion.identity);
             PlaySound();
-            this.gameObject.GetComponent<CapsuleCollider>().isTrigger = true;
+            Instantiate(_deadEnemy, transform.position, Quaternion.identity);
+            Instantiate(_ammoPickUp, transform.position, Quaternion.identity);
+
+            Destroy(this.gameObject);
         }
     }
     public override void state_action()

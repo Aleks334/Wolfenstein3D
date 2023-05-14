@@ -221,7 +221,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.74
+  m_Radius: 0.6
   m_Height: 2.7170882
   m_Direction: 1
   m_Center: {x: 0, y: 1.3578064, z: 0}
@@ -359,6 +359,7 @@ MonoBehaviour:
   name: Dead
   changestate: 
   _ammoPickUp: {fileID: 0}
+  _deadEnemy: {fileID: 6897021142595610464, guid: df59fc87c610dd843a677c8e51ab9efa, type: 3}
   _deathAudioCue: {fileID: 11400000, guid: 841456c49e7f9d645a0d2f321b9d4fcc, type: 2}
 --- !u!114 &4813319710147117252
 MonoBehaviour:

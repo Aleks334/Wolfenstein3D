@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         database.UpdateMenuPage(MenuPage.InGame);
         playerAsset = Resources.Load("Player/Player") as GameObject;
-        PlayerSpawnPoint = GameObject.Find("PlayerSpawnPoint").transform;
+        PlayerSpawnPoint = GameObject.FindGameObjectWithTag("PlayerSpawnPoint").transform;
         PlayerObj = Instantiate(playerAsset, PlayerSpawnPoint.position, Quaternion.Euler(0f, -90f, 0f));
 
         #region Getting all needed player stats managers

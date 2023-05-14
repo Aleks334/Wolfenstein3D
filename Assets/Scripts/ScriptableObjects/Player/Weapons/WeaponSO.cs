@@ -23,6 +23,7 @@ public class WeaponSO : ScriptableObject
         get => _rof;
     }
 
+    //Only for debugging
     [SerializeField] private ShootingMode _attackMode;
     public ShootingMode AttackMode
     {

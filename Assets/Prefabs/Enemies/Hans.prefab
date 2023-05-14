@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 967603318775656256}
   - component: {fileID: 967603318775656257}
   - component: {fileID: 967603318775656258}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Hans
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -174,9 +174,9 @@ GameObject:
   - component: {fileID: 967603319049741473}
   - component: {fileID: 967603319049741481}
   - component: {fileID: 7322468243567416814}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Hans
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,7 +229,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.74
+  m_Radius: 0.6
   m_Height: 2.7170882
   m_Direction: 1
   m_Center: {x: 0, y: 1.3578064, z: 0}
@@ -367,6 +367,7 @@ MonoBehaviour:
   name: Dead
   changestate: 
   _ammoPickUp: {fileID: 3357493184913307264, guid: bbc9391043a6efa4380bdfd53b928609, type: 3}
+  _deadEnemy: {fileID: 7143686838170128357, guid: 824feb75a321dbc4b9f1ec9771a6bc37, type: 3}
   _deathAudioCue: {fileID: 11400000, guid: 4aaffbdd02432bc41b961d16aa57f1ba, type: 2}
 --- !u!114 &967603319049741477
 MonoBehaviour:
