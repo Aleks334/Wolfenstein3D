@@ -7,9 +7,11 @@ public class SplashScreensManager : MonoBehaviour
     [SerializeField] ScenesData database;
     [SerializeField] int currentPanel;
 
+    [SerializeField] private LoadSceneEventChannelSO _loadSceneEventChannel;
+
     void Start()
     {
-        database.UpdateMenuPage(MenuPage.SplashScreen);
+        //database.UpdateMenuPage(MenuPage.SplashScreen);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -47,7 +49,8 @@ public class SplashScreensManager : MonoBehaviour
         }
         else
         {
-            database.UpdateMenuPage(MenuPage.Options);
+            _loadSceneEventChannel.RaiseEvent(database.menuTabs[1], false, true);
+            //database.UpdateMenuPage(MenuPage.Options);
         }
 
         yield return null;

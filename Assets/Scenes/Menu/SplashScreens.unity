@@ -922,6 +922,7 @@ MonoBehaviour:
   - {fileID: 661412137}
   database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
   currentPanel: 0
+  _loadSceneEventChannel: {fileID: 11400000, guid: 4a9640ecfb901884da7acf70c3bc2107, type: 2}
 --- !u!4 &1801279183
 Transform:
   m_ObjectHideFlags: 0
