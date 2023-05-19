@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Options
   m_EditorClassIdentifier: 
   sceneName: Options
-  music: {fileID: 0}
+  _backgroundMusic: {fileID: 11400000, guid: c5508ca893c026743a580a6250707846, type: 2}
+  _previousMenuTab: {fileID: 0}

@@ -512,6 +512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1053642628}
   - component: {fileID: 1053642629}
+  - component: {fileID: 1053642630}
   m_Layer: 0
   m_Name: BackgroundMusic
   m_TagString: Untagged
@@ -550,6 +551,19 @@ MonoBehaviour:
   _playOnStart: 0
   _audioSettings: {fileID: 11400000, guid: b0297a43762590d48b567ad77a172711, type: 2}
   _audioCueEventChannel: {fileID: 11400000, guid: 3b384d9182d04744f929dc81749c8904, type: 2}
+--- !u!114 &1053642630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053642627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e79046d8dd8a7448840189e3fe4d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadSceneChannel: {fileID: 11400000, guid: 1fe115045808bb94a90b57589f4c0ea0, type: 2}
 --- !u!1 &1555850914
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,9 +793,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0de8fbff9e34c418ce803c8dcc5353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loadSceneEventChannel: {fileID: 11400000, guid: 4a9640ecfb901884da7acf70c3bc2107, type: 2}
+  _loadSceneEventChannel: {fileID: 11400000, guid: 1fe115045808bb94a90b57589f4c0ea0, type: 2}
   _initScene: {fileID: 11400000, guid: efd0ae319fcab664f9ed98d878ff2822, type: 2}
-  _splashScreen: {fileID: 11400000, guid: 7af2f20d9defd2b4b8c79ca68b206ac0, type: 2}
+  _scenesOnFirstLoad:
+  - {fileID: 11400000, guid: 7af2f20d9defd2b4b8c79ca68b206ac0, type: 2}
   _loadingInterface: {fileID: 1730138769}
   _loadingProgressBar: {fileID: 473022627}
 --- !u!1 &2103810597

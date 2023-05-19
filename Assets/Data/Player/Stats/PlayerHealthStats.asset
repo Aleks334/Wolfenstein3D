@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd921de80bb1e2a4fb1b04b414e509e8, type: 3}
   m_Name: PlayerHealthStats
   m_EditorClassIdentifier: 
-  _defaultAmount: 50
+  _defaultAmount: 61
   _maxAmount: 100
-  _justDied: 0
+  JustDied: 0

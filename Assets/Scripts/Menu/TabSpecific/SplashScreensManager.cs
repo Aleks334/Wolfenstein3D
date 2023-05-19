@@ -3,16 +3,15 @@ using UnityEngine;
 
 public class SplashScreensManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] creatorsPanel = new GameObject[3];
-    [SerializeField] ScenesData database;
-    [SerializeField] int currentPanel;
+    [SerializeField] private GameObject[] creatorsPanel = new GameObject[3];
+    private int currentPanel;
 
+    [Header("Load Scene fields")]
     [SerializeField] private LoadSceneEventChannelSO _loadSceneEventChannel;
+    [SerializeField] private MenuTab _menuTabToLoad;
 
     void Start()
     {
-        //database.UpdateMenuPage(MenuPage.SplashScreen);
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -36,7 +35,7 @@ public class SplashScreensManager : MonoBehaviour
         CanvasGroup canvas = creatorsPanel[currentPanel].transform.parent.GetComponent<CanvasGroup>();
         while (canvas.alpha > 0)
         {
-            canvas.alpha -= Time.deltaTime;
+            canvas.alpha -= Time.deltaTime * 1.5f;
             yield return null;
         }
 
@@ -49,8 +48,7 @@ public class SplashScreensManager : MonoBehaviour
         }
         else
         {
-            _loadSceneEventChannel.RaiseEvent(database.menuTabs[1], false, true);
-            //database.UpdateMenuPage(MenuPage.Options);
+            _loadSceneEventChannel.RaiseEvent(new[] { _menuTabToLoad }, false);
         }
 
         yield return null;

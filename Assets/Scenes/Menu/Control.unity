@@ -524,8 +524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe37c2c50768104d8c95a889d13f171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
-  ExitPanel: {fileID: 0}
+  _loadMenuTabEventChannel: {fileID: 11400000, guid: 1fe115045808bb94a90b57589f4c0ea0, type: 2}
+  _currentMenuTab: {fileID: 11400000, guid: fb6c98a715a1c294d9554dd4eee0312f, type: 2}
 --- !u!4 &588846916
 Transform:
   m_ObjectHideFlags: 0

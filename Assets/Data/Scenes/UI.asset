@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c95696bf8d8d9248892429dab25880c, type: 3}
-  m_Name: PauseMenu
+  m_Script: {fileID: 11500000, guid: 117935958e309e64bade24f3bebbb40a, type: 3}
+  m_Name: UI
   m_EditorClassIdentifier: 
-  sceneName: Pause
+  sceneName: UI
   music: {fileID: 0}

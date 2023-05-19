@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class AsyncGameLoader : MonoBehaviour
 {
+    /*
     [SerializeField] ScenesData database;
 
     [SerializeField] GameObject mainMenuObj;
@@ -45,11 +46,11 @@ public class AsyncGameLoader : MonoBehaviour
             while (!scenesToLoad[i].isDone)
             {
                 totalProgress += scenesToLoad[i].progress;
-              //  Debug.Log("progress: " + totalProgress);
+               Debug.Log("progress: " + totalProgress);
                 loadingProgressBar.fillAmount = totalProgress / scenesToLoad.Count;
-              //  Debug.Log("Fill: " + loadingProgressBar.fillAmount);
+                Debug.Log("Fill: " + loadingProgressBar.fillAmount);
                 yield return null;
             }
         }
-    }
+    }*/
 }

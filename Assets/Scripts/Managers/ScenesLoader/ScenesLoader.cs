@@ -2,21 +2,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ScenesLoader : MonoBehaviour
 {
-    [Header("Event Channel")]
+    [Header("Event Channels")]
     [SerializeField] private LoadSceneEventChannelSO _loadSceneEventChannel;
 
     [Header("Scenes")]
     [SerializeField] private GameSceneData _initScene;
-    [SerializeField] private MenuTab _splashScreen;
+    [SerializeField] private MenuTab[] _scenesOnFirstLoad;
 
     [Header("Progress bar")]
     [SerializeField] private GameObject _loadingInterface;
     [SerializeField] private Image _loadingProgressBar;
 
-    private AsyncOperation _sceneToLoadAsync;
+    private List<AsyncOperation> _scenesToLoadAsync = new();
+   // private List<Scene> _scenesToUnload = new();
+
     private GameSceneData _activeScene;
 
     private void Awake() => _loadingInterface.SetActive(false);
@@ -24,34 +27,47 @@ public class ScenesLoader : MonoBehaviour
     private void Start()
     {
         if (SceneManager.GetActiveScene().name == _initScene.sceneName)
-            LoadSceneAsync(_splashScreen, false, true);
+            _loadSceneEventChannel.RaiseEvent(_scenesOnFirstLoad, false);
     }
 
-    private void OnEnable() => _loadSceneEventChannel.OnSceneLoadingRequested += LoadSceneAsync;
-
-    private void OnDisable() => _loadSceneEventChannel.OnSceneLoadingRequested -= LoadSceneAsync;
-
-    private void LoadSceneAsync(GameSceneData sceneToLoad, bool showProgressBar, bool unloadOtherScenes)
+    private void OnEnable()
     {
-        if (unloadOtherScenes)
-            UnloadOtherScenes();
+        _loadSceneEventChannel.OnSceneLoadingRequested += LoadSceneAsync;
+    }
 
-        _activeScene = sceneToLoad;
+    private void OnDisable()
+    {
+        _loadSceneEventChannel.OnSceneLoadingRequested -= LoadSceneAsync;
+    }
 
-        if (!IsSceneLoaded(sceneToLoad))
-            _sceneToLoadAsync = SceneManager.LoadSceneAsync(sceneToLoad.sceneName, LoadSceneMode.Additive);
 
-        //New active scene is needed for proper work of lightning and skybox.
-        _sceneToLoadAsync.completed += SetNewActiveScene;
+    private void LoadSceneAsync(GameSceneData[] scenesToLoad, bool showProgressBar)
+    { 
+        UnloadOtherScenes();
+        _activeScene = scenesToLoad[0];
+
+        for (int i = 0; i < scenesToLoad.Length; i++)
+        {
+           // if (!IsSceneLoaded(scenesToLoad[i]))
+          //  {
+                _scenesToLoadAsync.Add(SceneManager.LoadSceneAsync(scenesToLoad[i].sceneName, LoadSceneMode.Additive));
+                //Debug.LogWarning($"Loaded scene: {scenesToLoad[i].sceneName}");
+          //  }
+        }
+
+        _scenesToLoadAsync[0].completed += SetNewActiveScene; 
 
         if (showProgressBar)
+        {
             StartCoroutine(ShowLoadingSceneProgress());
+        }   
+        else
+            _scenesToLoadAsync.Clear();
     }
 
     private void SetNewActiveScene(AsyncOperation asyncOperation)
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(_activeScene.sceneName));
-        _activeScene = default;
     }
 
     private void UnloadOtherScenes()
@@ -62,7 +78,7 @@ public class ScenesLoader : MonoBehaviour
                 continue;
 
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(i).name);
-            Debug.Log($"Unloaded scene: {SceneManager.GetSceneAt(i).name}");
+            //Debug.LogWarning($"Unloaded scene: {SceneManager.GetSceneAt(i).name}");
         }
     }
 
@@ -80,17 +96,20 @@ public class ScenesLoader : MonoBehaviour
     private IEnumerator ShowLoadingSceneProgress()
     {
         _loadingInterface.SetActive(true);
-
         float totalProgress = 0f;
-        while (!_sceneToLoadAsync.isDone)
-        {
-            totalProgress += _sceneToLoadAsync.progress;
-            //   _loadingProgressBar.fillAmount = totalProgress / ;
-            Debug.Log($"progress: {totalProgress}. Fill: {_loadingProgressBar.fillAmount}");
-            yield return null;
-        }
 
-        _sceneToLoadAsync = default;
+        for (int i = 0; i < _scenesToLoadAsync.Count; ++i)
+        { 
+            while (!_scenesToLoadAsync[i].isDone)
+            {
+                totalProgress += _scenesToLoadAsync[i].progress;
+                //Debug.Log("progress: " + totalProgress);
+                _loadingProgressBar.fillAmount = totalProgress / _scenesToLoadAsync.Count;
+               // Debug.Log("Fill: " + _loadingProgressBar.fillAmount);
+                yield return null;
+            }
+        }
+        _scenesToLoadAsync.Clear();
         _loadingInterface.SetActive(false);
     }
 }

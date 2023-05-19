@@ -26,7 +26,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ed93e3c1cdc2774f94bd921efea29fe, type: 2}
   - {fileID: 11400000, guid: b342a792b3601f34b93dda2603688255, type: 2}
   - {fileID: 11400000, guid: fb6c98a715a1c294d9554dd4eee0312f, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 11400000, guid: b7b36851e4624ad479f21789a5223f70, type: 2}
-  - {fileID: 11400000, guid: 59267c05b547cdd47b991e4ff8c6db6b, type: 2}
+  UI: {fileID: 11400000, guid: a863b02a4fde97d44a810474a18fd9a0, type: 2}
+  Init: {fileID: 11400000, guid: efd0ae319fcab664f9ed98d878ff2822, type: 2}
+  _onVictoryScenes:
+  - {fileID: 11400000, guid: 5d54c855f2e78e745a0c97198a7cc2b9, type: 2}
+  _onLossScenes:
+  - {fileID: 11400000, guid: 5d54c855f2e78e745a0c97198a7cc2b9, type: 2}

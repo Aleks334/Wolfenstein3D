@@ -2,6 +2,7 @@ using UnityEngine.SceneManagement;
 
 public class ScenesFlowController
 {
+    /*
     public void LoadScene(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);
@@ -16,4 +17,5 @@ public class ScenesFlowController
     {
         SceneManager.UnloadSceneAsync(sceneToLoad);
     }
+    */
 }
