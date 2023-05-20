@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117935958e309e64bade24f3bebbb40a, type: 3}
-  m_Name: UI
+  m_Script: {fileID: 11500000, guid: 3f8e0701d37a06a47b70f0cf884d57eb, type: 3}
+  m_Name: VoidLoadSceneEventChannel
   m_EditorClassIdentifier: 
-  sceneName: UI
-  _backgroundMusic: {fileID: 11400000, guid: f92a8b42b3cbdbf438883833b6e5c81c, type: 2}

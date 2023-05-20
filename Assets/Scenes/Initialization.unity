@@ -564,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadSceneChannel: {fileID: 11400000, guid: 1fe115045808bb94a90b57589f4c0ea0, type: 2}
+  _voidLoadSceneChannel: {fileID: 11400000, guid: f14f778eb166e73439dc1efc540aa653, type: 2}
 --- !u!1 &1555850914
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,10 +7,29 @@ public class SoundEmitter : MonoBehaviour
     private AudioSource _audioSource;
     public event Action<SoundEmitter> OnSoundFinishedPlaying;
 
+    public event Action<SoundEmitter> OnForceToDisableMusic;
+    [SerializeField] private VoidEventChannelSO _voidLoadSceneChannel;
+
     private void Awake()
     {
         _audioSource = this.GetComponent<AudioSource>();
         _audioSource.playOnAwake = false;
+    }
+
+    private void OnEnable()
+    {
+        _voidLoadSceneChannel.OnEventRaised += DisableMusic;
+    }
+
+    private void OnDisable()
+    {
+        _voidLoadSceneChannel.OnEventRaised -= DisableMusic;
+    }
+
+    private void DisableMusic()
+    {
+        Debug.LogWarning($"Disable music on {this.name}");
+        OnForceToDisableMusic?.Invoke(this);
     }
 
     /// <summary>
@@ -34,11 +53,13 @@ public class SoundEmitter : MonoBehaviour
         OnSoundFinishedPlaying.Invoke(this); // The AudioManager will pick this up
     }
 
-    /// <summary>
-    /// Used when the SFX finished playing audio clip. (for not looped audioCues)
-    /// </summary>
     public void Stop()
     {
         _audioSource.Stop();
+    }
+
+    public void Resume()
+    {
+        _audioSource.Play();
     }
 }

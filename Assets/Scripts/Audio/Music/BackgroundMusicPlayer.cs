@@ -3,6 +3,7 @@ using UnityEngine;
 public class BackgroundMusicPlayer : MonoBehaviour
 {
     [SerializeField] private LoadSceneEventChannelSO _loadSceneChannel;
+    [SerializeField] private VoidEventChannelSO _voidLoadSceneChannel;
     private AudioCue _audioCue;
 
     private void Start()
@@ -27,15 +28,16 @@ public class BackgroundMusicPlayer : MonoBehaviour
     {
         for (int i = 0; i < scenesToLoad.Length; i++)
         {
-            if (scenesToLoad[i].BackgroundMusic == null)
+            if (scenesToLoad[i].BackgroundMusic == default)
                 continue;
 
             if (_audioCue.AudioData != scenesToLoad[i].BackgroundMusic)
             {
                 _audioCue.AudioData = scenesToLoad[i].BackgroundMusic;
-                _audioCue.PlayAudioCue();
+                _voidLoadSceneChannel?.RaiseEvent();
+
+                _audioCue.PlayAudioCue(true);
             }
-                
         }
     }
 }

@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa74148e6221c5946b90234bd5f68d9d, type: 3}
   m_Name: LoadSceneEventChannel
   m_EditorClassIdentifier: 
+  _voidLoadSceneChannel: {fileID: 11400000, guid: f14f778eb166e73439dc1efc540aa653, type: 2}

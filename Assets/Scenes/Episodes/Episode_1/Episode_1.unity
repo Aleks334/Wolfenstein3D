@@ -4977,6 +4977,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Piese\u0142 (3)"
       objectReference: {fileID: 0}
+    - target: {fileID: 4813319710147117274, guid: b3a492b4c6ce1e842928db3be21697e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4813319710147117279, guid: b3a492b4c6ce1e842928db3be21697e9, type: 3}
       propertyPath: p
       value: 
@@ -8423,7 +8427,6 @@ MonoBehaviour:
   _onGameOver: {fileID: 11400000, guid: f38061fb70b4af044bd7e680ac148e75, type: 2}
   _onPlayerVictory: {fileID: 11400000, guid: 4a01a5ef7aa89e0449173f3c63fb9fda, type: 2}
   _onLoadScene: {fileID: 11400000, guid: 1fe115045808bb94a90b57589f4c0ea0, type: 2}
-  _onUnloadScene: {fileID: 11400000, guid: 4368949ce8a31fa4e8b0a609725b6bbf, type: 2}
 --- !u!4 &1198356965
 Transform:
   m_ObjectHideFlags: 0

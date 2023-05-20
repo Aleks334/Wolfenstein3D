@@ -14,10 +14,10 @@ public class AudioManager : MonoBehaviour
 
         _pool.InitPoolParent += SetPoolParent;
 
-         _pool.SetupPool();
+        _pool.SetupPool();
     }
 
-    private void PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioSettings, Vector3 position)
+    private void PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioSettings, Vector3 position, bool disableSoundOnSceneChange)
     {
         AudioClip[] clipsToPlay = audioCue.GetClips(audioCue.DefaultClipGroup);
         SoundEmitter available = _pool.Request();
@@ -26,6 +26,9 @@ public class AudioManager : MonoBehaviour
 
         if (!audioCue.looping)
             available.OnSoundFinishedPlaying += OnSoundEmitterFinishedPlaying;
+        
+        if(disableSoundOnSceneChange)
+            available.OnForceToDisableMusic += OnSoundEmitterForcedToDisableMusic;
     }
     
     private void OnSoundEmitterFinishedPlaying(SoundEmitter soundEmitter)
@@ -33,6 +36,14 @@ public class AudioManager : MonoBehaviour
         soundEmitter.OnSoundFinishedPlaying -= OnSoundEmitterFinishedPlaying;
         soundEmitter.Stop();
         _pool.Return(soundEmitter);
+    }
+
+    private void OnSoundEmitterForcedToDisableMusic(SoundEmitter soundEmitter)
+    {
+        soundEmitter.OnForceToDisableMusic -= OnSoundEmitterForcedToDisableMusic;
+        soundEmitter.Stop();
+        _pool.Return(soundEmitter);
+        Debug.LogWarning($"{soundEmitter.name} returned to pool");
     }
 
     private Transform SetPoolParent()
