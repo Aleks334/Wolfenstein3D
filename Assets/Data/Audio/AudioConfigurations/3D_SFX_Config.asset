@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 3D_SFX_Config
   m_EditorClassIdentifier: 
   Mute: 0
-  Volume: 0.8
+  Volume: 0.7
   Pitch: 1
   PanStereo: 0
   SpatialBlend: 1
   RolloffMode: 1
-  MinDistance: 2.3
-  MaxDistance: 65
+  MinDistance: 5.5
+  MaxDistance: 70

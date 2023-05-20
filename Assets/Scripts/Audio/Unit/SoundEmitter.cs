@@ -1,20 +1,28 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class SoundEmitter : MonoBehaviour
 {
     private AudioSource _audioSource;
     public event Action<SoundEmitter> OnSoundFinishedPlaying;
 
-    //public event Action<SoundEmitter> OnForceToDisableMusic;
     [SerializeField] private VoidEventChannelSO _voidLoadSceneChannel;
     [SerializeField] private SoundEmitterPoolSO _pool;
+
+    private List<AudioClip> _clips;
+    private int _counter = 0;
+    private AudioConfigurationSO _localConfig;
 
     private void Awake()
     {
         _audioSource = this.GetComponent<AudioSource>();
         _audioSource.playOnAwake = false;
+
+        _clips = new();
     }
 
     private void OnEnable()
@@ -29,31 +37,49 @@ public class SoundEmitter : MonoBehaviour
 
     private void DisableMusic()
     {
+        _counter = 0;
+       // _clips.Clear();
+
         Stop();
         _pool.Return(this);
-        //Debug.LogWarning($"Disable music on {this.name}");
-        //OnForceToDisableMusic?.Invoke(this);
     }
 
     /// <summary>
-    /// Plays all audio clips from array (currently only first clip!)
+    /// Plays all audio clips from list
     /// </summary>
-    public void PlayAudioClip(AudioClip[] clips, AudioConfigurationSO settings, bool hasToLoop, Vector3 position)
+    public void PlayAudioClip(List<AudioClip> clips, AudioConfigurationSO settings, bool hasToLoop, Vector3 position)
     {
-        _audioSource.clip = clips[0];
+        _clips = clips;
+
+        _audioSource.clip = clips[_counter];
         _audioSource.loop = hasToLoop;
+
+        _localConfig = settings;
         settings.ApplyTo(_audioSource);
+
         _audioSource.transform.position = position;
         _audioSource.Play();
 
         if(!hasToLoop)
-            StartCoroutine(FinishedPlaying(clips[0].length));
+            StartCoroutine(FinishedPlaying(clips[_counter].length));
     }
     
     IEnumerator FinishedPlaying(float clipLength)
     {
         yield return new WaitForSeconds(clipLength);
-        OnSoundFinishedPlaying.Invoke(this); // The AudioManager will pick this up
+
+        if (_counter < _clips.Count - 1)
+        {
+            _counter++;
+            PlayAudioClip(_clips, _localConfig, false, transform.position);
+        }
+        else
+        {
+            _counter = 0;
+           // _clips.Clear();
+            OnSoundFinishedPlaying.Invoke(this); // The AudioManager will pick this up
+        }
+            
     }
 
     public void Stop()

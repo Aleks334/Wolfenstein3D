@@ -36,9 +36,9 @@ public class AudioManager : MonoBehaviour
         _onGameOver.OnEventRaised -= _pool.ReturnAllToPool;
     }
 
-    private void PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioSettings, Vector3 position, bool disableSoundOnSceneChange)
+    private void PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioSettings, Vector3 position)
     {
-        AudioClip[] clipsToPlay = audioCue.GetClips(audioCue.DefaultClipGroup);
+        List<AudioClip> clipsToPlay = audioCue.GetClips(audioCue.DefaultClipGroup);
         SoundEmitter available = _pool.Request();
 
         available.PlayAudioClip(clipsToPlay, audioSettings, audioCue.looping, position);

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "newAudioCue", menuName = "Audio/Audio Cue")]
@@ -14,20 +15,20 @@ public class AudioCueSO : ScriptableObject
 
     [SerializeField] private AudioClipsGroups[] _audioClipGroups;
 
-    public AudioClip[] GetClips(int clipGroup)
+    public List<AudioClip> GetClips(int clipGroup)
     {
         int numberOfClips = _audioClipGroups[clipGroup].audioClips.Length;
-        AudioClip[] resultingClips = new AudioClip[numberOfClips];
+        List<AudioClip> resultingClips = new();
 
         if (_audioClipGroups[clipGroup].sequenceMode == AudioClipsGroups.PlaybackMode.Random)
         {
-            resultingClips[0] = _audioClipGroups[clipGroup].GetNextClip();
+            resultingClips.Add(_audioClipGroups[clipGroup].GetNextClip());
         }
         else
         {
             for (int i = 0; i < numberOfClips; i++)
             {
-                resultingClips[i] = _audioClipGroups[clipGroup].GetNextClip();
+                resultingClips.Add(_audioClipGroups[clipGroup].GetNextClip());
             }
         }
 

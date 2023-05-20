@@ -22,8 +22,8 @@ public class AudioCue : MonoBehaviour
             PlayAudioCue();
     }
 
-    public void PlayAudioCue(bool disableSoundOnSceneChange = false)
+    public void PlayAudioCue()
     {
-        _audioCueEventChannel.RaiseEvent(_audioData, _audioSettings, transform.position, disableSoundOnSceneChange);
+        _audioCueEventChannel.RaiseEvent(_audioData, _audioSettings, transform.position);
     }
 }

@@ -28,17 +28,16 @@ public class BackgroundMusicPlayer : MonoBehaviour
     private void PlayBackgroundMusic(GameSceneData[] scenesToLoad, bool showProgressBar)
     {
 
-            if (scenesToLoad[0].BackgroundMusic == default)
-                return;
+        if (scenesToLoad[0].BackgroundMusic == default)
+            return;
 
-            if (_audioCue.AudioData != scenesToLoad[0].BackgroundMusic)
-            {
-                _audioCue.AudioData = scenesToLoad[0].BackgroundMusic;
+        if (_audioCue.AudioData != scenesToLoad[0].BackgroundMusic)
+        {
+            _audioCue.AudioData = scenesToLoad[0].BackgroundMusic;
+
             _voidLoadSceneChannel.RaiseEvent();
-
             _audioCue.PlayAudioCue();
-                
-            }
+        }
         
     }
 }
