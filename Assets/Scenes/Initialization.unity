@@ -231,7 +231,6 @@ MonoBehaviour:
   _SFXEventChannel: {fileID: 11400000, guid: f4cbb7369826f9d49881ee6bffcfc966, type: 2}
   _musicEventChannel: {fileID: 11400000, guid: 3b384d9182d04744f929dc81749c8904, type: 2}
   _pool: {fileID: 11400000, guid: 4354ef1f33e00da40b8ce449f79158b0, type: 2}
-  _takenFromPool: []
   _onPlayerDeath: {fileID: 11400000, guid: c1f17fa6ef083fc4fa062057f2aeafed, type: 2}
   _onGameOver: {fileID: 11400000, guid: f38061fb70b4af044bd7e680ac148e75, type: 2}
 --- !u!4 &565375137

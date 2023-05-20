@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BackgroundMusicPlayer : MonoBehaviour
 {
@@ -26,18 +27,18 @@ public class BackgroundMusicPlayer : MonoBehaviour
 
     private void PlayBackgroundMusic(GameSceneData[] scenesToLoad, bool showProgressBar)
     {
-        for (int i = 0; i < scenesToLoad.Length; i++)
-        {
-            if (scenesToLoad[i].BackgroundMusic == default)
-                continue;
 
-            if (_audioCue.AudioData != scenesToLoad[i].BackgroundMusic)
+            if (scenesToLoad[0].BackgroundMusic == default)
+                return;
+
+            if (_audioCue.AudioData != scenesToLoad[0].BackgroundMusic)
             {
-                _audioCue.AudioData = scenesToLoad[i].BackgroundMusic;
-                _voidLoadSceneChannel.RaiseEvent();
+                _audioCue.AudioData = scenesToLoad[0].BackgroundMusic;
+            _voidLoadSceneChannel.RaiseEvent();
 
-                _audioCue.PlayAudioCue(true);
+            _audioCue.PlayAudioCue();
+                
             }
-        }
+        
     }
 }

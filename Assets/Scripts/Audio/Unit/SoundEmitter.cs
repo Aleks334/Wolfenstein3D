@@ -7,8 +7,9 @@ public class SoundEmitter : MonoBehaviour
     private AudioSource _audioSource;
     public event Action<SoundEmitter> OnSoundFinishedPlaying;
 
-    public event Action<SoundEmitter> OnForceToDisableMusic;
+    //public event Action<SoundEmitter> OnForceToDisableMusic;
     [SerializeField] private VoidEventChannelSO _voidLoadSceneChannel;
+    [SerializeField] private SoundEmitterPoolSO _pool;
 
     private void Awake()
     {
@@ -28,8 +29,10 @@ public class SoundEmitter : MonoBehaviour
 
     private void DisableMusic()
     {
+        Stop();
+        _pool.Return(this);
         //Debug.LogWarning($"Disable music on {this.name}");
-        OnForceToDisableMusic?.Invoke(this);
+        //OnForceToDisableMusic?.Invoke(this);
     }
 
     /// <summary>

@@ -9,13 +9,43 @@ public abstract class ComponentPoolSO<T> : ScriptableObject where T : Component
 
     private Stack<T> _stack;
 
+    private List<T> _takenFromPool;
+
+    public List<T> TakenFromPool
+    {
+        get => _takenFromPool;
+    }
+
     public abstract IFactory<T> Factory { get; set; }
 
     public Func<Transform> InitPoolParent;
 
+    
+    public void ReturnAllToPool()
+    {
+        List<T> list = new();
+
+        foreach (var soundEmitter in TakenFromPool)
+        {
+            //skip sound emitter with background music
+            if (soundEmitter.GetComponent<AudioSource>().loop)
+                continue;
+
+            list.Add(soundEmitter);
+            
+        }
+
+        foreach (var item in list)
+        {
+            Return(item);
+        }
+    }
+
     public void SetupPool()
     {
         _stack = new Stack<T>();
+        _takenFromPool = new List<T>();
+
         T newInstance;
 
         SetPoolParent();
@@ -31,6 +61,7 @@ public abstract class ComponentPoolSO<T> : ScriptableObject where T : Component
     public void Return(T pooledObj)
     {
         _stack.Push(pooledObj);
+        _takenFromPool.Remove(pooledObj);
         pooledObj.gameObject.SetActive(false);
     }
 
@@ -39,10 +70,12 @@ public abstract class ComponentPoolSO<T> : ScriptableObject where T : Component
         if (_stack.Count == 0)
         {
             T additionalInstance = Create();
+            _takenFromPool.Add(additionalInstance);
             return additionalInstance;
         }
 
         T retrievedInstance = _stack.Pop();
+        _takenFromPool.Add(retrievedInstance);
         retrievedInstance.gameObject.SetActive(true);
         return retrievedInstance;
     }

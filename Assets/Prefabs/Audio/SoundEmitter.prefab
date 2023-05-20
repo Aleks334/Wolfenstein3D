@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _voidLoadSceneChannel: {fileID: 11400000, guid: f14f778eb166e73439dc1efc540aa653, type: 2}
+  _pool: {fileID: 11400000, guid: 4354ef1f33e00da40b8ce449f79158b0, type: 2}
 --- !u!82 &2767040803343761129
 AudioSource:
   m_ObjectHideFlags: 0
