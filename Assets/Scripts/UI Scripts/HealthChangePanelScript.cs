@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -12,11 +9,11 @@ public class HealthChangePanelScript : MonoBehaviour
     [SerializeField]
     private Color healthincreasecolor;
     private Color zeroHealthColor = new Color32(200, 0, 0, 0);
-    private Color victoryAlphaColor = new Color32(255, 255, 255, 0);
+    [SerializeField] private Color victoryAlphaColor;// = new Color32(255, 255, 255, 0);
     private Color nonecolor = new Color32(0, 0, 0, 0);
 
     [SerializeField] TextMeshProUGUI gameOverText;
-    [SerializeField] Sprite victorySprite;
+    //[SerializeField] Sprite victorySprite;
 
     public static bool healthincrease = false;
     public static bool healthdecrease = false;
@@ -36,7 +33,6 @@ public class HealthChangePanelScript : MonoBehaviour
         victory = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(time >0)
@@ -88,7 +84,7 @@ public class HealthChangePanelScript : MonoBehaviour
 
         if(victory)
         {
-            this.gameObject.GetComponent<Image>().sprite = victorySprite;
+           // this.gameObject.GetComponent<Image>().sprite = victorySprite;
             gameObject.GetComponent<Image>().color = victoryAlphaColor;
             if (victoryAlphaColor.a < 255)
             {

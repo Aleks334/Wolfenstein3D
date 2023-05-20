@@ -12,6 +12,6 @@ public class DifficultyLvlSelection : MonoBehaviour
     public void ChooseDifficultyLevel(DifficultyLevelSO newSelectedDifficultyLvl)
     {
         database.DifficultyLvl = newSelectedDifficultyLvl;
-        Debug.LogWarning("Selected Difficulty level set to: " + database.DifficultyLvl.Name);
+        Debug.LogWarning("Selected Difficulty level: " + database.DifficultyLvl.Name);
     }
 }

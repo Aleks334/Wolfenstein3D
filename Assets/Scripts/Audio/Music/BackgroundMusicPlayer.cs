@@ -34,7 +34,7 @@ public class BackgroundMusicPlayer : MonoBehaviour
             if (_audioCue.AudioData != scenesToLoad[i].BackgroundMusic)
             {
                 _audioCue.AudioData = scenesToLoad[i].BackgroundMusic;
-                _voidLoadSceneChannel?.RaiseEvent();
+                _voidLoadSceneChannel.RaiseEvent();
 
                 _audioCue.PlayAudioCue(true);
             }

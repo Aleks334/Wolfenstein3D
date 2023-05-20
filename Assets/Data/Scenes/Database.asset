@@ -30,6 +30,7 @@ MonoBehaviour:
   UI: {fileID: 11400000, guid: a863b02a4fde97d44a810474a18fd9a0, type: 2}
   Init: {fileID: 11400000, guid: efd0ae319fcab664f9ed98d878ff2822, type: 2}
   _onVictoryScenes:
-  - {fileID: 11400000, guid: 5d54c855f2e78e745a0c97198a7cc2b9, type: 2}
+  - {fileID: 11400000, guid: 71a96f62a02b5264b9e017bbd18b0e08, type: 2}
+  - {fileID: 11400000, guid: a863b02a4fde97d44a810474a18fd9a0, type: 2}
   _onLossScenes:
   - {fileID: 11400000, guid: 5d54c855f2e78e745a0c97198a7cc2b9, type: 2}

@@ -15,7 +15,6 @@ public class UI : MonoBehaviour
     [SerializeField] private VoidEventChannelSO _onGameOver;
     [SerializeField] private VoidEventChannelSO _onPlayerVictory;
 
-    //subscribe to event OnGameStateChange in order to affect on game state change.
     void OnEnable()
     {
         _onPlayerDeath.OnEventRaised += OnPlayerDeath;
@@ -23,7 +22,6 @@ public class UI : MonoBehaviour
         _onPlayerVictory.OnEventRaised += OnPlayerVictory;
     }
 
-    //unsubscribe to event OnGameStateChange when object is destroyed or after loading next scene.
     void OnDisable()
     {
         _onPlayerDeath.OnEventRaised -= OnPlayerDeath;
@@ -39,19 +37,20 @@ public class UI : MonoBehaviour
     void OnPlayerDeath()
     {
        HealthChangePanelScript.zeroHealth = true;
-       Debug.Log("Utrata 1 ¿ycia. Wyœwietlenie efektu panelu, który staje siê coraz bardziej czerwony");     
+       //Debug.Log("Utrata 1 ¿ycia. Wyœwietlenie efektu panelu, który staje siê coraz bardziej czerwony");     
     }
 
     void OnGameOver()
     {
        HealthChangePanelScript.zeroHealth = true;
        HealthChangePanelScript.gameOverEffect = true;
-       Debug.Log("Wyœwietlenie efektu panelu jak wczeœniej, tylko z napisem w stylu GameOver");    
+      // Debug.Log("Wyœwietlenie efektu panelu jak wczeœniej, tylko z napisem w stylu GameOver");    
     }
+    
     void OnPlayerVictory()
     {
         HealthChangePanelScript.victory = true;
-        Debug.Log("Wyœwietlenie panelu dot. wygranej gracza");
+       // Debug.Log("Wyœwietlenie panelu dot. wygranej gracza");
     }
 
     void Update()

@@ -28,7 +28,7 @@ public class SoundEmitter : MonoBehaviour
 
     private void DisableMusic()
     {
-        Debug.LogWarning($"Disable music on {this.name}");
+        //Debug.LogWarning($"Disable music on {this.name}");
         OnForceToDisableMusic?.Invoke(this);
     }
 

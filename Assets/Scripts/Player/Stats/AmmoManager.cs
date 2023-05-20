@@ -5,7 +5,7 @@ public class AmmoManager : MonoBehaviour
     [SerializeField] private PlayerAmmoSO _data;
     public PlayerAmmoSO Data
     {
-        get { return _data; }
+        get => _data;
     }
     private void Start()
     {
@@ -21,13 +21,13 @@ public class AmmoManager : MonoBehaviour
     public void AddAmmo(int ammoToAdd)
     {
         Data.AddAmmo(ammoToAdd);
-       // Debug.Log("Obecny stan amunicji: " + Data.CurrentAmmo);
+       // Debug.Log("Current Ammo: " + Data.CurrentAmmo);
         UI.ReloadUI(Data.CurrentAmmo);
     }
     public void RemoveAmmo()
     {
         Data.RemoveAmmo();
-       // Debug.Log("Obecny stan amunicji: " + Data.CurrentAmmo);
+        // Debug.Log("Current Ammo: " + Data.CurrentAmmo);
         UI.ReloadUI(Data.CurrentAmmo);
     }
 

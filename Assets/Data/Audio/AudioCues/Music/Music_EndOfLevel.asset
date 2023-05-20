@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117935958e309e64bade24f3bebbb40a, type: 3}
-  m_Name: UI
+  m_Script: {fileID: 11500000, guid: 3478f19ba00547f41848bb7c7d1fee6e, type: 3}
+  m_Name: Music_EndOfLevel
   m_EditorClassIdentifier: 
-  sceneName: UI
-  _backgroundMusic: {fileID: 11400000, guid: f92a8b42b3cbdbf438883833b6e5c81c, type: 2}
+  looping: 1
+  _defaultClipGroup: 0
+  _audioClipGroups:
+  - sequenceMode: 0
+    audioClips:
+    - {fileID: 8300000, guid: 197729e66715a844189a9e26314bfc75, type: 3}

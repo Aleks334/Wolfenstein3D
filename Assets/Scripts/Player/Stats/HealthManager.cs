@@ -10,25 +10,24 @@ public class HealthManager : MonoBehaviour, IPlayerProfile
     [SerializeField] private VoidEventChannelSO _onGameOver;
     public PlayerHealthSO Data
     {
-        get { return _data; }
+        get => _data;
     }
-
+    /*
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            DamagePlayer(12);
-        else if (Input.GetKeyDown(KeyCode.H))
-            HealPlayer(13);
-    }
-    
+      if (Input.GetKeyDown(KeyCode.K))
+          DamagePlayer(12);
+      else if (Input.GetKeyDown(KeyCode.H))
+          HealPlayer(13);
+    }*/
     public void DamagePlayer(int dmg)
     {
         Data.playerHealth.DmgValue(dmg);
-        //Debug.Log("Obecny poziom zdrowia: " + Data.playerHealth.CurrentHealth);
+        //Debug.Log("Current health: " + Data.playerHealth.CurrentHealth);
         UI.ReloadUI();
         UI.healthdecreaseeffect();
 
-        //For raising events when player die and have lifes or not.
+        //For raising events when player dies (depending on lifes number).
         if (!Data.isAlive() && _lifesData.CurrentLifes > 0)
         {
             _onPlayerDeath.RaiseEvent();
@@ -42,7 +41,7 @@ public class HealthManager : MonoBehaviour, IPlayerProfile
     public void HealPlayer(int healing)
     {
         Data.playerHealth.HealingValue(healing);
-      //  Debug.Log("Obecny poziom ¿ycia: " + Data.playerHealth.CurrentHealth);
+      //  Debug.Log("Current health: " + Data.playerHealth.CurrentHealth);
         UI.ReloadUI();
         UI.healtincreaseeffect();
     }

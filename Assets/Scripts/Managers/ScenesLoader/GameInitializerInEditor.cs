@@ -10,6 +10,7 @@ public class GameInitializerInEditor : MonoBehaviour
 #if UNITY_EDITOR
 
     [SerializeField] private GameSceneData _initScene;
+    [SerializeField] private GameSceneData _ui;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class GameInitializerInEditor : MonoBehaviour
                 return;
         }
         SceneManager.LoadSceneAsync(_initScene.sceneName, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(_ui.sceneName, LoadSceneMode.Additive);
     }
 #endif
 }
