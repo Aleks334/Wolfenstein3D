@@ -47,8 +47,6 @@ public class GameManager : MonoBehaviour
         PlayerSpawnPoint = GameObject.FindGameObjectWithTag("PlayerSpawnPoint").transform;
         PlayerObj = Instantiate(playerAsset, PlayerSpawnPoint.position, Quaternion.Euler(0f, -90f, 0f));
 
-       // _onLoadScene.RaiseEvent(database.UI, false, false, false);
-
         #region Getting all needed player stats managers
         if (PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
             _healthManager = healthManager;
@@ -105,7 +103,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         //After death anim with game over text
-        Debug.Log("HandlePlayerGameOver");
+        //Debug.Log("HandlePlayerGameOver");
         _onLoadScene.RaiseEvent(database.OnLossScenes, false);
     }
 
@@ -122,7 +120,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         //After death anim
-        Debug.Log("HandlePlayerLiveLose");
+        //Debug.Log("HandlePlayerLiveLose");
 
         _healthManager.Data.JustDied = true;
         
@@ -142,7 +140,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         //After victory anim
-        Debug.Log("HandlePlayerVictory");
+        //Debug.Log("HandlePlayerVictory");
         _onLoadScene.RaiseEvent(database.OnVictoryScenes, false);
     }
 }

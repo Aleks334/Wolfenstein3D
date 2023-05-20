@@ -100,12 +100,12 @@ public class PlayerWeaponManager : MonoBehaviour, IAudio
 
         if (!HaveThatWeapon(weaponToChange) || CurrentWeapon == weaponToChange)
         {
-            Debug.Log("Gracz ju¿ trzyma " + weaponToChange);
+            Debug.Log("Player already handle " + weaponToChange);
             return;
         }
 
         CurrentWeapon = _playerWeapons.WeaponsInInventory[weaponToChange.WeaponSlot];
-        Debug.Log("Aktywna broñ: " + CurrentWeapon);
+        Debug.Log("Active weapon: " + CurrentWeapon);
         
         _weaponHandler.GetComponent<SpriteRenderer>().sprite = CurrentWeapon.WeaponSprite;
         _weaponHandler.GetComponent<Animator>().runtimeAnimatorController = CurrentWeapon.AnimatorController;

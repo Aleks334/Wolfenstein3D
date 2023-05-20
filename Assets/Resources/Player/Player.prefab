@@ -141,7 +141,6 @@ GameObject:
   - component: {fileID: 7953308944538725900}
   - component: {fileID: 8773108895325640481}
   - component: {fileID: 1504228752627056148}
-  - component: {fileID: 6542508665361830857}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -331,19 +330,6 @@ MonoBehaviour:
   _lifesData: {fileID: 11400000, guid: 68a8efc9324616040bec981d11dd63a2, type: 2}
   _onPlayerDeath: {fileID: 11400000, guid: c1f17fa6ef083fc4fa062057f2aeafed, type: 2}
   _onGameOver: {fileID: 11400000, guid: f38061fb70b4af044bd7e680ac148e75, type: 2}
---- !u!114 &6542508665361830857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6887898477794353338}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53eca4f8aa00d924187d91aded651453, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
 --- !u!1 &6887898478164598351
 GameObject:
   m_ObjectHideFlags: 0
