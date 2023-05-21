@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
         _pool.InitPoolParent += SetPoolParent;
         _pool.SetupPool();
 
+        //Disable sounds on player death
         _onPlayerDeath.OnEventRaised += _pool.ReturnAllToPool;
         _onGameOver.OnEventRaised += _pool.ReturnAllToPool;
     }
@@ -36,15 +37,24 @@ public class AudioManager : MonoBehaviour
         _onGameOver.OnEventRaised -= _pool.ReturnAllToPool;
     }
 
-    private void PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioSettings, Vector3 position)
+    private void PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioSettings, Vector3 position, bool forceToDisableSound)
     {
         List<AudioClip> clipsToPlay = audioCue.GetClips(audioCue.DefaultClipGroup);
         SoundEmitter available = _pool.Request();
+
+        if (forceToDisableSound)
+        {
+           // Debug.LogWarning("SubscribeToVoidLoadScene");
+            available.SubscribeToVoidLoadScene();
+        }
+            
 
         available.PlayAudioClip(clipsToPlay, audioSettings, audioCue.looping, position);
 
         if (!audioCue.looping)
             available.OnSoundFinishedPlaying += OnSoundEmitterFinishedPlaying;
+
+        
     }
     
     private void OnSoundEmitterFinishedPlaying(SoundEmitter soundEmitter)

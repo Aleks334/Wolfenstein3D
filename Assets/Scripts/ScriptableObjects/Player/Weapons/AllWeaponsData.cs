@@ -13,7 +13,7 @@ public class AllWeaponsData : ScriptableObject
 
     public List<PlayerWeapon> AllWeaponsList = new List<PlayerWeapon>();
 
-    //Visible in inspector
+    //Visible in inspector (order is important!) 
     [SerializeField] private List<WeaponSO> WeaponsData = new List<WeaponSO>();
 
     public void StartUp()

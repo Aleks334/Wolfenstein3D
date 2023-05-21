@@ -567,6 +567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _loadSceneChannel: {fileID: 11400000, guid: 1fe115045808bb94a90b57589f4c0ea0, type: 2}
   _voidLoadSceneChannel: {fileID: 11400000, guid: f14f778eb166e73439dc1efc540aa653, type: 2}
+  _database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
 --- !u!1 &1555850914
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +803,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7af2f20d9defd2b4b8c79ca68b206ac0, type: 2}
   _loadingInterface: {fileID: 1730138769}
   _loadingProgressBar: {fileID: 473022627}
+  _database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
 --- !u!1 &2103810597
 GameObject:
   m_ObjectHideFlags: 0

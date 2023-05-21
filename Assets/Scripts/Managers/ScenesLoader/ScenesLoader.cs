@@ -18,11 +18,16 @@ public class ScenesLoader : MonoBehaviour
     [SerializeField] private Image _loadingProgressBar;
 
     private List<AsyncOperation> _scenesToLoadAsync = new();
-   // private List<Scene> _scenesToUnload = new();
 
     private GameSceneData _activeScene;
 
-    private void Awake() => _loadingInterface.SetActive(false);
+    [SerializeField] private ScenesData _database;
+
+    private void Awake()
+    {
+        _loadingInterface.SetActive(false);
+        _database.SubscribeToLoadingSceneEvent();
+    } 
 
     private void Start()
     {

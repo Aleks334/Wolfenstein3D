@@ -25,7 +25,7 @@ public class SoundEmitter : MonoBehaviour
         _clips = new();
     }
 
-    private void OnEnable()
+    public void SubscribeToVoidLoadScene()
     {
         _voidLoadSceneChannel.OnEventRaised += DisableMusic;
     }
@@ -37,6 +37,7 @@ public class SoundEmitter : MonoBehaviour
 
     private void DisableMusic()
     {
+        //Debug.LogWarning("DisableMusic" + _audioSource.clip);
         _counter = 0;
        // _clips.Clear();
 
@@ -70,11 +71,13 @@ public class SoundEmitter : MonoBehaviour
 
         if (_counter < _clips.Count - 1)
         {
+           // Debug.LogWarning("FinishedPlaying next clip" + _audioSource.clip);
             _counter++;
             PlayAudioClip(_clips, _localConfig, false, transform.position);
         }
         else
         {
+           // Debug.LogWarning("FinishedPlaying end clips" + _audioSource.clip);
             _counter = 0;
            // _clips.Clear();
             OnSoundFinishedPlaying.Invoke(this); // The AudioManager will pick this up

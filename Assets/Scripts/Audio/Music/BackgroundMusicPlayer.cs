@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,9 +35,9 @@ public class BackgroundMusicPlayer : MonoBehaviour
         if (_audioCue.AudioData != scenesToLoad[0].BackgroundMusic)
         {
             _audioCue.AudioData = scenesToLoad[0].BackgroundMusic;
-
+            Debug.LogWarning("_audioCue.AudioData != scenesToLoad[0].BackgroundMusiC");
             _voidLoadSceneChannel.RaiseEvent();
-            _audioCue.PlayAudioCue();
+            _audioCue.PlayAudioCue(true);
         }
         
     }

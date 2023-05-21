@@ -23,4 +23,24 @@ public class ScenesData : ScriptableObject
     {
         get => _onLossScenes;
     }
+
+    [Header("Load Scene Event Channel")]
+    [SerializeField] private LoadSceneEventChannelSO _loadSceneChannel;
+
+    [SerializeField] private GameSceneData _currentActiveScene;
+    public GameSceneData CurrentActiveScene
+    {
+        get => _currentActiveScene;
+    }
+
+    public void SubscribeToLoadingSceneEvent()
+    {
+        _currentActiveScene = default;
+        _loadSceneChannel.OnSceneLoadingRequested += UpdateCurrentScene;
+    }
+
+    private void UpdateCurrentScene(GameSceneData[] scenesToLoad, bool showProgressBar)
+    {
+        _currentActiveScene = scenesToLoad[0];
+    }
 }
