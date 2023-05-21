@@ -8962,10 +8962,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: _audioData
-      value: 
-      objectReference: {fileID: 11400000, guid: f92a8b42b3cbdbf438883833b6e5c81c, type: 2}
     - target: {fileID: 5987127316276930606, guid: 13c1df2184d77104ab03c1a9ddd092d1, type: 3}
       propertyPath: m_Name
       value: GameInitializer(editor only)
@@ -9013,14 +9009,6 @@ PrefabInstance:
     - target: {fileID: 6369786325550321912, guid: 13c1df2184d77104ab03c1a9ddd092d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8828249082080842402, guid: 13c1df2184d77104ab03c1a9ddd092d1, type: 3}
-      propertyPath: _database
-      value: 
-      objectReference: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
-    - target: {fileID: 8828249082080842402, guid: 13c1df2184d77104ab03c1a9ddd092d1, type: 3}
-      propertyPath: _enableMusicInEditor
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13c1df2184d77104ab03c1a9ddd092d1, type: 3}

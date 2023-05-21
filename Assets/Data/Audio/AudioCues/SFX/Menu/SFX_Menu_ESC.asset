@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3478f19ba00547f41848bb7c7d1fee6e, type: 3}
-  m_Name: SFX_Menu_Btn_Click
+  m_Name: SFX_Menu_ESC
   m_EditorClassIdentifier: 
   looping: 0
-  _audioClipGroup:
-    sequenceMode: 1
+  _defaultClipGroup: 0
+  _audioClipGroups:
+  - sequenceMode: 0
     audioClips:
-    - {fileID: 8300000, guid: bfb039b3d17ca0f46b820c27c3b3b35d, type: 3}
+    - {fileID: 8300000, guid: 0de78a79a7d36ac4a85d14da000b9779, type: 3}

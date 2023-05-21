@@ -10,17 +10,25 @@ public class ExitPanelManager : MonoBehaviour
     [SerializeField] private VoidEventChannelSO _exitEventChannel;
 
     private bool isVisible = false;
+    private AudioCue _audioCue;
 
     void Start()
     {
         if (ExitPanel != null)
             ManageExitPanel(isVisible);
+
+        if (TryGetComponent<AudioCue>(out AudioCue audioCue))
+            _audioCue = audioCue;
+        else
+            Debug.LogError("Background music player doesn't have an AudioCue!");
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            _audioCue.PlayAudioCue();
+
             isVisible = !isVisible;
             ManageExitPanel(isVisible);
         }
@@ -29,20 +37,24 @@ public class ExitPanelManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Y))
             {
+                _audioCue.PlayAudioCue();
                 _exitEventChannel.RaiseEvent();
             }
             else if (Input.GetKeyDown(KeyCode.N))
             {
+                _audioCue.PlayAudioCue();
                 isVisible = false;
                 ManageExitPanel(isVisible);
             }
         }
     }
 
-    private void ManageExitPanel(bool visibility)
+    public void ManageExitPanel(bool visibility)
     {
-        ExitPanel.SetActive(visibility);
-        if (!visibility)
+        isVisible = visibility;
+
+        ExitPanel.SetActive(isVisible);
+        if (!isVisible)
             return;
 
         ExitPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
