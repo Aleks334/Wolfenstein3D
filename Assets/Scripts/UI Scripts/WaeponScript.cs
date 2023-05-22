@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -15,15 +13,15 @@ public class WaeponScript : MonoBehaviour
     string kammoamount = "-";
 
     [SerializeField] private WeaponsInventorySO _weapons;
-    private PlayerWeaponManager weaponmanager;
+    //private PlayerWeaponManager weaponmanager;
     //[SerializeField] PlayerData playerData;
 
     private void Start()
     {
-        weaponmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponManager>();
+        //weaponmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponManager>();
         for (int i = 0; i < 4; i++)
         {
-            if (weaponmanager.CurrentWeapon == _weapons.WeaponsInInventory[i])
+            if (_weapons.CurrentPlayerWeapon == _weapons.WeaponsInInventory[i])
             {
 
                 weaponimg.sprite = weaponspritesarray[i];
@@ -39,7 +37,7 @@ public class WaeponScript : MonoBehaviour
                 break;
             }
         }
-        weaponimg.sprite = weaponspritesarray[3];
+       // weaponimg.sprite = weaponspritesarray[3];
     }
 
     void Update()
@@ -57,7 +55,7 @@ public class WaeponScript : MonoBehaviour
     //    PlayerWeaponManager weaponmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponManager>();
         for(int i=0;i<4;i++)
         {
-            if(weaponmanager.CurrentWeapon == _weapons.WeaponsInInventory[i])
+            if(_weapons.CurrentPlayerWeapon == _weapons.WeaponsInInventory[i])
             {
                 
                weaponimg.sprite = weaponspritesarray[i];

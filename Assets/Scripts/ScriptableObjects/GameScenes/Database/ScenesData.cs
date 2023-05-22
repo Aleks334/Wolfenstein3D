@@ -9,7 +9,13 @@ public class ScenesData : ScriptableObject
 
     public MaintenanceSceneSO UI;
     public MaintenanceSceneSO Init;
-    public Episode SelectedEpisode { get; set; }
+
+    [SerializeField] private Episode _selectedEpisode;
+    public Episode SelectedEpisode
+    {
+        get => _selectedEpisode;
+        set => _selectedEpisode = value;
+    }
     public DifficultyLevelSO DifficultyLvl { get; set; }
 
     [SerializeField] private GameSceneData[] _onVictoryScenes;

@@ -59,6 +59,7 @@ public class AudioManager : MonoBehaviour
     
     private void OnSoundEmitterFinishedPlaying(SoundEmitter soundEmitter)
     {
+        //Debug.LogWarning("soundEmitter returned to pool: " + soundEmitter._audioSource.clip);
         soundEmitter.OnSoundFinishedPlaying -= OnSoundEmitterFinishedPlaying;
         soundEmitter.Stop();
         _pool.Return(soundEmitter);

@@ -66,13 +66,17 @@ public class GameManager : MonoBehaviour
             Debug.LogError("GameManager couldn't find PlayerLifesManager");
         #endregion
 
-        if (_healthManager.Data.JustDied)
-        {
-            _healthManager.Data.GiveDefaultHealth();
-            _lifesManager.RemoveLifes(1);
-            _ammoManager.Data.ResetAmmo();
-            _healthManager.Data.JustDied = false;
-        }
+       // if (_healthManager.Data.JustDied)
+       // {
+            
+       //     _healthManager.Data.JustDied = false;
+       // }
+    }
+
+    private void ResetPlayerStats()
+    {
+        _healthManager.Data.GiveDefaultHealth();
+        _ammoManager.Data.ResetAmmo();
     }
     
     private void OnPlayerDeath()
@@ -105,6 +109,8 @@ public class GameManager : MonoBehaviour
         //After death anim with game over text
         //Debug.Log("HandlePlayerGameOver");
         _onLoadScene.RaiseEvent(database.OnLossScenes, false);
+        ResetPlayerStats();
+        _lifesManager.Data.GiveDefaultLifes();
     }
 
     IEnumerator HandlePlayerLifeLoss()
@@ -122,9 +128,11 @@ public class GameManager : MonoBehaviour
         //After death anim
         //Debug.Log("HandlePlayerLiveLose");
 
-        _healthManager.Data.JustDied = true;
+        //_healthManager.Data.JustDied = true;
         
-       _onLoadScene.RaiseEvent(new GameSceneData[] { database.SelectedEpisode, database.UI }, false);
+        _onLoadScene.RaiseEvent(new GameSceneData[] { database.SelectedEpisode, database.UI }, false);
+        ResetPlayerStats();
+        _lifesManager.RemoveLifes(1);
     }
 
     IEnumerator HandlePlayerVictory()
@@ -142,5 +150,9 @@ public class GameManager : MonoBehaviour
         //After victory anim
         //Debug.Log("HandlePlayerVictory");
         _onLoadScene.RaiseEvent(database.OnVictoryScenes, false);
+
+        //change this!
+        ResetPlayerStats();
+        _lifesManager.Data.GiveDefaultLifes();
     }
 }

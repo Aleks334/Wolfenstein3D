@@ -105,6 +105,8 @@ public class PlayerWeaponManager : MonoBehaviour, IAudio
         }
 
         CurrentWeapon = _playerWeapons.WeaponsInInventory[weaponToChange.WeaponSlot];
+        _playerWeapons.CurrentPlayerWeapon = this.CurrentWeapon;
+
         Debug.Log("Active weapon: " + CurrentWeapon);
         
         _weaponHandler.GetComponent<SpriteRenderer>().sprite = CurrentWeapon.WeaponSprite;
