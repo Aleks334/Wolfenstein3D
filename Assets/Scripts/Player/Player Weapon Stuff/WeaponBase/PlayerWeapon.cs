@@ -1,4 +1,3 @@
-using UnityEditor.Animations;
 using UnityEngine;
 
 public abstract class PlayerWeapon
@@ -11,7 +10,7 @@ public abstract class PlayerWeapon
 
     public int WeaponSlot { get; private set; }
     public string WeaponAttackAnim { get; private set; }
-    public AnimatorController AnimatorController { get; private set; }
+    public RuntimeAnimatorController AnimatorController { get; private set; }
     public Sprite WeaponSprite { get; private set; }
     public AudioCueSO WeaponAttackSound { get; private set; }
 
@@ -59,6 +58,7 @@ public abstract class PlayerWeapon
 
         if (Physics.Raycast(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward, out hit, range))
         {
+            //TODO: Replace with IDamageable interface.
             if (hit.transform.TryGetComponent<enemystats>(out enemystats enemy))
             {
                 enemy.Dmgenemy(GetPlayerWeaponManager().CurrentWeapon.Damage);

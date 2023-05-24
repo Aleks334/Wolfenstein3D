@@ -23,6 +23,11 @@ public class ScenesLoader : MonoBehaviour
 
     [SerializeField] private ScenesData _database;
 
+    [Header("Fading screen")]
+    [SerializeField] private Animator _fadingScreen;
+    private const string FADE_IN = "FadeIn";
+    private const string FADE_OUT = "FadeOut";
+
     private void Awake()
     {
         _loadingInterface.SetActive(false);
@@ -45,9 +50,30 @@ public class ScenesLoader : MonoBehaviour
         _loadSceneEventChannel.OnSceneLoadingRequested -= LoadSceneAsync;
     }
 
+    private bool IsPlayingAnim(string animName)
+    {
+        if (_fadingScreen.GetCurrentAnimatorStateInfo(0).IsName(animName) &&
+            _fadingScreen.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            return true;
+        else
+            return false;
+    }
+
+    private void PlayFadingAnim(string animName)
+    {
+        _fadingScreen.Play(animName);
+    }
+
+    private void Fade(string animName)
+    {
+        if (!IsPlayingAnim(animName) && !_loadingInterface.activeSelf)
+        {
+            PlayFadingAnim(animName);
+        }
+    }
 
     private void LoadSceneAsync(GameSceneData[] scenesToLoad, bool showProgressBar)
-    { 
+    {
         UnloadOtherScenes();
         _activeScene = scenesToLoad[0];
 
@@ -55,7 +81,7 @@ public class ScenesLoader : MonoBehaviour
         {
            // if (!IsSceneLoaded(scenesToLoad[i]))
           //  {
-                _scenesToLoadAsync.Add(SceneManager.LoadSceneAsync(scenesToLoad[i].sceneName, LoadSceneMode.Additive));
+            _scenesToLoadAsync.Add(SceneManager.LoadSceneAsync(scenesToLoad[i].sceneName, LoadSceneMode.Additive));
                 //Debug.LogWarning($"Loaded scene: {scenesToLoad[i].sceneName}");
           //  }
         }
@@ -67,12 +93,16 @@ public class ScenesLoader : MonoBehaviour
             StartCoroutine(ShowLoadingSceneProgress());
         }   
         else
-            _scenesToLoadAsync.Clear();
+        {
+            Fade(FADE_IN);
+            _scenesToLoadAsync.Clear();         
+        }        
     }
 
     private void SetNewActiveScene(AsyncOperation asyncOperation)
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(_activeScene.sceneName));
+        Fade(FADE_OUT);
     }
 
     private void UnloadOtherScenes()
@@ -87,6 +117,7 @@ public class ScenesLoader : MonoBehaviour
         }
     }
 
+    /*
     private bool IsSceneLoaded(GameSceneData checkedScene)
     {
         for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -96,7 +127,7 @@ public class ScenesLoader : MonoBehaviour
         }
 
         return false;
-    }
+    }*/
 
     private IEnumerator ShowLoadingSceneProgress()
     {

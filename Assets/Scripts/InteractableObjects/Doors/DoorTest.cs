@@ -1,6 +1,4 @@
 using System.Collections;
-using TMPro.EditorUtilities;
-using UnityEditor;
 using UnityEngine;
 
 public class DoorTest : MonoBehaviour

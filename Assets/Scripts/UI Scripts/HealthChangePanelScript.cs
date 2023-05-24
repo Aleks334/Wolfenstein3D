@@ -88,7 +88,7 @@ public class HealthChangePanelScript : MonoBehaviour
             gameObject.GetComponent<Image>().color = victoryAlphaColor;
             if (victoryAlphaColor.a < 255)
             {
-                victoryAlphaColor.a += Time.deltaTime;
+                victoryAlphaColor.a += Time.deltaTime * 2f;
             }
         }
     }

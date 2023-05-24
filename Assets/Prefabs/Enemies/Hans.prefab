@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 967603318775656256}
   - component: {fileID: 967603318775656257}
   - component: {fileID: 967603318775656258}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hans
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 967603319049741473}
   - component: {fileID: 967603319049741481}
   - component: {fileID: 7322468243567416814}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hans
   m_TagString: Untagged
   m_Icon: {fileID: 0}

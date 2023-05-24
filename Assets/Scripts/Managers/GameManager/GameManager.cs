@@ -65,12 +65,6 @@ public class GameManager : MonoBehaviour
         else
             Debug.LogError("GameManager couldn't find PlayerLifesManager");
         #endregion
-
-       // if (_healthManager.Data.JustDied)
-       // {
-            
-       //     _healthManager.Data.JustDied = false;
-       // }
     }
 
     private void ResetPlayerStats()
@@ -106,8 +100,6 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        //After death anim with game over text
-        //Debug.Log("HandlePlayerGameOver");
         _onLoadScene.RaiseEvent(database.OnLossScenes, false);
         ResetPlayerStats();
         _lifesManager.Data.GiveDefaultLifes();
@@ -124,11 +116,6 @@ public class GameManager : MonoBehaviour
         PlayerObj.GetComponent<RaycastInteractionController>().enabled = false;
 
         yield return new WaitForSeconds(2f);
-
-        //After death anim
-        //Debug.Log("HandlePlayerLiveLose");
-
-        //_healthManager.Data.JustDied = true;
         
         _onLoadScene.RaiseEvent(new GameSceneData[] { database.SelectedEpisode, database.UI }, false);
         ResetPlayerStats();
@@ -147,12 +134,11 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        //After victory anim
-        //Debug.Log("HandlePlayerVictory");
         _onLoadScene.RaiseEvent(database.OnVictoryScenes, false);
 
-        //change this!
+#if UNITY_EDITOR
         ResetPlayerStats();
         _lifesManager.Data.GiveDefaultLifes();
+#endif
     }
 }

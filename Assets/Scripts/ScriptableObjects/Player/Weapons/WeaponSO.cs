@@ -1,4 +1,3 @@
-using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Player/Weapons/New Weapon Data SO")]
@@ -51,7 +50,7 @@ public class WeaponSO : ScriptableObject
     }
 
     public Sprite WeaponSprite;
-    public AnimatorController WeaponAnimatorController;
+    public RuntimeAnimatorController WeaponAnimatorController;
 
     [Header("Sound for weapon attack")]
     [SerializeField] private AudioCueSO _audioCueSO;

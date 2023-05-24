@@ -32,16 +32,16 @@ public class SplashScreensManager : MonoBehaviour
 
     IEnumerator Fade()
     {
-        CanvasGroup canvas = creatorsPanel[currentPanel].transform.parent.GetComponent<CanvasGroup>();
-        while (canvas.alpha > 0)
-        {
-            canvas.alpha -= Time.deltaTime * 1.5f;
-            yield return null;
-        }
+        CanvasGroup canvas = creatorsPanel[currentPanel].transform.parent.GetComponent<CanvasGroup>();  
 
         if (currentPanel < creatorsPanel.Length - 1)
         {
-            
+            while (canvas.alpha > 0)
+            {
+                canvas.alpha -= Time.deltaTime * 1.5f;
+                yield return null;
+            }
+
             creatorsPanel[currentPanel + 1].gameObject.SetActive(true);
             creatorsPanel[currentPanel].transform.parent.gameObject.SetActive(false);
             currentPanel++;
