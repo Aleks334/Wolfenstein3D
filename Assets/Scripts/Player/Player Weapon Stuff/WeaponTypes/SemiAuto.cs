@@ -23,7 +23,7 @@ public class SemiAuto : PlayerWeapon
             return;
 
         GetPlayerWeaponManager().AmmoManager.RemoveAmmo();
-        PlayAttackAnim();
+        AnimService.Play(GetPlayerWeaponManager().CurrentAnim);
         GetPlayerWeaponManager()._timeToNextShot = Rof;
 
         GetPlayerWeaponManager().PlaySound();

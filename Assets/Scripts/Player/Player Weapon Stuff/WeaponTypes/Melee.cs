@@ -20,7 +20,7 @@ public abstract class Melee : PlayerWeapon
 
     public override void PerformAttack()
     {
-        PlayAttackAnim();
+        AnimService.Play(GetPlayerWeaponManager().CurrentAnim);
         GetPlayerWeaponManager()._timeToNextShot = Rof;
 
         GetPlayerWeaponManager().PlaySound();

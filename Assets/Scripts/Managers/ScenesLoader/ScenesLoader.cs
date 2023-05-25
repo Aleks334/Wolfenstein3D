@@ -28,10 +28,16 @@ public class ScenesLoader : MonoBehaviour
     private const string FADE_IN = "FadeIn";
     private const string FADE_OUT = "FadeOut";
 
+    private IAnimationService _animService;
+    private IFadeService _fadeService;
+
     private void Awake()
     {
         _loadingInterface.SetActive(false);
         _database.SubscribeToLoadingSceneEvent();
+
+        _animService = new AnimationService(_fadingScreen);
+        _fadeService = new FadeService(_animService);
     } 
 
     private void Start()
@@ -48,28 +54,6 @@ public class ScenesLoader : MonoBehaviour
     private void OnDisable()
     {
         _loadSceneEventChannel.OnSceneLoadingRequested -= LoadSceneAsync;
-    }
-
-    private bool IsPlayingAnim(string animName)
-    {
-        if (_fadingScreen.GetCurrentAnimatorStateInfo(0).IsName(animName) &&
-            _fadingScreen.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            return true;
-        else
-            return false;
-    }
-
-    private void PlayFadingAnim(string animName)
-    {
-        _fadingScreen.Play(animName);
-    }
-
-    private void Fade(string animName)
-    {
-        if (!IsPlayingAnim(animName) && !_loadingInterface.activeSelf)
-        {
-            PlayFadingAnim(animName);
-        }
     }
 
     private void LoadSceneAsync(GameSceneData[] scenesToLoad, bool showProgressBar)
@@ -89,12 +73,12 @@ public class ScenesLoader : MonoBehaviour
         _scenesToLoadAsync[0].completed += SetNewActiveScene; 
 
         if (showProgressBar)
-        {
-            StartCoroutine(ShowLoadingSceneProgress());
-        }   
+            StartCoroutine(ShowLoadingSceneProgress());   
         else
         {
-            Fade(FADE_IN);
+            if (!_loadingInterface.activeSelf)
+                _fadeService.Fade(FADE_IN);
+
             _scenesToLoadAsync.Clear();         
         }        
     }
@@ -102,7 +86,7 @@ public class ScenesLoader : MonoBehaviour
     private void SetNewActiveScene(AsyncOperation asyncOperation)
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(_activeScene.sceneName));
-        Fade(FADE_OUT);
+        _fadeService.Fade(FADE_OUT);
     }
 
     private void UnloadOtherScenes()

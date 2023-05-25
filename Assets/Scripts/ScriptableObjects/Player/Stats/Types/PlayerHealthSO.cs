@@ -8,8 +8,6 @@ public class PlayerHealthSO : ScriptableObject
     [SerializeField] private int _defaultAmount;
     [SerializeField] private int _maxAmount;
 
-   // [HideInInspector] public bool JustDied = false;
-
     public void OnEnable()
     {
         playerHealth = new ObjectHealth(_defaultAmount, _maxAmount);

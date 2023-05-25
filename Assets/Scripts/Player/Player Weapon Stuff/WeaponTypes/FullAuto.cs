@@ -17,20 +17,20 @@ public class FullAuto : PlayerWeapon
         }
         // Animation after full auto shot.
         else if (Input.GetKeyUp(KeyCode.LeftControl))
-            PlayAfterFullAutoShootAnim(this);
+            AnimService.PlayAfterFullAutoShootAnim(this);
     }
 
     public override void PerformAttack()
     {
         if (GetPlayerWeaponManager().AmmoManager.Data.CurrentAmmo == 0)
         {
-            CanFullAutoShootAnim(false);
+            AnimService.CanFullAutoShootAnim(false);
             return;
         }
 
-        CanFullAutoShootAnim(true);
+        AnimService.CanFullAutoShootAnim(true);
         GetPlayerWeaponManager().AmmoManager.RemoveAmmo();
-        PlayAttackAnim();
+        AnimService.Play(GetPlayerWeaponManager().CurrentAnim);
         GetPlayerWeaponManager()._timeToNextShot = Rof;
 
         GetPlayerWeaponManager().PlaySound();

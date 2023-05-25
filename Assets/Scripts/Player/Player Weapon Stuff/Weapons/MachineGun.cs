@@ -8,7 +8,7 @@ public class MachineGun : FullAuto, IHandleChangeWeapon
 
     public void HandleChangeWeaponInput()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !IsWeaponAnimPlaying())
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !AnimService.IsPlaying(GetPlayerWeaponManager().CurrentAnim))
         {
             GetPlayerWeaponManager().ChangeWeapon(GetPlayerWeaponManager().ExistingWeaponsData.MachineGun);
         }

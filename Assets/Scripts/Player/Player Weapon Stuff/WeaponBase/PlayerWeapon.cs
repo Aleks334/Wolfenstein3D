@@ -2,18 +2,24 @@ using UnityEngine;
 
 public abstract class PlayerWeapon
 {
+    private WeaponAnimationService _animService;
+    protected WeaponAnimationService AnimService
+    {
+        get => _animService ??= new WeaponAnimationService(GetPlayerWeaponManager().WeaponHandlerAnimator);
+        private set => _animService = value;
+    }
     protected int Damage { get; private set; }
     protected float Range { get; private set; }
     protected float Rof { get; private set; }
-    protected ShootingMode ShootingMode { get; private set; }
-    protected WeaponType WeaponType { get; private set; }
+    protected ShootingMode ShootingMode { get; private set; } 
 
+    public WeaponType WeaponType { get; private set; }
     public int WeaponSlot { get; private set; }
     public string WeaponAttackAnim { get; private set; }
     public RuntimeAnimatorController AnimatorController { get; private set; }
     public Sprite WeaponSprite { get; private set; }
     public AudioCueSO WeaponAttackSound { get; private set; }
-
+    //TODO: Change to protected and use getter in order to replace GetPlayerWeaponManager().
     public PlayerWeaponManager WeaponManager { get; private set; }
 
     public PlayerWeapon(WeaponSO weaponData)
@@ -56,20 +62,28 @@ public abstract class PlayerWeapon
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward, out hit, range))
+        if (Physics.Raycast(GetPlayerWeaponManager().PlayerCam.transform.position,
+                            GetPlayerWeaponManager().PlayerCam.transform.forward,
+                            out hit, range))
         {
             //TODO: Replace with IDamageable interface.
             if (hit.transform.TryGetComponent<enemystats>(out enemystats enemy))
             {
                 enemy.Dmgenemy(GetPlayerWeaponManager().CurrentWeapon.Damage);
             }
-            Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward * range, Color.green, 0.25f);
+
+            Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position,
+                          GetPlayerWeaponManager().PlayerCam.transform.forward * range,
+                          Color.green, 0.25f);
         }
         else
         {
-            Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward * range, Color.red, 0.25f);
+            Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position,
+                          GetPlayerWeaponManager().PlayerCam.transform.forward * range,
+                          Color.red, 0.25f);
         }
     }
+    /*
     public bool IsWeaponAnimPlaying()
     {
         if (GetPlayerWeaponManager().WeaponHandlerAnimator.GetCurrentAnimatorStateInfo(0).IsName(GetPlayerWeaponManager().CurrentAnim) && GetPlayerWeaponManager().WeaponHandlerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
@@ -94,7 +108,7 @@ public abstract class PlayerWeapon
     public void PlayAfterFullAutoShootAnim(PlayerWeapon currentWeapon)
     {
         GetPlayerWeaponManager().WeaponHandlerAnimator.Play(currentWeapon.WeaponType.ToString() + "_after_shoot");
-    }
+    }*/
 }
 
 public enum ShootingMode
