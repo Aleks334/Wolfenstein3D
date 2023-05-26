@@ -10,7 +10,7 @@ public class FullAuto : PlayerWeapon
     {
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            if (GetPlayerWeaponManager()._timeToNextShot > 0)
+            if (WeaponManager._timeToNextShot > 0)
                 return;
 
             PerformAttack();
@@ -22,18 +22,18 @@ public class FullAuto : PlayerWeapon
 
     public override void PerformAttack()
     {
-        if (GetPlayerWeaponManager().AmmoManager.Data.CurrentAmmo == 0)
+        if (WeaponManager.AmmoManager.Data.CurrentAmmo == 0)
         {
             AnimService.CanFullAutoShootAnim(false);
             return;
         }
 
         AnimService.CanFullAutoShootAnim(true);
-        GetPlayerWeaponManager().AmmoManager.RemoveAmmo();
-        AnimService.Play(GetPlayerWeaponManager().CurrentAnim);
-        GetPlayerWeaponManager()._timeToNextShot = Rof;
+        WeaponManager.AmmoManager.RemoveAmmo();
+        AnimService.Play(WeaponManager.CurrentAnim);
+        WeaponManager._timeToNextShot = Rof;
 
-        GetPlayerWeaponManager().PlaySound();
+        WeaponManager.PlaySound();
         CreateRay(Range);
         Debug.Log("tryb strzelania aktualnej broni: " + ShootingMode);
     }

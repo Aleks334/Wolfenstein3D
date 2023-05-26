@@ -1,46 +1,35 @@
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour, IPlayerProfile
+public class HealthManager : MonoBehaviour, IDamageable
 {
-    [SerializeField] private PlayerHealthSO _data;
+    [SerializeField] private HealthSO _data;
     [SerializeField] private PlayerLifeSO _lifesData;
 
     [Header("Event Channels")]
     [SerializeField] private VoidEventChannelSO _onPlayerDeath;
     [SerializeField] private VoidEventChannelSO _onGameOver;
-    public PlayerHealthSO Data
+    public HealthSO Data
     {
         get => _data;
     }
-    /*
-    void Update()
+
+    public void TakeDamage(int amount)
     {
-      if (Input.GetKeyDown(KeyCode.K))
-          DamagePlayer(12);
-      else if (Input.GetKeyDown(KeyCode.H))
-          HealPlayer(13);
-    }*/
-    public void DamagePlayer(int dmg)
-    {
-        Data.playerHealth.DmgValue(dmg);
+        Data.HealthData.DmgValue(amount);
         //Debug.Log("Current health: " + Data.playerHealth.CurrentHealth);
         UI.ReloadUI();
         UI.healthdecreaseeffect();
 
         //For raising events when player dies (depending on lifes number).
         if (!Data.isAlive() && _lifesData.CurrentLifes > 0)
-        {
             _onPlayerDeath.RaiseEvent();
-        }
         else if (!Data.isAlive() && _lifesData.CurrentLifes == 0)
-        {
             _onGameOver.RaiseEvent();
-        }
     }
 
     public void HealPlayer(int healing)
     {
-        Data.playerHealth.HealingValue(healing);
+        Data.HealthData.HealingValue(healing);
       //  Debug.Log("Current health: " + Data.playerHealth.CurrentHealth);
         UI.ReloadUI();
         UI.healtincreaseeffect();
@@ -48,7 +37,7 @@ public class HealthManager : MonoBehaviour, IPlayerProfile
 
     public bool CanPickUpHealth()
     {
-        if (Data.playerHealth.CurrentHealth == Data.playerHealth.MaxHealth)
+        if (Data.HealthData.CurrentHealth == Data.HealthData.MaxHealth)
             return false;
         else
             return true;

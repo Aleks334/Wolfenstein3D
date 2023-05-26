@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +11,7 @@ public class Faceanim : MonoBehaviour
     bool lookforward = false;
     public Sprite[] spritesarray = new Sprite[22];
 
-    [SerializeField] PlayerHealthSO _health;
+    [SerializeField] HealthSO _health;
     void Update()
     {
 
@@ -35,7 +32,7 @@ public class Faceanim : MonoBehaviour
         time = rand.Next(1, 3);
         time -= (float)0.5;
 
-        int currenthp = _health.playerHealth.CurrentHealth;
+        int currenthp = _health.HealthData.CurrentHealth;
         if (currenthp > 90)
         {
             image =0;

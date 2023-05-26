@@ -1,26 +1,26 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Player/Stats/Health_Stats")]
-public class PlayerHealthSO : ScriptableObject
+public class HealthSO : ScriptableObject
 {
-    public ObjectHealth playerHealth;
+    public ObjectHealth HealthData { get; private set; }
 
     [SerializeField] private int _defaultAmount;
     [SerializeField] private int _maxAmount;
 
     public void OnEnable()
     {
-        playerHealth = new ObjectHealth(_defaultAmount, _maxAmount);
+        HealthData = new ObjectHealth(_defaultAmount, _maxAmount);
     }
 
     public void GiveDefaultHealth()
     {
-        playerHealth.HealingValue(playerHealth.MaxHealth);
+        HealthData.HealingValue(HealthData.MaxHealth);
     }
 
     public bool isAlive()
     {
-        if (playerHealth.CurrentHealth == 0)
+        if (HealthData.CurrentHealth == 0)
             return false;
         else
             return true;

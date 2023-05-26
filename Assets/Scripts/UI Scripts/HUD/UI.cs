@@ -8,7 +8,7 @@ public class UI : MonoBehaviour
     public static bool anim = false;
     static bool reload = false;
 
-    [SerializeField] private PlayerHealthSO _health;
+    [SerializeField] private HealthSO _health;
     [SerializeField] private PlayerLifeSO _lifes;
 
     [SerializeField] private VoidEventChannelSO _onPlayerDeath;
@@ -30,7 +30,7 @@ public class UI : MonoBehaviour
     }
     private void Start()
     {
-        healthtext.text = _health.playerHealth.CurrentHealth.ToString() + "%";
+        healthtext.text = _health.HealthData.CurrentHealth.ToString() + "%";
         Lifecounttext.text = _lifes.CurrentLifes.ToString();
     }
 
@@ -59,7 +59,7 @@ public class UI : MonoBehaviour
         if(reload)
         {
             
-            healthtext.text = _health.playerHealth.CurrentHealth.ToString() + "%";
+            healthtext.text = _health.HealthData.CurrentHealth.ToString() + "%";
             Lifecounttext.text = _lifes.CurrentLifes.ToString();
             anim = true;
             reload = false;

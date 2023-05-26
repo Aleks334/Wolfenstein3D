@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -135,10 +134,5 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         _onLoadScene.RaiseEvent(database.OnVictoryScenes, false);
-
-#if UNITY_EDITOR
-        ResetPlayerStats();
-        _lifesManager.Data.GiveDefaultLifes();
-#endif
     }
 }

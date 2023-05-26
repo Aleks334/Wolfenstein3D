@@ -8,9 +8,9 @@ public class MiniGun : FullAuto, IHandleChangeWeapon
 
     public void HandleChangeWeaponInput()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha4) && !AnimService.IsPlaying(GetPlayerWeaponManager().CurrentAnim))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && !AnimService.IsPlaying(WeaponManager.CurrentAnim))
         {
-            GetPlayerWeaponManager().ChangeWeapon(GetPlayerWeaponManager().ExistingWeaponsData.MiniGun);
+            WeaponManager.ChangeWeapon(WeaponManager.ExistingWeaponsData.MiniGun);
         }
     }
 }

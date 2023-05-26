@@ -72,7 +72,8 @@ public class Warmed : state
                     if (attack < 9)
                     {
                         GameObject p = GameObject.FindGameObjectWithTag("Player");
-                        p.GetComponent<HealthManager>().DamagePlayer(this.gameObject.GetComponent<enemystats>().dmg);
+                        if(p.TryGetComponent(out IDamageable damageable))
+                            damageable.TakeDamage(this.gameObject.GetComponent<enemystats>().dmg);
                     }
 
                 }
@@ -98,7 +99,8 @@ public class Warmed : state
                 if (shoottime <= 0)
                 {
                     GameObject p = GameObject.FindGameObjectWithTag("Player");
-                    p.GetComponent<HealthManager>().DamagePlayer(this.gameObject.GetComponent<enemystats>().dmg);
+                    if (p.TryGetComponent(out IDamageable damageable))
+                        damageable.TakeDamage(this.gameObject.GetComponent<enemystats>().dmg);
                     shoottime = 1.0f;
                     state_change("Attacking");
                 }

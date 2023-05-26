@@ -11,7 +11,7 @@ public abstract class Melee : PlayerWeapon
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            if (GetPlayerWeaponManager()._timeToNextShot > 0)
+            if (WeaponManager._timeToNextShot > 0)
                 return;
 
             PerformAttack();
@@ -20,12 +20,12 @@ public abstract class Melee : PlayerWeapon
 
     public override void PerformAttack()
     {
-        AnimService.Play(GetPlayerWeaponManager().CurrentAnim);
-        GetPlayerWeaponManager()._timeToNextShot = Rof;
+        AnimService.Play(WeaponManager.CurrentAnim);
+        WeaponManager._timeToNextShot = Rof;
 
-        GetPlayerWeaponManager().PlaySound();
+        WeaponManager.PlaySound();
         CreateRay(Range);
 
-        //Debug.Log("tryb strzelania aktualnej broni: " + _shootingMode);
+        //Debug.Log("Current weapon shooting mode: " + _shootingMode);
     }
 }

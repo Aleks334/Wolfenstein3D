@@ -15,6 +15,7 @@ MonoBehaviour:
   looping: 0
   _defaultClipGroup: 0
   _audioClipGroups:
-  - sequenceMode: 0
+  - sequenceMode: 1
     audioClips:
     - {fileID: 8300000, guid: e69ffcb17b9c08a4b853cefe115b6159, type: 3}
+    - {fileID: 8300000, guid: 931cd839979f6ae499197919be860eea, type: 3}

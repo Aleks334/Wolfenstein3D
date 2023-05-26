@@ -2,12 +2,36 @@ using UnityEngine;
 
 public abstract class PlayerWeapon
 {
+    private PlayerWeaponManager _weaponManager;
+    protected PlayerWeaponManager WeaponManager
+    {
+        get
+        {
+            if (_weaponManager != null)
+                return _weaponManager;
+
+            if (GameManager.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
+            {
+                _weaponManager = weaponManager;
+                return _weaponManager;
+            }
+            else
+            {
+                Debug.LogError("Gracz nie ma dodanej klasy PlayerWeaponManager!");
+                return null;
+            }
+        }
+
+        private set => _weaponManager = value;
+    }
+
     private WeaponAnimationService _animService;
     protected WeaponAnimationService AnimService
     {
-        get => _animService ??= new WeaponAnimationService(GetPlayerWeaponManager().WeaponHandlerAnimator);
+        get => _animService ??= new WeaponAnimationService(WeaponManager.WeaponHandlerAnimator);
         private set => _animService = value;
     }
+
     protected int Damage { get; private set; }
     protected float Range { get; private set; }
     protected float Rof { get; private set; }
@@ -19,8 +43,6 @@ public abstract class PlayerWeapon
     public RuntimeAnimatorController AnimatorController { get; private set; }
     public Sprite WeaponSprite { get; private set; }
     public AudioCueSO WeaponAttackSound { get; private set; }
-    //TODO: Change to protected and use getter in order to replace GetPlayerWeaponManager().
-    public PlayerWeaponManager WeaponManager { get; private set; }
 
     public PlayerWeapon(WeaponSO weaponData)
     {
@@ -40,75 +62,31 @@ public abstract class PlayerWeapon
     public abstract void PerformAttack();
     public abstract void HandleAttackInput();
 
-    public PlayerWeaponManager GetPlayerWeaponManager()
-    {
-        if (WeaponManager != null)
-            return WeaponManager;
-
-
-        if (GameManager.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
-        {
-            WeaponManager = weaponManager;
-            return WeaponManager;
-        }
-        else
-        {
-            Debug.LogError("Gracz nie ma dodanej klasy PlayerWeaponManager!");
-            return null;
-        }
-    }
-
     protected void CreateRay(float range)
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(GetPlayerWeaponManager().PlayerCam.transform.position,
-                            GetPlayerWeaponManager().PlayerCam.transform.forward,
+        if (Physics.Raycast(WeaponManager.PlayerCam.transform.position,
+                            WeaponManager.PlayerCam.transform.forward,
                             out hit, range))
         {
             //TODO: Replace with IDamageable interface.
             if (hit.transform.TryGetComponent<enemystats>(out enemystats enemy))
             {
-                enemy.Dmgenemy(GetPlayerWeaponManager().CurrentWeapon.Damage);
+                enemy.Dmgenemy(WeaponManager.CurrentWeapon.Damage);
             }
 
-            Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position,
-                          GetPlayerWeaponManager().PlayerCam.transform.forward * range,
+            Debug.DrawRay(WeaponManager.PlayerCam.transform.position,
+                          WeaponManager.PlayerCam.transform.forward * range,
                           Color.green, 0.25f);
         }
         else
         {
-            Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position,
-                          GetPlayerWeaponManager().PlayerCam.transform.forward * range,
+            Debug.DrawRay(WeaponManager.PlayerCam.transform.position,
+                          WeaponManager.PlayerCam.transform.forward * range,
                           Color.red, 0.25f);
         }
     }
-    /*
-    public bool IsWeaponAnimPlaying()
-    {
-        if (GetPlayerWeaponManager().WeaponHandlerAnimator.GetCurrentAnimatorStateInfo(0).IsName(GetPlayerWeaponManager().CurrentAnim) && GetPlayerWeaponManager().WeaponHandlerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            return true;
-        else
-            return false;
-    }
-
-    //Plays standard shooting anim (for semi/melee or main part of full auto shooting anim)
-    public void PlayAttackAnim()
-    {
-        GetPlayerWeaponManager().WeaponHandlerAnimator.Play(GetPlayerWeaponManager().CurrentAnim);
-    }
-
-    //For canceling full auto shooting anim when ammo equals 0
-    public void CanFullAutoShootAnim(bool canShoot)
-    {
-        GetPlayerWeaponManager().WeaponHandlerAnimator.SetBool("canShoot", canShoot);
-    }
-
-    //Plays animation of elevating / lowering full-auto gun
-    public void PlayAfterFullAutoShootAnim(PlayerWeapon currentWeapon)
-    {
-        GetPlayerWeaponManager().WeaponHandlerAnimator.Play(currentWeapon.WeaponType.ToString() + "_after_shoot");
-    }*/
 }
 
 public enum ShootingMode
