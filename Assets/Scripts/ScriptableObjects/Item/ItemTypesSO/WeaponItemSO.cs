@@ -28,11 +28,11 @@ public class WeaponItemSO : ItemDataSO, IWeaponPickable
         if (GameManager.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
         {
             _weaponManager = weaponManager;
-           // Debug.LogWarning("Znaleziono PlayerWeaponManager!");
+           // Debug.LogWarning("PlayerWeaponManager was found!");
         }
         else
         {
-            Debug.LogError("Gracz nie ma dodanej klasy PlayerWeaponManager!");
+            Debug.LogError("Player doesn't have PlayerWeaponManager class attached!");
         }
     }
 

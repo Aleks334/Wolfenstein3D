@@ -6,17 +6,17 @@ public class LifesManager : MonoBehaviour
 
     public PlayerLifeSO Data
     {
-        get { return _data; }
+        get => _data;
     }
 
-    void Update()
-    {
+    /*void Update()
+    {     
         if (Input.GetKeyDown(KeyCode.L))
             AddLifes(1);
         else if (Input.GetKeyDown(KeyCode.J))
-            RemoveLifes(1);
-    }
-    
+            RemoveLifes(1);   
+    }*/
+
     public void AddLifes(int lifesToAdd)
     {
         Data.IncreasePlayerLifes(lifesToAdd);

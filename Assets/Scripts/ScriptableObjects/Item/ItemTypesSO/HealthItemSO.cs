@@ -13,9 +13,8 @@ public class HealthItemSO : ItemDataSO, IHealthPickable
 
     public int HealthAmount
     {
-        get { return _healthAmount; }
-
-        set { _healthAmount = value; }
+        get => _healthAmount;
+        set => _healthAmount = value;
     }
     #endregion
 
@@ -25,12 +24,12 @@ public class HealthItemSO : ItemDataSO, IHealthPickable
     {
         if (GameManager.PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
         {
-            //Debug.LogWarning("Znaleziono HealthManager! (health)");
+            //Debug.LogWarning("HealthManager was found! (health)");
             _healthManager = healthManager;
         }
         else
         {
-            Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
+            Debug.LogError("Player doesn't have HealthManager class attached!");
         }
     }
 

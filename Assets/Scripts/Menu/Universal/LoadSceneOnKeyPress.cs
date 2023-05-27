@@ -9,6 +9,7 @@ public class LoadSceneOnKeyPress : MonoBehaviour
     [SerializeField] private HealthSO _playerHealth;
     [SerializeField] private PlayerAmmoSO _playerAmmo;
     [SerializeField] private PlayerLifeSO _playerLifes;
+
     private void Update()
     {
         if (Input.anyKeyDown)
@@ -18,7 +19,6 @@ public class LoadSceneOnKeyPress : MonoBehaviour
             _playerLifes.GiveDefaultLifes();
 
             _loadSceneEventChannel.RaiseEvent(new[] { _sceneToLoad }, false);
-        }
-            
+        }          
     }
 }

@@ -15,7 +15,7 @@ public class DoorTrigger : AudioPlayable, IInteractableRaycast
 
     private float TimeToCloseDoor
     {
-        get { return _timeToCloseDoor; }
+        get => _timeToCloseDoor;
         set
         {
             _timeToCloseDoor = value;
