@@ -10,7 +10,7 @@ public class SemiAuto : PlayerWeapon
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            if (GetPlayerWeaponManager()._timeToNextShot > 0)
+            if (WeaponManager._timeToNextShot > 0)
                 return;
 
             PerformAttack();
@@ -19,14 +19,15 @@ public class SemiAuto : PlayerWeapon
 
     public override void PerformAttack()
     {
-        if (GetPlayerWeaponManager().AmmoManager.Data.CurrentAmmo == 0)
+        if (WeaponManager.AmmoManager.Data.CurrentAmmo == 0)
             return;
 
-        GetPlayerWeaponManager().AmmoManager.RemoveAmmo();
-        PlayAttackAnim();
-        GetPlayerWeaponManager()._timeToNextShot = Rof;
+        WeaponManager.AmmoManager.RemoveAmmo();
+        AnimService.Play(WeaponManager.CurrentAnim);
+        WeaponManager._timeToNextShot = Rof;
 
+        WeaponManager.PlaySound();
         CreateRay(Range);
-        Debug.Log("tryb strzelania aktualnej broni: " + ShootingMode);
+        //Debug.Log("tryb strzelania aktualnej broni: " + ShootingMode);
     }
 }

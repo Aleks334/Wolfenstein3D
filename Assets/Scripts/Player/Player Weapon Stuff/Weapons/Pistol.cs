@@ -8,9 +8,9 @@ public class Pistol : SemiAuto, IHandleChangeWeapon
 
     public void HandleChangeWeaponInput()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !IsWeaponAnimPlaying())
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !AnimService.IsPlaying(WeaponManager.CurrentAnim))
         {
-            GetPlayerWeaponManager().ChangeWeapon(GetPlayerWeaponManager().ExistingWeaponsData.Pistol);
+            WeaponManager.ChangeWeapon(WeaponManager.ExistingWeaponsData.Pistol);
         }
     } 
 }

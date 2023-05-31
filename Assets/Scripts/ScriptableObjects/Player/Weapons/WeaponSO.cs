@@ -1,4 +1,3 @@
-using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Player/Weapons/New Weapon Data SO")]
@@ -7,38 +6,39 @@ public class WeaponSO : ScriptableObject
     [Header("Properties of weapon")]
     [SerializeField] private int _damage;
     public int Damage
-    { 
-        get { return _damage; }
+    {
+        get => _damage;
     }
 
     [SerializeField] private float _range;
     public float Range
     {
-        get { return _range;  }
+        get => _range;
     }
 
     [SerializeField] private float _rof;
     public float Rof
     {
-        get { return _rof;  }
+        get => _rof;
     }
 
+    //Only for debugging
     [SerializeField] private ShootingMode _attackMode;
     public ShootingMode AttackMode
     {
-        get { return _attackMode; }
+        get => _attackMode;
     }
 
     [SerializeField] private WeaponType _weaponType;
     public WeaponType WeaponType
     {
-        get { return _weaponType; }
+        get => _weaponType;
     }
 
     [SerializeField] private int _weaponSlot;
     public int WeaponSlot
     {
-        get { return _weaponSlot; }
+        get => _weaponSlot;
     }
 
 
@@ -46,9 +46,16 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private AnimationClip _weaponAttackAnim;
     public string WeaponAttackAnim
     {
-        get { return _weaponAttackAnim.name; }
+        get => _weaponAttackAnim.name;
     }
 
     public Sprite WeaponSprite;
-    public AnimatorController WeaponAnimatorController;
+    public RuntimeAnimatorController WeaponAnimatorController;
+
+    [Header("Sound for weapon attack")]
+    [SerializeField] private AudioCueSO _audioCueSO;
+    public AudioCueSO WeaponAttackSound
+    {
+        get => _audioCueSO;
+    }
 }

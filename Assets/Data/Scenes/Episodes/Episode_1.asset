@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Episode_1
   m_EditorClassIdentifier: 
   sceneName: Episode_1
-  music: {fileID: 0}
+  _backgroundMusic: {fileID: 11400000, guid: f92a8b42b3cbdbf438883833b6e5c81c, type: 2}

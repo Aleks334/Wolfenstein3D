@@ -1,12 +1,12 @@
+using System;
 using UnityEngine;
 
-public class PlayerWeaponManager : MonoBehaviour
+public class PlayerWeaponManager : MonoBehaviour, IAudio
 {
     public WeaponsInventorySO _playerWeapons;
     public AmmoManager AmmoManager { get; private set; }
 
     private GameObject _weaponHandler;
-   // public GameObject[] weaponObjects = new GameObject[4];
 
     //For animations
     public string CurrentAnim { get; private set; }
@@ -100,18 +100,36 @@ public class PlayerWeaponManager : MonoBehaviour
 
         if (!HaveThatWeapon(weaponToChange) || CurrentWeapon == weaponToChange)
         {
-            Debug.Log("Gracz ju¿ trzyma " + weaponToChange);
+            Debug.Log("Player already handle " + weaponToChange);
             return;
         }
 
         CurrentWeapon = _playerWeapons.WeaponsInInventory[weaponToChange.WeaponSlot];
-        Debug.Log("Aktywna broñ: " + CurrentWeapon);
+        _playerWeapons.CurrentPlayerWeapon = this.CurrentWeapon;
 
+        Debug.Log("Active weapon: " + CurrentWeapon);
         
         _weaponHandler.GetComponent<SpriteRenderer>().sprite = CurrentWeapon.WeaponSprite;
         _weaponHandler.GetComponent<Animator>().runtimeAnimatorController = CurrentWeapon.AnimatorController;
-
         CurrentAnim = CurrentWeapon.WeaponAttackAnim;
+
+        ChangeAudioCueCurrentWeapon(CurrentWeapon);
         UI.ReloadUI();
+    }
+
+    public void PlaySound()
+    {
+        if (_weaponHandler.TryGetComponent<AudioCue>(out AudioCue audioCue))
+            audioCue.PlayAudioCue();
+        else
+            Debug.LogError("_weaponHandler doesn't have AudioCue");
+    }
+
+    private void ChangeAudioCueCurrentWeapon(PlayerWeapon currentWeapon)
+    {
+        if (_weaponHandler.TryGetComponent<AudioCue>(out AudioCue audioCue))
+            audioCue.AudioData = currentWeapon.WeaponAttackSound;
+        else
+            Debug.LogError("_weaponHandler doesn't have AudioCue");
     }
 }

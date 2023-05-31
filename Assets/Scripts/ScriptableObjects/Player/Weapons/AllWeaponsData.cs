@@ -13,11 +13,14 @@ public class AllWeaponsData : ScriptableObject
 
     public List<PlayerWeapon> AllWeaponsList = new List<PlayerWeapon>();
 
-    //Visible in inspector
+    //Visible in inspector (order is important!) 
     [SerializeField] private List<WeaponSO> WeaponsData = new List<WeaponSO>();
 
     public void StartUp()
     {
+        if (Weapons.Count != 0 && AllWeaponsList.Count != 0)
+            CleanUp();
+
         Knife = new Knife(WeaponsData[0]);
         Weapons.Add(WeaponType.knife, Knife);
         AllWeaponsList.Add(Knife);
@@ -33,6 +36,12 @@ public class AllWeaponsData : ScriptableObject
         MiniGun = new MiniGun(WeaponsData[3]);
         Weapons.Add(WeaponType.mini_gun, MiniGun);
         AllWeaponsList.Add(MiniGun);
+    }
+
+    private void CleanUp()
+    {
+        Weapons.Clear();
+        AllWeaponsList.Clear();
     }
 
     //Type converter for weapon items

@@ -11,6 +11,8 @@ public class WeaponsInventorySO : ScriptableObject
 
     [SerializeField] private int _defaultAmount;
 
+    public PlayerWeapon CurrentPlayerWeapon { get; set; }
+
     private void OnEnable()
     {
         WeaponsInInventory = new PlayerWeapon[_defaultAmount];

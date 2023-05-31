@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ElevatorLever : MonoBehaviour, IInteractableRaycast
+public class ElevatorLever : AudioPlayable, IInteractableRaycast
 {
     private Renderer _renderer;
     [SerializeField] private Material elevatorLeverEnabledMat;
@@ -14,6 +14,7 @@ public class ElevatorLever : MonoBehaviour, IInteractableRaycast
 
     public void Interact()
     {
+        PlaySound();
         _renderer.material = elevatorLeverEnabledMat;
         _onPlayerVictory.RaiseEvent();
     }

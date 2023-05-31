@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DifficultyLevelSelectionTab
   m_EditorClassIdentifier: 
   sceneName: DifficultyLevelSelection
-  music: {fileID: 0}
+  _backgroundMusic: {fileID: 11400000, guid: c5508ca893c026743a580a6250707846, type: 2}
+  _previousMenuTab: {fileID: 11400000, guid: 32d1a92b07a69234ca13ef4e0c72015f, type: 2}

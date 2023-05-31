@@ -14,27 +14,24 @@ public class PowerUpItemSO : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraL
     [SerializeField] private int _healthAmount;
     public int HealthAmount
     {
-        get { return _healthAmount; }
-
-        set { _healthAmount = value; }
+        get => _healthAmount;
+        set => _healthAmount = value;
     }
 
     [Tooltip("Select desired ammo value for item.")]
     [SerializeField] private int _ammoAmount;
     public int AmmoAmount
     {
-        get { return _ammoAmount; }
-
-        set { _ammoAmount = value; }
+        get => _ammoAmount;
+        set => _ammoAmount = value;
     }
 
     [Tooltip("Select desired lifes value for item.")]
     [SerializeField] private int _extraLifesAmount;
     public int ExtraLifesAmount
     {
-        get { return _extraLifesAmount; }
-
-        set { _extraLifesAmount = value; }
+        get => _extraLifesAmount; 
+        set => _extraLifesAmount = value;
     }
 
     #endregion
@@ -43,25 +40,29 @@ public class PowerUpItemSO : ItemDataSO, IHealthPickable, IAmmoPickable, IExtraL
 
     protected override void FindNeededManager()
     {
-       if (GameManager.PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
+        //Debug.LogWarning("FindNeededManager called");
+
+        if (GameManager.PlayerObj.TryGetComponent<HealthManager>(out HealthManager healthManager))
             _healthManager = healthManager;
         else
-           Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
+           Debug.LogError("Player doesn't have HealthManager class attached!");
+
         if (GameManager.PlayerObj.TryGetComponent<AmmoManager>(out AmmoManager ammoManager))
             _ammoManager = ammoManager;
         else
-            Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
+            Debug.LogError("Player doesn't have AmmoManager class attached!");
+
         if (GameManager.PlayerObj.TryGetComponent<LifesManager>(out LifesManager lifesManager))
             _lifesManager = lifesManager;
         else
-            Debug.LogError("Gracz nie ma dodanej klasy HealthManager!");
+            Debug.LogError("Player doesn't have LifesManager class attached!");
     }
 
     public override bool CanBePickedUp()
     {
         if(!_healthManager || !_ammoManager || !_lifesManager)
             FindNeededManager();
-        //Nawet jeœli gracz ma maks. zdrowie, maks. amunicjê to mo¿na dodaæ 1 ¿ycie.
+        //Even if player has maximum health and maximum ammo we can add 1 extra life. 
         return true;
     }
 

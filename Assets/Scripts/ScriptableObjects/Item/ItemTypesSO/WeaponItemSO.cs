@@ -7,6 +7,7 @@ public class WeaponItemSO : ItemDataSO, IWeaponPickable
 
     [Tooltip("Select desired weapon type for item.")]
     [SerializeField] private WeaponType _weaponType;
+    [SerializeField] private VoidEventChannelSO _specialEffectUI;
 
     private PlayerWeaponManager _weaponManager;
 
@@ -16,7 +17,10 @@ public class WeaponItemSO : ItemDataSO, IWeaponPickable
 
     public override void PickupItem()
     {
-        PickUpWeapon();  
+        PickUpWeapon();
+
+        if (_specialEffectUI != null)
+            _specialEffectUI.RaiseEvent();
     }
 
     protected override void FindNeededManager()
@@ -24,11 +28,11 @@ public class WeaponItemSO : ItemDataSO, IWeaponPickable
         if (GameManager.PlayerObj.TryGetComponent<PlayerWeaponManager>(out PlayerWeaponManager weaponManager))
         {
             _weaponManager = weaponManager;
-           // Debug.LogWarning("Znaleziono PlayerWeaponManager!");
+           // Debug.LogWarning("PlayerWeaponManager was found!");
         }
         else
         {
-            Debug.LogError("Gracz nie ma dodanej klasy PlayerWeaponManager!");
+            Debug.LogError("Player doesn't have PlayerWeaponManager class attached!");
         }
     }
 

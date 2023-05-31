@@ -1,22 +1,22 @@
 using UnityEngine;
 
-public class LifesManager : MonoBehaviour, IPlayerProfile
+public class LifesManager : MonoBehaviour
 {
     [SerializeField] private PlayerLifeSO _data;
 
     public PlayerLifeSO Data
     {
-        get { return _data; }
+        get => _data;
     }
 
-    void Update()
-    {
+    /*void Update()
+    {     
         if (Input.GetKeyDown(KeyCode.L))
             AddLifes(1);
         else if (Input.GetKeyDown(KeyCode.J))
-            RemoveLifes(1);
-    }
-    
+            RemoveLifes(1);   
+    }*/
+
     public void AddLifes(int lifesToAdd)
     {
         Data.IncreasePlayerLifes(lifesToAdd);

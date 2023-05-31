@@ -960,9 +960,9 @@ TextureImporter:
       name: shoot1
       rect:
         serializedVersion: 2
-        x: 82
+        x: 83
         y: 0
-        width: 33
+        width: 29
         height: 46
       alignment: 7
       pivot: {x: 0.5, y: 0}

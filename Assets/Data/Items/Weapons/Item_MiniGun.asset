@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Item_MiniGun
   m_EditorClassIdentifier: 
   _weaponType: 3
+  _specialEffectUI: {fileID: 11400000, guid: 705922c73593ea542a5edd20b0a8d56b, type: 2}

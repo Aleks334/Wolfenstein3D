@@ -1,23 +1,7 @@
 public class ObjectHealth
 {
-    // Skrypt do obs³ugi zdrowia dowolnego obiektu w grze.
-
-    int _currentHealth;
-    int _maxHealth;
-
-    public int CurrentHealth
-    {
-        get { return _currentHealth; }
-
-        set { _currentHealth = value; }
-    }
-
-    public int MaxHealth
-    {
-        get { return _maxHealth; }
-
-        private set { _maxHealth = value; }
-    }
+    public int CurrentHealth { get; private set; }
+    public int MaxHealth { get; private set; }
 
     public ObjectHealth(int health, int maxHealth)
     {

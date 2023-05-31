@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour, IInteractableTrigger
+public class Item : AudioPlayable, IInteractableTrigger
 {
     [SerializeField] private ItemDataSO _itemData;
 
@@ -9,6 +9,8 @@ public class Item : MonoBehaviour, IInteractableTrigger
         if (_itemData.CanBePickedUp())
         {
             _itemData.PickupItem();
+
+            PlaySound();
             UI.healtincreaseeffect();
             Destroy(this.gameObject);
         }

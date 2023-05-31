@@ -12,9 +12,8 @@ public class AmmoItemSO : ItemDataSO, IAmmoPickable
 
     public int AmmoAmount
     {
-        get { return _ammoAmount; }
-
-        set { _ammoAmount = value; }
+        get => _ammoAmount;
+        set => _ammoAmount = value;
     }
 
     #endregion
@@ -25,11 +24,12 @@ public class AmmoItemSO : ItemDataSO, IAmmoPickable
     {
         if (GameManager.PlayerObj.TryGetComponent<AmmoManager>(out AmmoManager ammoManager))
         {
+           // Debug.LogWarning("AmmoManager was found!");
             _ammoManager = ammoManager;
         }
         else
         {
-            Debug.LogError("Gracz nie ma dodanej klasy AmmoManager!");
+            Debug.LogError("Player doesn't have AmmoManager class attached!");
         }
     }
 

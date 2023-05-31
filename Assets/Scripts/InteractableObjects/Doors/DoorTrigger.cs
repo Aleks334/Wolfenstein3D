@@ -1,19 +1,21 @@
 using System.Collections;
 using UnityEngine;
 
-public class DoorTrigger : MonoBehaviour, IInteractableRaycast
+public class DoorTrigger : AudioPlayable, IInteractableRaycast
 {
    private bool isPlayerInTrigger;
    private BoxCollider collisionBox;
 
    private DoorState _currentDoorStatus;
 
+   [SerializeField] private float _openedDoorDuration = 3f;
+
    private float _timeToCloseDoor;
-    private float _time;
+   private float _time;
 
     private float TimeToCloseDoor
     {
-        get { return _timeToCloseDoor; }
+        get => _timeToCloseDoor;
         set
         {
             _timeToCloseDoor = value;
@@ -33,7 +35,7 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast
     private Vector3 _startPos;
     private Vector3 _endPos;
 
-    private float _mvmtSpeed = 1.5f;
+    [SerializeField] private float _mvmtSpeed = 1.5f;
 
     void Start()
     {
@@ -41,7 +43,7 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast
         collisionBox = transform.GetComponent<BoxCollider>();
 
         _currentDoorStatus = DoorState.Closed;
-        TimeToCloseDoor = 3f;
+        TimeToCloseDoor = _openedDoorDuration;
 
         _door = transform.parent.GetChild(0).transform;
 
@@ -79,10 +81,14 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast
     public void Interact()
     {
         if (_currentDoorStatus == DoorState.Closed)
+        {
+            PlaySound();
             StartCoroutine(OpenDoor(-transform.parent.right));
-
+        }
         else if (_currentDoorStatus == DoorState.Opened)
+        {
             StartCoroutine(CloseDoor(transform.parent.right));
+        }   
     }
 
     private IEnumerator OpenDoor(Vector3 direction)
@@ -119,8 +125,10 @@ public class DoorTrigger : MonoBehaviour, IInteractableRaycast
 
             _time += Time.deltaTime * _mvmtSpeed;
         }
+
+        PlaySound(1);
         _currentDoorStatus = DoorState.Closed;
-        TimeToCloseDoor = 3f;
+        TimeToCloseDoor = _openedDoorDuration;
         collisionBox.isTrigger = true;
     }
 

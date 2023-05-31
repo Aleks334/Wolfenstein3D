@@ -1,10 +1,9 @@
 using System.Collections;
-using TMPro.EditorUtilities;
-using UnityEditor;
 using UnityEngine;
 
 public class DoorTest : MonoBehaviour
 {
+    /*
     [SerializeField] private Vector3 SlideDir = Vector3.right;
     private float SlideAmount = 1f;
 

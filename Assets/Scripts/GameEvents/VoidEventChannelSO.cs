@@ -8,9 +8,6 @@ public class VoidEventChannelSO : ScriptableObject
 
     public void RaiseEvent()
     {
-        if(OnEventRaised != null)
-            OnEventRaised.Invoke();
-        else
-            Debug.LogError("Nobody subscribed to event of type " + this.name);
+        OnEventRaised?.Invoke();
     }
 }

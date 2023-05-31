@@ -11,11 +11,16 @@ public class Warmed : state
     public int shootcount;
     public int shootcount2 = 0;
     public bool mele;
+
+    [SerializeField] private AudioCueSO _warmedAudioCue;
+    private AudioCue _audioCue;
+    bool surprised = false;
     public void Start()
     {
         states.Add(this.GetComponent<Aiming>());
         states.Add(this.GetComponent<Attacking>());
         states.Add(this.GetComponent<Running>());
+
         state_change("Running");
         if(this.GetComponent<enemystats>().type == enemystats.enemy_type.Hans)
         {
@@ -25,10 +30,18 @@ public class Warmed : state
         {
             shootcount = 5;
         }
+
+        _audioCue = AudioCueComponent;
     }
     public override void on_state_enter()
     {
         base.on_state_enter();
+        if (!surprised)
+        {
+            _audioCue.AudioData = _warmedAudioCue;
+            PlaySound();
+            surprised = true;
+        }
         state_change("Running");
     }
     public override void state_action()
@@ -59,7 +72,8 @@ public class Warmed : state
                     if (attack < 9)
                     {
                         GameObject p = GameObject.FindGameObjectWithTag("Player");
-                        p.GetComponent<HealthManager>().DamagePlayer(this.gameObject.GetComponent<enemystats>().dmg);
+                        if(p.TryGetComponent(out IDamageable damageable))
+                            damageable.TakeDamage(this.gameObject.GetComponent<enemystats>().dmg);
                     }
 
                 }
@@ -81,12 +95,14 @@ public class Warmed : state
             float distance = this.gameObject.GetComponentInParent<enemystats>().getdistance();
             if(distance < 8.0f)
             {
-                state_change("Attacking");
+                
                 if (shoottime <= 0)
                 {
                     GameObject p = GameObject.FindGameObjectWithTag("Player");
-                    p.GetComponent<HealthManager>().DamagePlayer(this.gameObject.GetComponent<enemystats>().dmg);
+                    if (p.TryGetComponent(out IDamageable damageable))
+                        damageable.TakeDamage(this.gameObject.GetComponent<enemystats>().dmg);
                     shoottime = 1.0f;
+                    state_change("Attacking");
                 }
                 else
                 {

@@ -9,9 +9,9 @@ public class Knife : Melee, IHandleChangeWeapon
 
     public void HandleChangeWeaponInput()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !IsWeaponAnimPlaying())
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !AnimService.IsPlaying(WeaponManager.CurrentAnim))
         {
-            GetPlayerWeaponManager().ChangeWeapon(GetPlayerWeaponManager().ExistingWeaponsData.Knife);
+            WeaponManager.ChangeWeapon(WeaponManager.ExistingWeaponsData.Knife);
         }
     }
 }

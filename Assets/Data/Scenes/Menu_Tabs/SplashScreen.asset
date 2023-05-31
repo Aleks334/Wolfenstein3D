@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SplashScreen
   m_EditorClassIdentifier: 
   sceneName: SplashScreens
-  music: {fileID: 0}
+  _backgroundMusic: {fileID: 11400000, guid: 95760b9513bc15946a05b316108f4aab, type: 2}
+  _previousMenuTab: {fileID: 0}

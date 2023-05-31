@@ -4,12 +4,7 @@ using UnityEngine;
 public class PlayerLifeSO : ScriptableObject
 {
     [SerializeField] private int _defaultAmount;
-    [SerializeField] private int _currentLifes;
-    public int CurrentLifes
-    {
-        get { return _currentLifes; }
-        private set { _currentLifes = value; }
-    }
+    public int CurrentLifes { get; private set; }
 
     public void OnEnable()
     {

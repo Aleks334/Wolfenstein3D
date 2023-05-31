@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSceneData : ScriptableObject
@@ -8,5 +6,11 @@ public class GameSceneData : ScriptableObject
     public string sceneName;
 
     [Header("Background music")]
-    public AudioClip music;
+    [SerializeField] private AudioCueSO _backgroundMusic;
+
+    public AudioCueSO BackgroundMusic
+    {
+        get => _backgroundMusic;
+        set => _backgroundMusic = value;
+    }
 }

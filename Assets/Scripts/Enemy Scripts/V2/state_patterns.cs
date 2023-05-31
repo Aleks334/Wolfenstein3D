@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 
-public  class state : MonoBehaviour
+public  class state : AudioPlayable
 {
     public virtual void state_action()
     {
