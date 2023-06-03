@@ -55,6 +55,8 @@ public class SplashScreensManager : MonoBehaviour
         }
         else
         {
+            _fadeService.Fade(_fadeService.FADE_IN);   
+
             _loadSceneEventChannel.RaiseEvent(new[] { _menuTabToLoad }, false);
         }
     }
