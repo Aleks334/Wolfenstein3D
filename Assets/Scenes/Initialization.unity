@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 1284254671}
   - component: {fileID: 1284254670}
   m_Layer: 5
-  m_Name: CrossFade
+  m_Name: Fader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1022,6 +1022,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7af2f20d9defd2b4b8c79ca68b206ac0, type: 2}
   _loadingInterface: {fileID: 1730138769}
   _loadingProgressBar: {fileID: 473022627}
+  _isBusy: 0
+  _scenesToUnload: []
   _database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
   _fadingScreen: {fileID: 1284254670}
 --- !u!1 &2103810597

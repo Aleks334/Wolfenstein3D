@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Audio/Audio Configuration")]
 public class AudioConfigurationSO : ScriptableObject
 {
-    [Header("Sound properties")]
+    [Header("Sound properties (add this SO to global config list!)")]
     public bool Mute = false;
     [Range(0f, 1f)] public float Volume = 1f;
     [Range(-3f, 3f)] public float Pitch = 1f;
@@ -19,6 +20,9 @@ public class AudioConfigurationSO : ScriptableObject
 
     [Range(0.1f, 20f)] public float MinDistance = 0.1f;
     [Range(10f, 200f)] public float MaxDistance = 60f;
+
+    [Header("Event Channels")]
+    public FloatEventChannel OnVolumeChanged;
 
     public void ApplyTo(AudioSource audioSource)
     {

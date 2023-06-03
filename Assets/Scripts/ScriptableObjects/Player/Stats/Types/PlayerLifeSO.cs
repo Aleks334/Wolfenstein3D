@@ -27,7 +27,7 @@ public class PlayerLifeSO : ScriptableObject
         }       
     }
 
-    public void GiveDefaultLifes()
+    public void ResetLifes()
     {
         CurrentLifes = _defaultAmount;
     }

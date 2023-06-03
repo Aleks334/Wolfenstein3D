@@ -10,6 +10,9 @@ public class MenuControls : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         if (TryGetComponent<AudioCue>(out AudioCue audioCue))
             _audioCue = audioCue;
         else

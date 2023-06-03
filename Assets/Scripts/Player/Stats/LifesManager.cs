@@ -4,29 +4,40 @@ public class LifesManager : MonoBehaviour
 {
     [SerializeField] private PlayerLifeSO _data;
 
+    [Header("Event Channels")]
+    [SerializeField] VoidEventChannelSO _playerDeathEventChannel;
+    [SerializeField] VoidEventChannelSO _gameOverEventChannel;
+
     public PlayerLifeSO Data
     {
         get => _data;
     }
 
-    /*void Update()
-    {     
-        if (Input.GetKeyDown(KeyCode.L))
-            AddLifes(1);
-        else if (Input.GetKeyDown(KeyCode.J))
-            RemoveLifes(1);   
-    }*/
+    private void OnEnable()
+    {
+        _playerDeathEventChannel.OnEventRaised += TakeLife;
+        _gameOverEventChannel.OnEventRaised += Data.ResetLifes;
+    }
+
+    private void OnDisable()
+    {
+        _playerDeathEventChannel.OnEventRaised -= TakeLife;
+        _gameOverEventChannel.OnEventRaised -= Data.ResetLifes;
+    }
 
     public void AddLifes(int lifesToAdd)
     {
         Data.IncreasePlayerLifes(lifesToAdd);
-        Debug.Log("Obecny poziom ¿ycia: " + Data.CurrentLifes);
         UI.ReloadUI();
     }
     public void RemoveLifes(int lifesToRemove)
     {
         Data.DecreasePlayerLifes(lifesToRemove);
-        Debug.Log("Obecny poziom ¿ycia: " + Data.CurrentLifes);
         UI.ReloadUI();
+    }
+
+    private void TakeLife()
+    {
+        RemoveLifes(1);
     }
 }

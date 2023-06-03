@@ -35,6 +35,6 @@ public class FullAuto : PlayerWeapon
 
         WeaponManager.PlaySound();
         CreateRay(Range);
-        Debug.Log("tryb strzelania aktualnej broni: " + ShootingMode);
+        //Debug.Log("Shooting mode of current weapon: " + ShootingMode);
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ScenesLoader : MonoBehaviour
 {
@@ -17,27 +18,23 @@ public class ScenesLoader : MonoBehaviour
     [SerializeField] private GameObject _loadingInterface;
     [SerializeField] private Image _loadingProgressBar;
 
+    private List<GameSceneData> _scenesToLoad = new();
     private List<AsyncOperation> _scenesToLoadAsync = new();
+    private List<string> _scenesToUnload = new();
 
     private GameSceneData _activeScene;
-
-    [SerializeField] private ScenesData _database;
+    private bool _isBusy = false;
 
     [Header("Fading screen")]
     [SerializeField] private Animator _fadingScreen;
-    private const string FADE_IN = "FadeIn";
-    private const string FADE_OUT = "FadeOut";
 
-    private IAnimationService _animService;
     private IFadeService _fadeService;
 
     private void Awake()
     {
         _loadingInterface.SetActive(false);
-        _database.SubscribeToLoadingSceneEvent();
 
-        _animService = new AnimationService(_fadingScreen);
-        _fadeService = new FadeService(_animService);
+        _fadeService = new FadeService(new AnimationService(_fadingScreen));
     } 
 
     private void Start()
@@ -58,78 +55,100 @@ public class ScenesLoader : MonoBehaviour
 
     private void LoadSceneAsync(GameSceneData[] scenesToLoad, bool showProgressBar)
     {
-        UnloadOtherScenes();
-        _activeScene = scenesToLoad[0];
+        if (_isBusy)
+            return;
 
-        for (int i = 0; i < scenesToLoad.Length; i++)
-        {
-           // if (!IsSceneLoaded(scenesToLoad[i]))
-          //  {
-            _scenesToLoadAsync.Add(SceneManager.LoadSceneAsync(scenesToLoad[i].sceneName, LoadSceneMode.Additive));
-                //Debug.LogWarning($"Loaded scene: {scenesToLoad[i].sceneName}");
-          //  }
-        }
+        _isBusy = true;
+        _scenesToLoad = scenesToLoad.ToList();
 
-        _scenesToLoadAsync[0].completed += SetNewActiveScene; 
-
+        AddScenesToUnload();
+       
         if (showProgressBar)
-            StartCoroutine(ShowLoadingSceneProgress());   
+            StartCoroutine(ShowLoadingSceneProgress());      
         else
-        {
-            if (!_loadingInterface.activeSelf)
-                _fadeService.Fade(FADE_IN);
+            StartCoroutine(ShowFadingOnSceneLoading());
 
-            _scenesToLoadAsync.Clear();         
-        }        
     }
 
-    private void SetNewActiveScene(AsyncOperation asyncOperation)
-    {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(_activeScene.sceneName));
-        _fadeService.Fade(FADE_OUT);
-    }
-
-    private void UnloadOtherScenes()
+    private void AddScenesToUnload()
     {
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             if (SceneManager.GetSceneAt(i).name == _initScene.sceneName)
                 continue;
 
-            SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(i).name);
-            //Debug.LogWarning($"Unloaded scene: {SceneManager.GetSceneAt(i).name}");
+            _scenesToUnload.Add(SceneManager.GetSceneAt(i).name);
         }
     }
 
-    /*
-    private bool IsSceneLoaded(GameSceneData checkedScene)
+    private void UnloadOtherScenes()
     {
-        for (int i = 0; i < SceneManager.sceneCount; i++)
+        for (int i = 0; i < _scenesToUnload.Count; i++)
         {
-            if (SceneManager.GetSceneAt(i).name == checkedScene.sceneName)
-                return true;
+            SceneManager.UnloadSceneAsync(_scenesToUnload[i]);
         }
 
-        return false;
-    }*/
+        _scenesToUnload.Clear();
+    }
 
+    private void PerformAsyncLoading()
+    {
+        for (int i = 0; i < _scenesToLoad.Count; i++)
+        {
+            AsyncOperation op = SceneManager.LoadSceneAsync(_scenesToLoad[i].sceneName, LoadSceneMode.Additive);
+            _scenesToLoadAsync.Add(op);
+        }
+        _activeScene = _scenesToLoad[0];
+
+        _scenesToLoadAsync[0].completed += SetNewActiveScene;
+    }
+
+    private void SetNewActiveScene(AsyncOperation asyncOperation)
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(_activeScene.sceneName));
+    }
+
+    
     private IEnumerator ShowLoadingSceneProgress()
     {
         _loadingInterface.SetActive(true);
         float totalProgress = 0f;
 
+        UnloadOtherScenes();
+        PerformAsyncLoading();
+
         for (int i = 0; i < _scenesToLoadAsync.Count; ++i)
         { 
-            while (!_scenesToLoadAsync[i].isDone)
+            while (_scenesToLoadAsync[i].progress < 0.9f)
             {
                 totalProgress += _scenesToLoadAsync[i].progress;
-                //Debug.Log("progress: " + totalProgress);
                 _loadingProgressBar.fillAmount = totalProgress / _scenesToLoadAsync.Count;
-               // Debug.Log("Fill: " + _loadingProgressBar.fillAmount);
                 yield return null;
             }
         }
-        _scenesToLoadAsync.Clear();
+        
         _loadingInterface.SetActive(false);
+        _scenesToLoadAsync.Clear();
+
+        _isBusy = false;
+    }
+
+    private IEnumerator ShowFadingOnSceneLoading()
+    {
+        _fadeService.Fade(_fadeService.FADE_IN);
+        yield return null;
+
+        while (_fadeService.IsCurrentlyFading())
+        {
+            yield return null;
+        }
+
+        UnloadOtherScenes();
+        _fadeService.Fade(_fadeService.FADE_OUT);
+
+        PerformAsyncLoading();
+        _scenesToLoadAsync.Clear();
+        
+        _isBusy = false;
     }
 }

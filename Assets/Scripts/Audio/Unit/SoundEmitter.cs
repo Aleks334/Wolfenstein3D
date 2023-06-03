@@ -33,21 +33,19 @@ public class SoundEmitter : MonoBehaviour
     private void OnDisable()
     {
         _voidLoadSceneChannel.OnEventRaised -= DisableMusic;
+
+        if (_localConfig != null)
+            _localConfig.OnVolumeChanged.OnEventRaised -= UpdateVolume;
     }
 
     private void DisableMusic()
     {
-        //Debug.LogWarning("DisableMusic" + _audioSource.clip);
         _counter = 0;
-       // _clips.Clear();
 
         Stop();
         _pool.Return(this);
     }
 
-    /// <summary>
-    /// Plays all audio clips from list
-    /// </summary>
     public void PlayAudioClip(List<AudioClip> clips, AudioConfigurationSO settings, bool hasToLoop, Vector3 position)
     {
         _clips = clips;
@@ -57,6 +55,8 @@ public class SoundEmitter : MonoBehaviour
 
         _localConfig = settings;
         settings.ApplyTo(_audioSource);
+
+        settings.OnVolumeChanged.OnEventRaised += UpdateVolume;
 
         _audioSource.transform.position = position;
         _audioSource.Play();
@@ -71,15 +71,12 @@ public class SoundEmitter : MonoBehaviour
 
         if (_counter < _clips.Count - 1)
         {
-           // Debug.LogWarning("FinishedPlaying next clip" + _audioSource.clip);
             _counter++;
             PlayAudioClip(_clips, _localConfig, false, transform.position);
         }
         else
         {
-           // Debug.LogWarning("FinishedPlaying end clips" + _audioSource.clip);
             _counter = 0;
-           // _clips.Clear();
             OnSoundFinishedPlaying.Invoke(this); // The AudioManager will pick this up
         }
             
@@ -93,5 +90,10 @@ public class SoundEmitter : MonoBehaviour
     public void Resume()
     {
         _audioSource.Play();
+    }
+
+    private void UpdateVolume(float newVolume)
+    {
+        _audioSource.volume = newVolume;
     }
 }
