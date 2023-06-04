@@ -30,8 +30,20 @@ public class ScenesLoader : MonoBehaviour
 
     private IFadeService _fadeService;
 
+    [Header("Graphic Detail Database")]
+    [SerializeField] private GraphicDetailSO _graphicDetailDatabase;
+
     private void Awake()
     {
+        try
+        {
+            _graphicDetailDatabase.AssignResolution();
+        }
+        catch (System.Exception)
+        {
+            Debug.LogError("GraphicDetailSO is null. Assign it in inspector!");
+        }
+
         _loadingInterface.SetActive(false);
 
         _fadeService = new FadeService(new AnimationService(_fadingScreen));
