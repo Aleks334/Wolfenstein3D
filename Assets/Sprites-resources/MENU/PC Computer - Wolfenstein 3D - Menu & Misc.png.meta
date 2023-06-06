@@ -377,7 +377,7 @@ TextureImporter:
         width: 88
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -385,6 +385,342 @@ TextureImporter:
       bones: []
       spriteID: d1a7817b0b867594e8dbc994f2b9a0cc
       internalID: -37285680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: resolution-button-on
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 22
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bfc40cad2ed48d4dabcc0f88fcdd38a
+      internalID: -1606819546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: resolution-button-off
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee99436b59c04b44abb7889a5932dab
+      internalID: 2126903090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReadThis_Bottom
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 15
+        width: 304
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78854631041b8164288257d5c658fa25
+      internalID: 1545756757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReadThis_Top
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 6
+        width: 320
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf8d53b399cd7840959907db4e99088
+      internalID: 1287630482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReadThis_Right
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 41
+        width: 8
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e86e8107b320ff41878e71f813c88ad
+      internalID: 1956848677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReadThis_Left
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 41
+        width: 8
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef8b5fca5777594d92887db53c197ee
+      internalID: 112358422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameTitle
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 251
+        width: 174
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeef547dd1cc26b47bccd4f4dcd386cd
+      internalID: 236688533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WolfensteinCastle
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 383
+        width: 111
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d2c4e48c194264dbec8ae4f40b1813
+      internalID: -2106477965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controls-readthis
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 383
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cbce13927543f0479ae4699ede43b6d
+      internalID: -893512546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controls-1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 410
+        width: 50
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8961a3fb6837b744088d400ba7ecffd6
+      internalID: 2057374996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controls-2
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 410
+        width: 49
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb49689b88c20a94ea563ff996a1604a
+      internalID: -2021980997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu-weapons-controls
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 334
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c390fbe25f2fe4b8be3b3c6e35fe57
+      internalID: -262083080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu-food
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 390
+        width: 88
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa66686d6cbd0846ba6e0fc8709f1f5
+      internalID: 193199236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu-key
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 390
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f83dedd228cd24aa3a347446958632
+      internalID: -1179292805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu-weapons
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 341
+        width: 104
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d77f7aecf8c77a4dbd669bac9e3a357
+      internalID: -1497123607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: id-software
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 245
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a924116ad04613c488c61d6a7aa44edf
+      internalID: -1202063176
       vertices: []
       indices: 
       edges: []
@@ -402,15 +738,31 @@ TextureImporter:
     nameFileIdTable:
       episode-3: -431739972
       episode-1: -812836832
+      menu-weapons: -1497123607
       Menu-manual: 1626661255
+      WolfensteinCastle: -2106477965
       Creators: -1645820690
+      id-software: -1202063176
+      menu-weapons-controls: -262083080
+      GameTitle: 236688533
+      ReadThis_Right: 1956848677
+      ReadThis_Top: 1287630482
+      menu-food: 193199236
       PC-13: -37285680
+      resolution-button-on: -1606819546
       episode-4: 1642565624
       Test: 466914485
       episode-6: 1550442906
+      resolution-button-off: 2126903090
+      controls-1: 2057374996
       episode-5: -1521009692
+      menu-key: -1179292805
       episode-2: 332306137
+      ReadThis_Bottom: 1545756757
+      controls-2: -2021980997
+      ReadThis_Left: 112358422
       PC Computer - Wolfenstein 3D - Menu & Misc_0: 226109148
+      controls-readthis: -893512546
       Options: -1298729585
       BetPsyched: 1635531165
   spritePackingTag: 

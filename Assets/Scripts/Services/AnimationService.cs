@@ -1,9 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Service for playing animations.
-/// </summary>
-
 public class AnimationService : IAnimationService
 {
     private Animator _performer;

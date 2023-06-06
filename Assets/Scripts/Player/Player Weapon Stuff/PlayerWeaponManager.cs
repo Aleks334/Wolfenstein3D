@@ -1,14 +1,11 @@
-using System;
 using UnityEngine;
 
 public class PlayerWeaponManager : MonoBehaviour, IAudio
 {
-    public WeaponsInventorySO _playerWeapons;
-    public AmmoManager AmmoManager { get; private set; }
-
     private GameObject _weaponHandler;
 
-    //For animations
+    public WeaponsInventorySO _playerWeapons;
+    public AmmoManager AmmoManager { get; private set; }
     public string CurrentAnim { get; private set; }
     public Animator WeaponHandlerAnimator { get; private set; }
 
@@ -20,25 +17,18 @@ public class PlayerWeaponManager : MonoBehaviour, IAudio
     [SerializeField] private AllWeaponsData _existingWeaponsData;
     public AllWeaponsData ExistingWeaponsData
     {
-        get { return _existingWeaponsData; }
-
-        private set { _existingWeaponsData = value; }
+        get => _existingWeaponsData;
     }
 
     void Awake()
     {
-        PlayerCam = Camera.main;
+        PlayerCam = transform.GetChild(0).GetComponent<Camera>();
         AmmoManager = GetComponent<AmmoManager>();
 
         ExistingWeaponsData.StartUp();
 
         _weaponHandler = GameObject.FindGameObjectWithTag("WeaponsHandler");
         WeaponHandlerAnimator = _weaponHandler.GetComponent<Animator>();
-        /*
-        for(int i = 0; i < weaponObjects.Length; i++)
-        {
-            weaponObjects[i] = weaponsHandler.transform.GetChild(i).gameObject;
-        }*/
     }
     void Start()
     {
@@ -50,7 +40,6 @@ public class PlayerWeaponManager : MonoBehaviour, IAudio
         _timeToNextShot -= Time.deltaTime;
 
         CurrentWeapon.HandleAttackInput();
-
 
         foreach(IHandleChangeWeapon weapon in _playerWeapons.WeaponsInInventory)
         {  
@@ -68,17 +57,10 @@ public class PlayerWeaponManager : MonoBehaviour, IAudio
 
         GiveWeapon(ExistingWeaponsData.Pistol);
         GiveWeapon(ExistingWeaponsData.Knife);
-        /*
-         for (int i = 0; i < PlayerData.WeaponsInInventory.Length; i++)
-         {
-            Debug.Log("Slot " + i + ": " + PlayerData.WeaponsInInventory[i]);
-         }
-         */
     }
 
     public void GiveWeapon(PlayerWeapon newWeapon)
     {
-        //  Debug.Log("playerData.WeaponsInInventory = " + newWeapon);
         _playerWeapons.WeaponsInInventory[newWeapon.WeaponSlot] = newWeapon;
 
         ChangeWeapon(newWeapon);
@@ -97,17 +79,16 @@ public class PlayerWeaponManager : MonoBehaviour, IAudio
 
     public void ChangeWeapon(PlayerWeapon weaponToChange)
     {
-
         if (!HaveThatWeapon(weaponToChange) || CurrentWeapon == weaponToChange)
         {
-            Debug.Log("Player already handle " + weaponToChange);
+           // Debug.Log("Player already handle " + weaponToChange);
             return;
         }
 
         CurrentWeapon = _playerWeapons.WeaponsInInventory[weaponToChange.WeaponSlot];
         _playerWeapons.CurrentPlayerWeapon = this.CurrentWeapon;
 
-        Debug.Log("Active weapon: " + CurrentWeapon);
+        //Debug.Log("Active weapon: " + CurrentWeapon);
         
         _weaponHandler.GetComponent<SpriteRenderer>().sprite = CurrentWeapon.WeaponSprite;
         _weaponHandler.GetComponent<Animator>().runtimeAnimatorController = CurrentWeapon.AnimatorController;

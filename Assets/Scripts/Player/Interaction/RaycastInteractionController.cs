@@ -9,7 +9,7 @@ public class RaycastInteractionController : MonoBehaviour
 
     void Start()
     {
-        playerCam = Camera.main;
+        playerCam = transform.GetChild(0).GetComponent<Camera>();
     }
 
     void Update()

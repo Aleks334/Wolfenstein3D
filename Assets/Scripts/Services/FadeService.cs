@@ -1,10 +1,8 @@
-/// <summary>
-/// Service for screeen fading.
-/// </summary>
-
 public class FadeService : IFadeService
 {
     private IAnimationService _service;
+    public string FADE_IN { get; set; } = "FadeIn";
+    public string FADE_OUT { get; set; } = "FadeOut";
 
     public FadeService(IAnimationService service)
     {
@@ -16,5 +14,13 @@ public class FadeService : IFadeService
         {
             _service.Play(name);
         }
+    }
+
+    public bool IsCurrentlyFading()
+    {
+        if (_service.IsPlaying(FADE_IN) || _service.IsPlaying(FADE_OUT))
+            return true;
+
+        return false;
     }
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f4fd1c92bda174eac93466de6ca99c, type: 3}
+  m_Name: SFX_GlobalConfiguration
+  m_EditorClassIdentifier: 
+  _audioConfigs:
+  - {fileID: 11400000, guid: ceecefa7a0338354092118a214c2593c, type: 2}
+  - {fileID: 11400000, guid: 73b89dc420b5aea49af39d7e381cb042, type: 2}

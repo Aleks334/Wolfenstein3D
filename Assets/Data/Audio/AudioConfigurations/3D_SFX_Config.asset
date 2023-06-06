@@ -20,3 +20,4 @@ MonoBehaviour:
   RolloffMode: 1
   MinDistance: 5.5
   MaxDistance: 70
+  OnVolumeChanged: {fileID: 11400000, guid: f53bfea29d8301c4ebd44339c194d3b4, type: 2}

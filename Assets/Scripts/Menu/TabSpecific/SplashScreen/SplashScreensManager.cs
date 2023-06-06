@@ -1,56 +1,68 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SplashScreensManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] creatorsPanel = new GameObject[3];
-    private int currentPanel;
+    [SerializeField] private List<GameObject> _splashPanels = new();
+    [SerializeField] private Animator _fadingScreen;
+    [SerializeField] private int _currentPanel;
 
     [Header("Load Scene fields")]
     [SerializeField] private LoadSceneEventChannelSO _loadSceneEventChannel;
     [SerializeField] private MenuTab _menuTabToLoad;
+
+    private IFadeService _fadeService;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        for(int i = 0; i < creatorsPanel.Length; i++)
+        for(int i = 0; i < _splashPanels.Count; i++)
         {
             if(i != 0)
-                creatorsPanel[i].gameObject.SetActive(false);
+                SetSplashVisibility(_splashPanels[i], false);
         }
+
+        _fadeService = new FadeService(new AnimationService(_fadingScreen));
     }
 
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown && !_fadeService.IsCurrentlyFading())
         {
-            StartCoroutine(Fade());
+            StartCoroutine(DoFade());
         }
     }
 
-    IEnumerator Fade()
+    private IEnumerator DoFade()
     {
-        CanvasGroup canvas = creatorsPanel[currentPanel].transform.parent.GetComponent<CanvasGroup>();  
-
-        if (currentPanel < creatorsPanel.Length - 1)
+        if (_currentPanel < _splashPanels.Count - 1)
         {
-            while (canvas.alpha > 0)
+            _fadeService.Fade(_fadeService.FADE_IN);
+            yield return null;
+
+            while (_fadeService.IsCurrentlyFading())
             {
-                canvas.alpha -= Time.deltaTime * 1.5f;
                 yield return null;
             }
 
-            creatorsPanel[currentPanel + 1].gameObject.SetActive(true);
-            creatorsPanel[currentPanel].transform.parent.gameObject.SetActive(false);
-            currentPanel++;
+            _fadeService.Fade(_fadeService.FADE_OUT);
+
+            SetSplashVisibility(_splashPanels[_currentPanel], false);
+            SetSplashVisibility(_splashPanels[++_currentPanel], true);
         }
         else
         {
+            _fadeService.Fade(_fadeService.FADE_IN);   
+
             _loadSceneEventChannel.RaiseEvent(new[] { _menuTabToLoad }, false);
         }
+    }
 
-        yield return null;
+    private void SetSplashVisibility(GameObject splash, bool visible)
+    {
+        splash.gameObject.SetActive(visible);
     }
 }

@@ -13,24 +13,38 @@ public class HealthManager : MonoBehaviour, IDamageable
         get => _data;
     }
 
+    private void OnEnable()
+    {
+        _onPlayerDeath.OnEventRaised += Data.ResetHealth;
+        _onGameOver.OnEventRaised += Data.ResetHealth;
+    }
+
+    private void OnDisable()
+    {
+        _onPlayerDeath.OnEventRaised -= Data.ResetHealth;
+        _onGameOver.OnEventRaised -= Data.ResetHealth;
+    }
+
     public void TakeDamage(int amount)
     {
+        if (!Data.IsAlive())
+            return;
+
         Data.HealthData.DmgValue(amount);
-        //Debug.Log("Current health: " + Data.playerHealth.CurrentHealth);
+
         UI.ReloadUI();
         UI.healthdecreaseeffect();
 
         //For raising events when player dies (depending on lifes number).
-        if (!Data.isAlive() && _lifesData.CurrentLifes > 0)
+        if (!Data.IsAlive() && _lifesData.CurrentLifes > 0)
             _onPlayerDeath.RaiseEvent();
-        else if (!Data.isAlive() && _lifesData.CurrentLifes == 0)
+        else if (!Data.IsAlive() && _lifesData.CurrentLifes == 0)
             _onGameOver.RaiseEvent();
     }
 
     public void HealPlayer(int healing)
     {
         Data.HealthData.HealingValue(healing);
-      //  Debug.Log("Current health: " + Data.playerHealth.CurrentHealth);
         UI.ReloadUI();
         UI.healtincreaseeffect();
     }

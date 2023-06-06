@@ -13,12 +13,12 @@ public class HealthSO : ScriptableObject
         HealthData = new ObjectHealth(_defaultAmount, _maxAmount);
     }
 
-    public void GiveDefaultHealth()
+    public void ResetHealth()
     {
         HealthData.HealingValue(HealthData.MaxHealth);
     }
 
-    public bool isAlive()
+    public bool IsAlive()
     {
         if (HealthData.CurrentHealth == 0)
             return false;
