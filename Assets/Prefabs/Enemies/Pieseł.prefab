@@ -165,7 +165,6 @@ GameObject:
   - component: {fileID: 4813319710147117249}
   - component: {fileID: 4813319710147117248}
   - component: {fileID: 4813319710147117256}
-  - component: {fileID: 7781776262848611505}
   m_Layer: 7
   m_Name: "Piese\u0142"
   m_TagString: Enemy
@@ -221,7 +220,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
+  m_Radius: 0.74
   m_Height: 2.7170882
   m_Direction: 1
   m_Center: {x: 0, y: 1.3578064, z: 0}
@@ -328,7 +327,6 @@ MonoBehaviour:
   shootcount: 0
   shootcount2: 0
   mele: 1
-  _warmedAudioCue: {fileID: 11400000, guid: 3b59d250c2d06a743844e2ceca27341f, type: 2}
 --- !u!114 &4813319710147117254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,8 +357,9 @@ MonoBehaviour:
   name: Dead
   changestate: 
   _ammoPickUp: {fileID: 0}
-  _deadEnemy: {fileID: 6897021142595610464, guid: df59fc87c610dd843a677c8e51ab9efa, type: 3}
-  _deathAudioCue: {fileID: 11400000, guid: 841456c49e7f9d645a0d2f321b9d4fcc, type: 2}
+  _deadhans: {fileID: 0}
+  _deadhelmut: {fileID: 0}
+  _deaddog: {fileID: 8575758764332421567, guid: dc3b6bca5ca60f443a2392b221ec9285, type: 3}
 --- !u!114 &4813319710147117252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +392,6 @@ MonoBehaviour:
   changestate: 
   speed: 0
   nav: {fileID: 0}
-  _attackAudioCue: {fileID: 11400000, guid: 81b63444a3be4904fba4b464698de1ef, type: 2}
 --- !u!114 &4813319710147117250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,19 +452,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6259b236dfacb4daafb5247b48ee3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7781776262848611505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4813319710147117274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc1de5580220c34e95e8f7235c86737, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioData: {fileID: 0}
-  _playOnStart: 0
-  _audioSettings: {fileID: 11400000, guid: ceecefa7a0338354092118a214c2593c, type: 2}
-  _audioCueEventChannel: {fileID: 11400000, guid: f4cbb7369826f9d49881ee6bffcfc966, type: 2}

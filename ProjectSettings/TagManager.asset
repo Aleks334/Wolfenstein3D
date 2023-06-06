@@ -10,6 +10,7 @@ TagManager:
   - Door
   - PlayerSpawnPoint
   - ElevatorLever
+  - Boss
   layers:
   - Default
   - TransparentFX

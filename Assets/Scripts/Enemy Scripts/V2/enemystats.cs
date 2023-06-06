@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,7 @@ public class enemystats : MonoBehaviour
 
         enemyhealth.DmgValue(value);
         hurt = true;
+
     }
     public float getdistance()
     {
@@ -37,5 +39,7 @@ public class enemystats : MonoBehaviour
         Doge,
         Hans, //normal soldier
         Helmut //SS
+
     }
+ 
 }
