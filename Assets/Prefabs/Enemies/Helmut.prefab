@@ -365,6 +365,9 @@ MonoBehaviour:
   name: Dead
   changestate: 
   _ammoPickUp: {fileID: 3357493184913307264, guid: bbc9391043a6efa4380bdfd53b928609, type: 3}
+  _deadhans: {fileID: 0}
+  _deadhelmut: {fileID: 3272808530442653093, guid: 03f46c16e43e58443b66e084466b1035, type: 3}
+  _deaddog: {fileID: 0}
 --- !u!114 &5748286571911130195
 MonoBehaviour:
   m_ObjectHideFlags: 0
