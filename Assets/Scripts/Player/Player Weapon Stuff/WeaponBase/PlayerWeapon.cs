@@ -62,11 +62,6 @@ public abstract class PlayerWeapon
                 enemy.Dmgenemy(GetPlayerWeaponManager().CurrentWeapon.Damage);
             }
             Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward * range, Color.green, 0.25f);
-            if (hit.transform.TryGetComponent<bossstats>(out bossstats boss))
-            {
-                boss.Dmgenemy(GetPlayerWeaponManager().CurrentWeapon.Damage);
-            }
-            Debug.DrawRay(GetPlayerWeaponManager().PlayerCam.transform.position, GetPlayerWeaponManager().PlayerCam.transform.forward * range, Color.green, 0.25f);
         }
         else
         {
