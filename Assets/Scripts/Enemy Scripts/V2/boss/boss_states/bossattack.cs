@@ -53,11 +53,11 @@ public class bossattack : state
                 int chance = rand.Next(1, 10);
                 if(chance > 5)
                 {
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>().DamagePlayer(this.GetComponent<bossstats>().dmg * dmgpow);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<IDamageable>().TakeDamage(this.GetComponent<bossstats>().dmg * dmgpow);
                 }
                 else if(chance > 1)
                 {
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>().DamagePlayer(this.GetComponent<bossstats>().dmg);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<IDamageable>().TakeDamage(this.GetComponent<bossstats>().dmg);
                 }
 
             }

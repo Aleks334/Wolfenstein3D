@@ -76,6 +76,11 @@ public abstract class PlayerWeapon
                 enemy.Dmgenemy(WeaponManager.CurrentWeapon.Damage);
             }
 
+            if (hit.transform.TryGetComponent<bossstats>(out bossstats boss))
+            {
+                boss.Dmgenemy(WeaponManager.CurrentWeapon.Damage);
+            }
+
             Debug.DrawRay(WeaponManager.PlayerCam.transform.position,
                           WeaponManager.PlayerCam.transform.forward * range,
                           Color.green, 0.25f);
