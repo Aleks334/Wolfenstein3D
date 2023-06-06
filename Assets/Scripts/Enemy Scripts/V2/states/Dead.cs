@@ -25,10 +25,10 @@ public class Dead : state
         _audioCue.AudioData = _deathAudioCue;
         PlaySound();
 
+        this.gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+
         if (this.gameObject.TryGetComponent<enemystats>(out enemystats enemy))
         {
-           
-
             time = 1.0f;
             if (enemy.type == enemystats.enemy_type.Doge)
             {
