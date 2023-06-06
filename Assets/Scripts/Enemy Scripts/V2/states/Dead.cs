@@ -6,18 +6,29 @@ using UnityEngine.AI;
 public class Dead : state
 {
     [SerializeField] private GameObject _ammoPickUp;
+
     [SerializeField] private GameObject _deadhans;
     [SerializeField] private GameObject _deadhelmut;
     [SerializeField] private GameObject _deaddog;
+
+    [SerializeField] private AudioCueSO _deathAudioCue;
+    private AudioCue _audioCue;
     float time;
+
     private void Start()
     {
         name = "Dead";
+        _audioCue = AudioCueComponent;
     }
     public override void on_state_enter()
     {
+        _audioCue.AudioData = _deathAudioCue;
+        PlaySound();
+
         if (this.gameObject.TryGetComponent<enemystats>(out enemystats enemy))
         {
+           
+
             time = 1.0f;
             if (enemy.type == enemystats.enemy_type.Doge)
             {
