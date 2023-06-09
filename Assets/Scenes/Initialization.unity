@@ -1024,6 +1024,7 @@ MonoBehaviour:
   _loadingProgressBar: {fileID: 473022627}
   _fadingScreen: {fileID: 1284254670}
   _graphicDetailDatabase: {fileID: 11400000, guid: 78dbac7fbd79897419c9d387adb2ca93, type: 2}
+  _database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
 --- !u!1 &2103810597
 GameObject:
   m_ObjectHideFlags: 0

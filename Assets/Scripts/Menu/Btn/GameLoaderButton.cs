@@ -14,7 +14,11 @@ public class GameLoaderButton : MonoBehaviour
 
     public void LoadScene()
     {
-        _loadMenuTabEventChannel.RaiseEvent(new GameSceneData[] { _database.SelectedEpisode, _database.UI }, _showProgressBar);
+        var episode = _database.SelectedEpisode;
+
+        _database.SelectedEpisode.SetFloorOnInit();
+
+        _loadMenuTabEventChannel.RaiseEvent(new GameSceneData[] { episode.CurrentFloor, _database.UI }, _showProgressBar);
     }
 
     public void ResetAllPlayerStats()

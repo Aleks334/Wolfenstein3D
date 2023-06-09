@@ -7,6 +7,6 @@ public class LevelSelection : MonoBehaviour
     public void ChooseEpisode(Episode newSelectedEpisode)
     {
         database.SelectedEpisode = newSelectedEpisode;
-        Debug.LogWarning("Selected episode: " + database.SelectedEpisode.sceneName);
+        Debug.LogWarning("Selected episode: " + database.SelectedEpisode.name);
     }
 }

@@ -71,13 +71,15 @@ public class GameManager : MonoBehaviour
 
     IEnumerator HandlePlayerLifeLoss()
     {
+        var episode = database.SelectedEpisode;
+
         PlayerObj.GetComponent<PlayerMovementManager>().enabled = false;
         PlayerObj.GetComponent<PlayerWeaponManager>().enabled = false;
         PlayerObj.GetComponent<RaycastInteractionController>().enabled = false;
 
         yield return new WaitForSeconds(2f);
         
-        _onLoadScene.RaiseEvent(new GameSceneData[] { database.SelectedEpisode, database.UI }, false);
+        _onLoadScene.RaiseEvent(new GameSceneData[] { episode.CurrentFloor, database.UI }, false);
     }
 
     IEnumerator HandlePlayerVictory()
@@ -88,6 +90,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
+        database.SelectedEpisode.GoToNextFloor();
         _onLoadScene.RaiseEvent(database.OnVictoryScenes, false);
     }
 }

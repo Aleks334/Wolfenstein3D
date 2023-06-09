@@ -827,7 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadSceneEventChannel: {fileID: 11400000, guid: 1fe115045808bb94a90b57589f4c0ea0, type: 2}
-  _sceneToLoad: {fileID: 11400000, guid: 5d54c855f2e78e745a0c97198a7cc2b9, type: 2}
+  _database: {fileID: 11400000, guid: 17d7377e53a1eeb4eb24baddd0fe8bdd, type: 2}
 --- !u!1 &816160571
 GameObject:
   m_ObjectHideFlags: 0

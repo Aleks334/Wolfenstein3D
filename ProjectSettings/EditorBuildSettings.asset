@@ -36,13 +36,13 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/UI.unity
     guid: 9cfee412eb828ee47b22619475659f74
   - enabled: 1
-    path: Assets/Scenes/Episodes/Episode_1/Episode_1.unity
+    path: Assets/Scenes/Episodes/Episode_1/Floors/Ep1_Floor1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Episodes/Episode_2/Episode_2.unity
+    path: Assets/Scenes/Episodes/Episode_1/Floors/Ep1_Floor2.unity
     guid: fab9718a15f6c164ea82bb186774cb0b
   - enabled: 1
-    path: Assets/Scenes/Episodes/Episode_3/Episode_3.unity
+    path: Assets/Scenes/Episodes/Episode_3/3.unity
     guid: b05fcd833f177e54eaa2c2f1525a4792
   - enabled: 1
     path: Assets/Scenes/Menu/Pause.unity
