@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2227569132603161549}
   m_Layer: 7
   m_Name: boss
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,6 +330,7 @@ MonoBehaviour:
   changestate: 
   speed: 0
   nav: {fileID: 0}
+  _attackAudioCue: {fileID: 0}
 --- !u!114 &722620473992521586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +362,10 @@ MonoBehaviour:
   name: 
   changestate: 
   _ammoPickUp: {fileID: 0}
+  _deadhans: {fileID: 0}
+  _deadhelmut: {fileID: 0}
+  _deaddog: {fileID: 0}
+  _deathAudioCue: {fileID: 0}
 --- !u!114 &722620473992521600
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class boss : state_machine
     string spawnstring = "";
     [SerializeField] private GameObject _destroyedmeh;
     [SerializeField] private GameObject _deadboss;
+    public delegate void Action_delegate();
+    Action_delegate handler;
     public void Start()
     {
         states.Add(this.GetComponent<bossPatroling>());
@@ -40,8 +42,8 @@ public class boss : state_machine
             spawnstring = "";
             Destroy(this.gameObject);
         }
-        if (!isset) { state_change("bossPatroling"); isset = true; }
-        action();
+        if (!isset) { state_change("bossPatroling"); isset = true; Recover_enemy(); }
+        handler();
         state = getstate();
     }
     public override void action()
@@ -66,5 +68,17 @@ public class boss : state_machine
         time = 12.0f;
         spawnstring = "boss";
         state_change("Dead");
+    }
+    public void Stop_enemy()
+    {
+        handler = no_action;
+    }
+    public void Recover_enemy()
+    {
+        handler = action;
+    }
+    public void no_action()
+    {
+        //do nothing you are stopped
     }
 }
