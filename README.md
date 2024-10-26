@@ -53,8 +53,25 @@ A long-term Unity project created in 2023 for a programming subject in technical
     -   New weapons can be added easily by creating new **Scriptable Objects** with weapon data, sprites, sounds, etc.
 
 -   **Enemy AI:**
-    -   Different types: **Guard Dog**, **SS Guard**, **Guard**) and the level boss.
-    -   A **state pattern** was applied to improve code cleanliness and flexibility in AI behavior.
+    -   Different types: **Guard Dog**, **SS Guard**, **Guard** and the level boss.
+    -   A state pattern was applied to improve code cleanliness and flexibility in AI behavior.
+
+---
+
+## 🛠 Limitations and Areas for Improvement
+
+While this project covers many core mechanics of the original _Wolfenstein 3D_, there are some features and refinements yet to be implemented:
+
+-   **Missing Features:**
+
+    -   Certain mechanics, such as secret rooms, different enemy behaviour based on difficulty level and multiple levels, are not yet included and might be added in the future.
+
+-   **Enemy System Refinements:**
+
+    -   The enemy AI system could benefit from further refactoring to improve efficiency and scalability, particularly as new enemy types are added.
+
+-   **Overall Code Improvements:**
+    -   Some areas of the project require refactoring to enhance maintainability.
 
 ---
 
