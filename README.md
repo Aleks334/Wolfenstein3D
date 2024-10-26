@@ -24,7 +24,7 @@ A long-term Unity project created in 2023 for a programming subject in technical
 
 -   **Player Movement:**
 
-    -   **Finite State Machine** for smoother, more flexible player control.
+    -   **Finite State Machine**: Enables better maintainability, separation of concerns and easier implementation of new player movement types.
     -   **Strafing Movement**: Holding the ALT key allows strafing with the left/right arrow keys, rather than rotation.
 
 -   **Item System:**
